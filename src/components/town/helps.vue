@@ -13,19 +13,11 @@
       </thead>
       <tbody>
         <tr>
-          <td>XXXX</td>
-          <td>CCCC</td>
+          <td>药品</td>
+          <td>没有阿莫西林了</td>
           <td>2012-12-21</td>
           <td>2012-12-21</td>
-          <td>肚子痛</td>
-          <td class="check"><span @click="check">详情</span></td>
-        </tr>
-        <tr>
-          <td>XXXX</td>
-          <td>CCCC</td>
-          <td>2012-12-21</td>
-          <td>2012-12-21</td>
-          <td>肚子痛</td>
+          <td>已提交</td>
           <td class="check"><span @click="check">详情</span></td>
         </tr>
       </tbody>
@@ -35,7 +27,7 @@
 
 <script>
   export default {
-    name: 'Question',
+    name: 'Helps',
     created() {
       this.$emit('position', 'help');
     },

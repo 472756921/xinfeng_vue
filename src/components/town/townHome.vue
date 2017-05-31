@@ -11,12 +11,12 @@
         <h3>健康问题</h3>
         <span>病人的健康档案</span>
       </li>
-      <li class="col-sm-6 col-md-3 col-xs-6 text-center" @click='navChange("help")'>
+      <li class="col-sm-6 col-md-3 col-xs-6 text-center" v-bind:class="{ 'active' : active === 'helps'}" @click='navChange("helps")'>
         <i class="icon iconfont icon-customerservice"></i>
         <h3>寻求支撑</h3>
         <span>病人的健康档案</span>
       </li>
-      <li class="col-sm-6 col-md-3 col-xs-6 text-center" @click='navChange("data")'>
+      <li class="col-sm-6 col-md-3 col-xs-6 text-center" v-bind:class="{ 'active' : active === 'data'}" @click='navChange("data")'>
         <i class="icon iconfont icon-computer"></i>
         <h3>数据监控</h3>
         <span>病人的健康档案</span>
@@ -48,13 +48,25 @@
       const ro = this.$route.path;
       if (ro === '/town/users') {
         this.nav2 = '用户列表';
+        this.nav1 = '村医列表';
       }
-      if (ro === '/town/questions') {
+      if (ro.indexOf('question') !== -1) {
         this.active = 'questions';
+        this.nav1 = '';
+        this.nav2 = '';
+        this.title = '健康问题';
+      }
+      if (ro.indexOf('/town/help') !== -1) {
+        this.active = 'helps';
+        this.nav1 = '';
+        this.nav2 = '';
+        this.title = '寻求支持';
       }
       if (ro.indexOf('/town/user/') !== -1) {
         this.nav2 = '用户列表';
         this.nav3 = '详情';
+        this.nav1 = '寻求支持';
+        this.nav2 = '';
       }
     },
     data() {
@@ -100,6 +112,13 @@
           this.$router.push('/town/questions');
           this.title = '健康问题';
           this.active = 'questions';
+          this.clrea();
+        } else if (position === 'helps') {
+          this.$router.push('/town/helps');
+          this.title = '寻求支持';
+          this.nav1 = '';
+          this.active = 'helps';
+          this.clrea();
         }
       },
       clrea() {

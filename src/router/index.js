@@ -8,6 +8,8 @@ import Users from '@/components/public/users';
 import Doc from '@/components/public/doc';
 import Questions from '@/components/town/questions';
 import Question from '@/components/public/question';
+import Helps from '@/components/town/helps';
+import Help from '@/components/public/help';
 
 Vue.use(Router);
 export default new Router({
@@ -41,6 +43,14 @@ export default new Router({
         {
           path: '/town/question/:id',
           component: Question,
+        },
+        {
+          path: '/town/helps',
+          component: Helps,
+        },
+        {
+          path: '/town/Help/:id',
+          component: Help,
         },
       ],
     },
