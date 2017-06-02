@@ -10,6 +10,10 @@ import Questions from '@/components/town/questions';
 import Question from '@/components/public/question';
 import Helps from '@/components/town/helps';
 import Help from '@/components/public/help';
+import DatasTown from '@/components/public/datas_town';
+import DatasDoc from '@/components/public/datas_doc';
+import DatasBaseCun from '@/components/public/datas_base_cun';
+import DatasMeetingDa from '@/components/public/datas_meeting_da';
 
 Vue.use(Router);
 export default new Router({
@@ -33,7 +37,7 @@ export default new Router({
           component: Users,
         },
         {
-          path: '/town/user/:id',
+          path: '/town/user/:ID',
           component: User,
         },
         {
@@ -41,7 +45,7 @@ export default new Router({
           component: Questions,
         },
         {
-          path: '/town/question/:id',
+          path: '/town/question/:ID',
           component: Question,
         },
         {
@@ -49,8 +53,24 @@ export default new Router({
           component: Helps,
         },
         {
-          path: '/town/Help/:id',
+          path: '/town/Help/:ID',
           component: Help,
+        },
+        {
+          path: '/town/datasTown/:townID',
+          component: DatasTown,
+        },
+        {
+          path: '/town/datasDoc/:docID',
+          component: DatasDoc,
+        },
+        {
+          path: '/town/data_base_cun/:docID',
+          component: DatasBaseCun,
+        },
+        {
+          path: '/town/dataMeetingDa/:docID',
+          component: DatasMeetingDa,
         },
       ],
     },

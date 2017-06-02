@@ -109,7 +109,6 @@
     </table>
     <h4>
       <span>资料</span>
-      <button class="pull-right btn btn-sm btn-warning">新建表</button>
     </h4>
     <br/>
     <div class="tableList">

@@ -1,4 +1,4 @@
-<template>
+<template xmlns:v-bind="http://www.w3.org/1999/xhtml">
   <div class="townHome  col-sm-12 col-md-8 col-md-offset-2">
     <ul class="nav">
       <li class="col-sm-6 col-md-3 col-xs-6 text-center" v-bind:class="{ 'active' : active === 'file'}" @click='navChange("file")'>
@@ -16,7 +16,7 @@
         <h3>寻求支撑</h3>
         <span>病人的健康档案</span>
       </li>
-      <li class="col-sm-6 col-md-3 col-xs-6 text-center" v-bind:class="{ 'active' : active === 'data'}" @click='navChange("data")'>
+      <li class="col-sm-6 col-md-3 col-xs-6 text-center" v-bind:class="{ 'active' : active === 'datas'}" @click='navChange("datas")'>
         <i class="icon iconfont icon-computer"></i>
         <h3>数据监控</h3>
         <span>病人的健康档案</span>
@@ -50,23 +50,28 @@
         this.nav2 = '用户列表';
         this.nav1 = '村医列表';
       }
+      if (ro.indexOf('/town/user/') !== -1) {
+        this.nav2 = '用户列表';
+        this.nav1 = '村医列表';
+        this.nav3 = '详情';
+      }
       if (ro.indexOf('question') !== -1) {
         this.active = 'questions';
         this.nav1 = '';
         this.nav2 = '';
         this.title = '健康问题';
       }
-      if (ro.indexOf('/town/help') !== -1) {
+      if (ro.indexOf('help') !== -1) {
         this.active = 'helps';
         this.nav1 = '';
         this.nav2 = '';
         this.title = '寻求支持';
       }
-      if (ro.indexOf('/town/user/') !== -1) {
-        this.nav2 = '用户列表';
-        this.nav3 = '详情';
-        this.nav1 = '寻求支持';
+      if (ro.indexOf('data') !== -1) {
+        this.active = 'datas';
+        this.nav1 = '';
         this.nav2 = '';
+        this.title = '数据统计';
       }
     },
     data() {
@@ -90,6 +95,10 @@
         if (msg === 'questions') {
           this.clrea();
           this.nav1 = '';
+        }
+        if (msg === 'datas') {
+          this.clrea();
+          this.nav1 = '数据统计';
         }
       },
       navListChange(type) {
@@ -118,6 +127,12 @@
           this.title = '寻求支持';
           this.nav1 = '';
           this.active = 'helps';
+          this.clrea();
+        } else if (position === 'datas') {
+          this.$router.push('/town/datasTown/12');
+          this.title = '数据统计';
+          this.nav1 = '数据统计';
+          this.active = 'datas';
           this.clrea();
         }
       },

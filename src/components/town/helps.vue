@@ -1,5 +1,35 @@
 <template>
   <div>
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">新建支持</h4>
+          </div>
+          <div class="modal-body">
+            <div>
+              <span>需求类型：</span>
+              <select>
+                <option>药品</option>
+                <option>诊疗</option>
+              </select>
+            </div>
+            <div>
+              <span>描述：</span>
+              <textarea></textarea>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            <button type="button" class="btn btn-primary">发出</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button class="btn btn-primary"  data-toggle="modal" data-target="#myModal">新建支持</button>
     <table class="table">
       <thead>
       <tr>
@@ -46,5 +76,9 @@
   }
   .check>span:hover {
     color: #cc0000;
+  }
+  textarea{
+    width: 100%;
+    border: 1px solid #ccc;
   }
 </style>
