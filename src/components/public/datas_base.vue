@@ -1,6 +1,6 @@
 <template>
   <div class="content table-responsive">
-    <table class="table">
+    <table class="table table-bordered">
       <thead>
       <tr>
         <th width="60">行政村</th>
@@ -13,7 +13,6 @@
         <th>65岁以上人口</th>
         <th>高血压人口</th>
         <th>糖尿病人口</th>
-        <th>操作</th>
       </tr>
       </thead>
       <tbody>
@@ -28,7 +27,6 @@
           <td>7</td>
           <td>8</td>
           <td>9</td>
-          <td class="check"><span @click="check">详情</span></td>
         </tr>
       </tbody>
     </table>
@@ -39,7 +37,7 @@
   export default {
     name: 'DatasTown',
     created() {
-      this.$emit('position', 'datas');
+      this.$emit('datiChange', '数据监控');
     },
     methods: {
       check() {

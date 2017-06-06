@@ -8,13 +8,13 @@
     <div class="col-lg-8 col-lg-offset-2 info">账号或密码错误</div>
     <div class="col-lg-8 col-lg-offset-2 "><input type="button" value="登录" class="btn btn-success col-xs-12"/></div>
     <div class="col-lg-8 col-lg-offset-2 fpwd text-right">忘记密码</div>
-
   </div>
 </template>
 
 <script>
   export default {
     name: 'app',
+    created() {},
   };
 </script>
 
@@ -36,8 +36,7 @@
     border: 1px solid #ddd;
     padding: 40px 0 50px;
     border-radius: 10px;
-    color: #fff;
     margin-top: 100px;
-    background:-webkit-gradient(linear, 0 0, 0 bottom, from(#000066), to(#000033));
+    background: #eee;
   }
 </style>

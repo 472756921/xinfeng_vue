@@ -1,6 +1,6 @@
 <template>
   <div class="content table-responsive">
-    <table class="table">
+    <table class="table table-bordered">
       <thead>
       <tr>
         <th>行政村</th>
@@ -27,11 +27,11 @@
   export default {
     name: 'DatasDocs',
     created() {
-      this.$emit('position', 'datas');
+      this.$emit('datiChange', '数据监控>村医列表');
     },
     methods: {
       check() {
-        this.$router.push('/town/datasDoc/12');
+        this.$router.push('/town/data/doc/12');
       },
     },
   };

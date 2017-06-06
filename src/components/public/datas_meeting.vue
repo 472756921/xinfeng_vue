@@ -1,6 +1,6 @@
 <template>
   <div class="content table-responsive">
-    <table class="table">
+    <table class="table table-bordered">
       <thead>
       <tr>
         <th>日期</th>

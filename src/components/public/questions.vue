@@ -1,6 +1,6 @@
 <template>
   <div>
-    <table class="table">
+    <table class="table table-bordered">
       <thead>
       <tr>
         <th>用户</th>
@@ -30,14 +30,20 @@
         </tr>
       </tbody>
     </table>
+    <page/>
   </div>
 </template>
 
 <script>
+  import Page from './page';
+
   export default {
     name: 'Question',
+    components: {
+      Page,
+    },
     created() {
-      this.$emit('position', 'questions');
+      this.$emit('datiChange', '问题列表');
     },
     methods: {
       check() {

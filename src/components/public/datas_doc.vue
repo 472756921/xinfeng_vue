@@ -1,5 +1,6 @@
 <template>
   <div class="content">
+    <span class="back" @click="back">返回上一级</span>
     <div class="doc_info">
       <img src="http://iph.href.lu/80x80"/>
       <div class="col-xs-8 col-sm-10" style="padding:0">
@@ -33,7 +34,7 @@
       </div>
     </div>
     <div class="table-responsive">
-      <table class="table">
+      <table class="table table-bordered">
         <caption><h4>{{ title }}</h4></caption>
         <thead>
         <tr>
@@ -83,7 +84,7 @@
   export default {
     name: 'Datas_doc',
     created() {
-      this.$emit('position', 'datas');
+      this.$emit('datiChange', '数据监控>村医列表>村医详情');
     },
     data() {
       return {
@@ -94,6 +95,9 @@
     methods: {
       check() {
         this.$router.push('/town/data/12');
+      },
+      back() {
+        this.$router.go(-1);
       },
       change(type) {
         if (type === 0) {

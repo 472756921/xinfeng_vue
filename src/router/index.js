@@ -2,18 +2,21 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Login from '@/components/public/login';
 import TownHome from '@/components/town/townHome';
-import CountyHome from '@/components/county/countyHome';
 import User from '@/components/public/user';
 import Users from '@/components/public/users';
 import Doc from '@/components/public/doc';
-import Questions from '@/components/town/questions';
+import Questions from '@/components/public/questions';
 import Question from '@/components/public/question';
-import Helps from '@/components/town/helps';
+import Helps from '@/components/public/helps';
 import Help from '@/components/public/help';
 import DatasTown from '@/components/public/datas_town';
 import DatasDoc from '@/components/public/datas_doc';
-import DatasBaseCun from '@/components/public/datas_base_cun';
+import DatasPecCun from '@/components/public/datas_pec_cun';
 import DatasMeetingDa from '@/components/public/datas_meeting_da';
+import DatasJiangZuoDa from '@/components/public/datas_jiangzuo_da';
+import userPhysiologicalIndicators from '@/components/public/user_physiological_indicators';
+import Admin from '@/components/admin/admin';
+import AdminUser from '@/components/admin/user';
 
 Vue.use(Router);
 export default new Router({
@@ -24,24 +27,47 @@ export default new Router({
       component: Login,
     },
     {
+      path: '/admin',
+      name: 'Admin',
+      component: Admin,
+      children: [
+        {
+          path: 'user',
+          component: AdminUser,
+        },
+        {
+          path: 'ques',
+          component: AdminUser,
+        },
+        {
+          path: 'help',
+          component: AdminUser,
+        },
+      ],
+    },
+    {
       path: '/town',
       name: 'TownHome',
       component: TownHome,
       children: [
         {
-          path: '/',
+          path: '/town/file',
           component: Doc,
         },
         {
-          path: '/town/users',
+          path: '/town/file/users',
           component: Users,
         },
         {
-          path: '/town/user/:ID',
+          path: '/town/file/user/:ID',
           component: User,
         },
         {
-          path: '/town/questions',
+          path: '/town/file/user/:ID/PIinfo',
+          component: userPhysiologicalIndicators,
+        },
+        {
+          path: '/town/question',
           component: Questions,
         },
         {
@@ -49,7 +75,7 @@ export default new Router({
           component: Question,
         },
         {
-          path: '/town/helps',
+          path: '/town/help',
           component: Helps,
         },
         {
@@ -57,28 +83,26 @@ export default new Router({
           component: Help,
         },
         {
-          path: '/town/datasTown/:townID',
+          path: '/town/data',
           component: DatasTown,
         },
         {
-          path: '/town/datasDoc/:docID',
+          path: '/town/data/doc/:docID',
           component: DatasDoc,
         },
         {
-          path: '/town/data_base_cun/:docID',
-          component: DatasBaseCun,
+          path: '/town/data/pec/:docID',
+          component: DatasPecCun,
         },
         {
           path: '/town/dataMeetingDa/:docID',
           component: DatasMeetingDa,
         },
+        {
+          path: '/town/jiangzuo/:docID',
+          component: DatasJiangZuoDa,
+        },
       ],
-    },
-    {
-      path: '/county',
-      name: 'CountyHome',
-      component: CountyHome,
-
     },
   ],
 });

@@ -28,7 +28,7 @@
   export default {
     name: 'DatasTown',
     created() {
-      this.$emit('position', 'datas');
+      this.$emit('datiChange', '数据监控');
     },
     data() {
       return {
@@ -44,9 +44,6 @@
       Jiangzuo,
     },
     methods: {
-      check() {
-        this.$router.push('/town/datasDoc/12');
-      },
       change(type) {
         this.show = type;
       },

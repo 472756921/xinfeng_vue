@@ -1,7 +1,28 @@
 <template>
   <div class="question">
-    <i class="back" @click="back">返回上一级</i>
-    <div class="top">
+    <span class="back" @click="back">返回上一级</span>
+    <div class="top table-responsive">
+      <h4 class="title">病人基本资料：<small>(点击用户姓名可查看详细资料)</small></h4>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>姓名</th>
+              <th>年龄</th>
+              <th>体重</th>
+              <th>性别</th>
+              <th>慢性病</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="checkInfo" @click="checkInfo">张三丰</span></td>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+            </tr>
+          </tbody>
+        </table>
       <h4 class="title">病情描述：</h4>
       <div class="des ">
         人活着一辈子，身体难免会有点小病痛，最常见的就是头疼，肚子疼的。如果肚子疼了，有的人想想工作太忙了，或者懒得去医院，忍一忍就过去了；还有的认为肯定是着凉了，赶紧用个热水袋敷一敷，再喝点热水热汤。肚子疼会有很多原因，当然有些肚子疼就是着凉或者岔气了，一会儿也就自己好了，可是也有因为太过忽视，肚子疼不但没有减轻，反而延误了病情，后果很严重。
@@ -36,17 +57,24 @@
 </template>
 
 <script>
+
   export default {
     name: 'question',
+    created() {
+      this.$emit('datiChange', '问题列表>问题详情');
+    },
     methods: {
       back() {
-        this.$router.push('/town/questions');
+        this.$router.go(-1);
+      },
+      checkInfo() {
+        this.$router.push('/town/file/user/12');
       },
     },
   };
 </script>
 
-<style>
+<style scoped>
   .title{
     color: #cc0000;
   }
@@ -148,5 +176,11 @@
   }
   .btn-group{
     margin: 6px;
+  }
+  .checkInfo{
+    cursor: pointer;
+  }
+  .checkInfo:hover{
+    color: #cc0000;
   }
 </style>

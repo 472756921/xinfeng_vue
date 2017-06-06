@@ -1,6 +1,8 @@
 <template>
   <div class="table-responsive col-xs-12 userInfo">
-    <table class="table">
+    <h5 class="check"><span @click="back">返回上一级</span></h5>
+    <button class="btn btn-info" @click="checkUserPI">查看生理指标</button>
+    <table class="table table-bordered">
       <caption class=""><h4>个人信息</h4></caption >
       <tbody>
         <tr class="active">
@@ -47,7 +49,7 @@
         </tr>
       </tbody>
     </table>
-    <table class="table">
+    <table class="table table-bordered">
       <caption class=""><h4>疾病信息</h4></caption >
       <tbody>
       <tr class="active">
@@ -88,7 +90,7 @@
       </tr>
       </tbody>
     </table>
-    <table class="table">
+    <table class="table table-bordered">
       <caption class=""><h4>生活环境</h4></caption >
       <tbody>
       <tr class="active">
@@ -107,10 +109,10 @@
       </tr>
       </tbody>
     </table>
+    <br/>
     <h4>
       <span>资料</span>
     </h4>
-    <br/>
     <div class="tableList">
       <button class="btn btn-success">健康体检表</button>
       <button class="btn btn-success">接诊记录表</button>
@@ -137,22 +139,30 @@
       <button class="btn btn-default">卫生计生监督协管信息报告登记表</button>
       <button class="btn btn-default">月龄儿童健康检查记录表</button>
     </div>
-    <button class="backBtn center-block btn btn-lg btn-info">返回</button>
+    <br/>
   </div>
 </template>
 
 <script>
   export default {
     name: 'User',
+    created() {
+      this.$emit('datiChange', '村级列表>用户列表>用户详情');
+    },
+    methods: {
+      back() {
+        this.$router.go(-1);
+      },
+      checkUserPI() {
+        this.$router.push('/town/file/user/12/PIinfo');
+      },
+    },
   };
 </script>
 
 <style scoped>
   .userInfo{
     overflow: auto;
-  }
-  .backBtn{
-    margin: 20px auto;
   }
   .tableList>button{
     margin-bottom: 6px;

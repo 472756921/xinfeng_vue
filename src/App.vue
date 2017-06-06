@@ -13,6 +13,11 @@ import Footerxf from './components/public/footer';
 export default {
   name: 'app',
   components: { Headxf, Footerxf },
+  data() {
+    return {
+      position: 'login',
+    };
+  },
 };
 </script>
 

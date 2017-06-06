@@ -1,6 +1,5 @@
 <template>
   <div>
-
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -29,8 +28,10 @@
       </div>
     </div>
 
-    <button class="btn btn-primary"  data-toggle="modal" data-target="#myModal">新建支持</button>
-    <table class="table">
+    <button class="btn btn-primary btn-sm"  data-toggle="modal" data-target="#myModal">新建支持</button>
+    <br/>
+    <br/>
+    <table class="table table-bordered">
       <thead>
       <tr>
         <th>类型</th>
@@ -52,14 +53,20 @@
         </tr>
       </tbody>
     </table>
+    <Page />
   </div>
 </template>
 
 <script>
+  import Page from './page';
+
   export default {
     name: 'Helps',
+    components: {
+      Page,
+    },
     created() {
-      this.$emit('position', 'help');
+      this.$emit('datiChange', '支持列表');
     },
     methods: {
       check() {
@@ -69,7 +76,7 @@
   };
 </script>
 
-<style>
+<style scoped>
   .check>span {
     color: #000066;
     cursor: pointer;
@@ -79,6 +86,8 @@
   }
   textarea{
     width: 100%;
+    resize: none;
+    height: 200px;
     border: 1px solid #ccc;
   }
 </style>

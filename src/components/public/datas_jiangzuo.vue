@@ -1,12 +1,12 @@
 <template>
   <div class="content table-responsive">
-    <table class="table">
+    <table class="table table-bordered">
       <thead>
       <tr>
         <th>日期</th>
         <th>地点</th>
         <th>主办单位</th>
-        <th>参与讲座合作伙伴（单位）</th>
+        <th width="200">参与讲座合作伙伴（单位）</th>
         <th>主题</th>
         <th>负责人</th>
         <th>操作</th>
@@ -20,7 +20,7 @@
           <td>2</td>
           <td>3</td>
           <td>8</td>
-          <td class="check"><span>详情</span></td>
+          <td class="check"><span @click="check">详情</span></td>
         </tr>
       </tbody>
     </table>
@@ -35,7 +35,7 @@
     },
     methods: {
       check() {
-        this.$router.push('/town/data/12');
+        this.$router.push('/town/jiangzuo/12');
       },
     },
   };
