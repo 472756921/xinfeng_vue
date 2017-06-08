@@ -154,7 +154,7 @@
         this.$router.go(-1);
       },
       checkUserPI() {
-        this.$router.push('/town/file/user/12/PIinfo');
+        this.$router.push('12/PIinfo');
       },
     },
   };

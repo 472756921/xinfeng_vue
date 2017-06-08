@@ -1,47 +1,37 @@
-<template>
+<template xmlns:v-bind="http://www.w3.org/1999/xhtml">
   <div class="col-sm-12 col-md-8 col-md-offset-2">
-    <ul class="nav">
-      <li class="col-sm-6 col-md-3 text-center active" @click='navChange("file")'>
-        <i class="icon iconfont icon-activity"></i>
-        <h3>健康档案</h3>
-        <span>病人的健康档案</span>
-      </li>
-      <li class="col-sm-6 col-md-3 text-center" @click='navChange("question")'>
-        <i class="icon iconfont icon-feedback"></i>
-        <h3>健康问题</h3>
-        <span>病人的健康档案</span>
-      </li>
-    </ul>
+    <HeadNav @navChange="navChange"/>
+    <HeadBorNav ref="HeadBorNav"/>
+    <router-view @datiChange="datiChange"></router-view>
   </div>
 </template>
 
 <script>
+  import TownUser from '../public/users';
+  import HeadNav from '../public/head_nav';
+  import HeadBorNav from '../public/bor_nav';
+
   export default {
-    name: 'app',
+    name: 'townHome',
+    components: { TownUser, HeadNav, HeadBorNav },
+    data() {
+      return {
+      };
+    },
+    methods: {
+      navChange(position) {
+        this.$refs.HeadBorNav.navChange(position);
+      },
+      datiChange(position) {
+        this.$refs.HeadBorNav.datiChange(position);
+      },
+    },
+    mounted() {
+    },
   };
 </script>
 
-<style>
-  .active{
-    background-color: #eee;
-  }
-  .nav>li{
-    float: left;
-    padding: 20px 5px;
-    color: #666;
-    cursor: pointer;
-  }
-  .nav>li:hover{
-    transition: background-color .3s;
-    background-color: #eee;
-  }
-  .nav>li>h3{
-    margin: 2px;
-  }
-  .nav>li>i{
-    font-size: 50px;
-    color: #cc0000;
-  }
+<style scoped>
   .BreadCrumbs i:hover{
     color: #cc0000;
     cursor: pointer;

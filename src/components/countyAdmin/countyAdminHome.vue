@@ -5,7 +5,7 @@
 
 <script>
   export default {
-    name: 'ques',
+    name: 'countyAdminHome',
   };
 </script>
 

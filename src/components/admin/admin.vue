@@ -2,7 +2,6 @@
   <div class="col-sm-12 col-md-8 col-md-offset-2 admin">
     <div class="nav col-xs-12 col-sm-2">
       <div v-bind:class="{ 'active' : active === 'user'}" @click="changenav('user')">用户管理</div>
-      <div v-bind:class="{ 'active' : active === 'ques'}" @click="changenav('ques')">问答管理</div>
       <div v-bind:class="{ 'active' : active === 'help'}" @click="changenav('help')">支持管理</div>
     </div>
     <router-view class="col-sm-10"></router-view>

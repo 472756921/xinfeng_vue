@@ -43,7 +43,7 @@
     },
     methods: {
       check() {
-        this.$router.push('/town/file/user/12');
+        this.$router.push('user/12');
       },
       back() {
         this.$router.go(-1);

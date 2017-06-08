@@ -28,7 +28,7 @@
       </div>
     </div>
 
-    <button class="btn btn-primary btn-sm"  data-toggle="modal" data-target="#myModal">新建支持</button>
+    <button class="btn btn-primary btn-sm"  data-toggle="modal" data-target="#myModal" v-if="character === 'town'">新建支持</button>
     <br/>
     <br/>
     <table class="table table-bordered">
@@ -62,15 +62,20 @@
 
   export default {
     name: 'Helps',
-    components: {
-      Page,
-    },
+    components: { Page },
     created() {
       this.$emit('datiChange', '支持列表');
+      const Character = this.$route.path.split('/')[1];
+      this.character = Character;
+    },
+    data() {
+      return {
+        character: '',
+      };
     },
     methods: {
       check() {
-        this.$router.push('/town/help/12');
+        this.$router.push('help/12');
       },
     },
   };

@@ -68,7 +68,7 @@
         this.$router.go(-1);
       },
       checkInfo() {
-        this.$router.push('/town/file/user/12');
+        this.$router.push('../file/user/12');
       },
     },
   };

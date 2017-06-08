@@ -45,7 +45,7 @@
     },
     methods: {
       check() {
-        this.$router.push('/town/file/users');
+        this.$router.push('file/users');
       },
     },
   };
