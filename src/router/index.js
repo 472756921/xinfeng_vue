@@ -24,7 +24,8 @@ import CountyAdminHome from '@/components/countyAdmin/countyAdminHome';
 import YearC from '@/components/countyAdmin/year';
 import TownList from '@/components/public/townList';
 
-import HealthTable from '@/components/table/healthTable';
+import HealthCheckup from '@/components/table/healthCheckup';
+
 import NotFoundComponent from '@/components/notFoundComponent';
 
 Vue.use(Router);
@@ -68,10 +69,6 @@ const router = new Router({
           component: Doc,
         },
         {
-          path: 'healthTable',
-          component: HealthTable,
-        },
-        {
           path: '/town/file/user',
           component: Users,
         },
@@ -82,6 +79,10 @@ const router = new Router({
         {
           path: '/town/file/user/:ID/PIinfo',
           component: userPhysiologicalIndicators,
+        },
+        {
+          path: '/town/file/user/:ID/healthCheckup',
+          component: HealthCheckup,
         },
         {
           path: '/town/question',
@@ -235,35 +236,35 @@ const router = new Router({
 });
 
 router.beforeEach((to, from, next) => {
-  const status = 'town';
+  const status = JSON.parse(sessionStorage.getItem('user')).adminType;
   const pathG = to.matched[0].path;
   if (to.fullPath.indexOf('404') !== -1) {
     next();
   } else if (to.fullPath.indexOf('getIndex') !== -1) {
-    if (status === 'town') {
+    if (status === 4) {
       router.push('/town/file');
     }
   } else if (to.fullPath === '/') {
     next();
-  } else if (status === 'town') {
-    if (pathG.indexOf(status) !== -1) {
+  } else if (status === 4) {
+    if (pathG.indexOf('town') !== -1) {
       next();
     } else {
       router.push('/404');
     }
-  } else if (status === 'county') {
-    if (pathG.indexOf(status) !== -1) {
+  } else if (status === 3) {
+    if (pathG.indexOf('county') !== -1) {
       next();
     } else {
       router.push('/404');
     }
-  } else if (status === 'countyAdmin') {
-    if (pathG.indexOf(status) !== -1) {
+  } else if (status === 2) {
+    if (pathG.indexOf('countyAdmin') !== -1) {
       next();
     } else {
       router.push('/404');
     }
-  } else if (pathG.indexOf('admin') !== -1) {
+  } else if (pathG.indexOf('admin') !== -1 && status === 1) {
     next();
   } else {
     router.push('/');

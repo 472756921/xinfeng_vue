@@ -1,7 +1,6 @@
 <template>
   <div class="content col-sm-12 col-md-8 col-md-offset-2">
     <h3>个人信息设置</h3>
-
     <div>
       <img src="http://iph.href.lu/80x80"/>
       <button class="btn btn-info btn-sm" type="button">修改</button>

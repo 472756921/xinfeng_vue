@@ -7,6 +7,7 @@
         <option>镇卫生中心</option>
         <option>县卫生中心</option>
         <option>县卫计委</option>
+        <option>超级管理员</option>
       </select>
       <input placeholder="用户名" />
       <button class="btn btn-info">新增</button>
@@ -45,13 +46,21 @@
   </div>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
   import Page from '../public/page';
   import Searcher from '../public/searcher';
+  import { getAdminitlist } from '../../interface/index';
 
   export default {
     name: 'app',
     components: { Page, Searcher },
+    created() {
+      this.$http.get(getAdminitlist()).then((res) => {
+        console.log(res);
+      }).catch((error) => {
+        console.log(error);
+      });
+    },
   };
 </script>
 

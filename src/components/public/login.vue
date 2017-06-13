@@ -5,19 +5,20 @@
     <div class="col-lg-8 col-lg-offset-2 "><input type="text" v-model="un" class="form-control" placeholder="账号"></div>
     <div class="col-xs-12">&nbsp;</div>
     <div class="col-lg-8 col-lg-offset-2"><input type="password" v-model="pwd" class="form-control" placeholder="密码"></div>
-    <div class="col-lg-8 col-lg-offset-2" style="margin-top: 6px;">
-      <input type="checkbox" ref="admin"/>管理员登录
-    </div>
+    <div class="col-lg-8 col-lg-offset-2"><input type="checkbox" ref="remb"/>记住密码</div>
     <div class="col-lg-8 col-lg-offset-2 info">{{info}}</div>
     <div class="col-lg-8 col-lg-offset-2 "><input type="button" value="登录" @click="login" class="btn btn-success col-xs-12"/></div>
-    <div class="col-lg-8 col-lg-offset-2 fpwd text-right">忘记密码</div>
+    <div class="col-lg-8 col-lg-offset-2 text-right"><span class="fpwd">忘记密码</span></div>
   </div>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
+  import { userLogin } from '../../interface/index';
+
   export default {
     name: 'app',
-    created() {},
+    created() {
+    },
     data() {
       return {
         un: '',
@@ -27,20 +28,49 @@
     },
     methods: {
       login() {
-        const admin = this.$refs.admin.checked;
-        console.log(admin);
+        const remb = this.$refs.remb.checked;
         if (this.un === '' || this.pwd === '') {
           this.info = '请输入账号密码';
           return;
         }
-        if (this.un === 'town') {
-          this.$router.push('/town/file');
-        } else if (this.un === 'county') {
-          this.$router.push('/county/file');
-        } else if (this.un === 'countyAdmin') {
-          this.$router.push('/county/file');
-        } else if (this.un === 'admin') {
-          this.$router.push('/admin/user');
+        this.$http.post(userLogin(), {
+          username: this.un,
+          password: this.pwd,
+        }).then((res) => {
+          if (res.status === 200) {
+            const user = {
+              authToken: res.body.authToken,
+              username: res.body.username,
+              adminType: res.body.adminType,
+            };
+            sessionStorage.clear();
+            sessionStorage.setItem('user', JSON.stringify(user));
+            if (remb) {
+              localStorage.setItem('user', JSON.stringify(user));
+            }
+            this.checkUserType(user);
+          }
+        }).catch((error) => {
+          this.info = error.body.message;
+        });
+      },
+
+      checkUserType(user) {
+        switch (user.adminType) {
+          case 1:
+            this.$router.push('/admin/user');
+            break;
+          case 2:
+            this.$router.push('/countyAdmin/file');
+            break;
+          case 3:
+            this.$router.push('/county/file');
+            break;
+          case 4:
+            this.$router.push('/town/file');
+            break;
+          default:
+            this.$router.push('/404');
         }
       },
     },
@@ -49,12 +79,12 @@
 
 <style scoped>
   .fpwd{
-    color: #fff;
-    margin-top: 10px;
+    color: #999;
     cursor: pointer;
+    line-height: 30px;
   }
   .fpwd:hover{
-    color: #ccc;
+    color: #aaa;
   }
   .info{
     height: 30px;
