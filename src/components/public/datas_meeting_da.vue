@@ -26,6 +26,10 @@
 </script>
 
 <style scoped>
+  .back:hover{
+    cursor: pointer;
+    color: #cc0000;
+  }
   .check>span {
     color: #000066;
     cursor: pointer;

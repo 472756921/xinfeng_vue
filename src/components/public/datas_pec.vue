@@ -51,13 +51,13 @@
     },
     methods: {
       check() {
-        this.$router.push('/town/data/pec/12');
+        this.$router.push('data/pec/12');
       },
     },
   };
 </script>
 
-<style>
+<style scoped>
   .check>span {
     color: #000066;
     cursor: pointer;

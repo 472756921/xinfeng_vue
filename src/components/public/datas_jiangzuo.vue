@@ -35,13 +35,13 @@
     },
     methods: {
       check() {
-        this.$router.push('/town/jiangzuo/12');
+        this.$router.push('jiangzuo/12');
       },
     },
   };
 </script>
 
-<style>
+<style scoped>
   .check>span {
     color: #000066;
     cursor: pointer;

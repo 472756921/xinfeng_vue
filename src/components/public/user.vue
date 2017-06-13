@@ -2,113 +2,148 @@
   <div class="table-responsive col-xs-12 userInfo">
     <h5 class="check"><span @click="back">返回上一级</span></h5>
     <button class="btn btn-info" @click="checkUserPI">查看生理指标</button>
-    <table class="table table-bordered">
-      <caption class=""><h4>个人信息</h4></caption >
-      <tbody>
-        <tr class="active">
-          <th>姓名</th>
-          <th>性别</th>
+    <br/>
+    <div class="col-xs-12 col-lg-8" style="padding:0;margin-right: 10px">
+      <table class="table table-bordered">
+        <caption class="">
+          <h3 class="text-center">个人信息</h3>
+          <span>姓名：</span>
+          <span class="pull-right">编号：123-122332</span>
+        </caption >
+        <tbody>
+        <tr>
+          <th width="165" colspan="2">性别</th>
+          <td colspan="3">1男 2女 9未说明的性别 0未知的性别  <span class="checkBox">2</span></td>
           <th>出生日期</th>
-          <th>常驻类型</th>
-          <th>民族</th>
+          <td>2012-12-12</td>
         </tr>
         <tr>
-          <td>刘德华</td>
-          <td>男</td>
-          <td>1994-12-21</td>
-          <td>户籍</td>
-          <td>汉</td>
-        </tr>
-        <tr class="active">
-          <th>血型</th>
-          <th>文化程度</th>
-          <th>身份证号码</th>
-          <th>本人电话</th>
+          <th colspan="2">身份证号码</th>
+          <td  colspan="2">392001199308123921</td>
           <th>工作单位</th>
+          <td  colspan="2">天赋兴趣浮沉国际49楼4990号</td>
         </tr>
         <tr>
-          <td>AB</td>
-          <td>小学</td>
-          <td>392040399201928399</td>
-          <td>13928837465</td>
-          <td>天赋兴趣浮沉国际49楼4990号</td>
-        </tr>
-        <tr class="active">
-          <th>职业</th>
-          <th>婚姻状况</th>
-          <th>医疗费用支付方式</th>
-          <th>联系人</th>
+          <th colspan="2">本人电话</th>
+          <td>12282293847</td>
+          <th>联系人姓名</th>
+          <td>张三</td>
           <th>联系人电话</th>
+          <td>17738291928</td>
         </tr>
         <tr>
-          <td>物业</td>
-          <td>结婚</td>
-          <td>支付宝</td>
-          <td>小刘德华</td>
-          <td>13928837465</td>
+          <th colspan="2">常驻类型</th>
+          <td colspan="2">1户籍 2非户籍<span class="checkBox">1</span></td>
+          <th>民族</th>
+          <td colspan="2">01汉 99少数民族______<span class="checkBox">1</span></td>
         </tr>
-      </tbody>
-    </table>
-    <table class="table table-bordered">
-      <caption class=""><h4>疾病信息</h4></caption >
-      <tbody>
-      <tr class="active">
-        <th>药物过敏史</th>
-        <th>暴露史</th>
-        <th>遗传病史</th>
-        <th>残疾情况</th>
-      </tr>
-      <tr>
-        <td>刘德华</td>
-        <td>男</td>
-        <td>1994-12-21</td>
-        <td>户籍</td>
-      </tr>
-      <tr class="active">
-        <th>既往史-疾病</th>
-        <th>既往史-手术</th>
-        <th>既往史-外伤</th>
-        <th>既往史-输血</th>
-      </tr>
-      <tr>
-        <td>AB</td>
-        <td>392040399201928399</td>
-        <td>13928837465</td>
-        <td>天赋兴趣浮沉国际49楼4990号</td>
-      </tr>
-      <tr class="active">
-        <th>家族史-父亲</th>
-        <th>家族史-母亲</th>
-        <th>家族史-兄弟姐妹</th>
-        <th>家族史-子女</th>
-      </tr>
-      <tr>
-        <td>物业</td>
-        <td>结婚</td>
-        <td>支付宝</td>
-        <td>小刘德华</td>
-      </tr>
-      </tbody>
-    </table>
-    <table class="table table-bordered">
-      <caption class=""><h4>生活环境</h4></caption >
-      <tbody>
-      <tr class="active">
-        <th>厨房排风设施</th>
-        <th>燃料类型</th>
-        <th>饮水</th>
-        <th>厕所</th>
-        <th>畜禽栏</th>
-      </tr>
-      <tr>
-        <td>刘德华</td>
-        <td>男</td>
-        <td>1994-12-21</td>
-        <td>户籍</td>
-        <td>户籍</td>
-      </tr>
-      </tbody>
-    </table>
+        <tr>
+          <th colspan="2">血型</th>
+          <td colspan="5">1A型 2B型 3O型 4AB型 5不详 / RH 1阴性 2阳性 3不详  <span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span><span class="checkBox">1</span></td>
+        </tr>
+        <tr>
+          <th colspan="2">文化程度</th>
+          <td colspan="5">1研究生 2大学本科 3大学专科和专科学校 4中等专业学校 5技工学校 6高中 7初中 8小学 9文盲或半文盲 10 不详 <span class="checkBox">1</span></td>
+        </tr>
+        <tr>
+          <th colspan="2">职业</th>
+          <td colspan="5">0国家机关、党群组织、企业、事业单位负责人 1专业技术人员 2办事人员和有关人员 3商业服务业人员 4农、林、牧、渔、水利业生产人员 5生产、运输设备操作人员及有关人员 6军人 7不便分类的其他人员 8无职业  <span class="checkBox">1</span></td>
+        </tr>
+        <tr>
+          <th colspan="2">婚姻情况</th>
+          <td colspan="5">1未婚 2已婚 3丧偶 4离婚 5未说明的婚姻情况 <span class="checkBox">1</span></td>
+        </tr>
+        <tr>
+          <th colspan="2">医疗费用支付方式</th>
+          <td colspan="5">1城镇职工基本医疗保险 2诚征居民基本医疗保险 3新型农村合作医疗 4贫困救助 5商业医疗保险 6全公费 7全自费 <br/> 8其他______ <span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span><span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span><span class="checkBox">1</span></td>
+        </tr>
+        <tr>
+          <th colspan="2">药物过敏史</th>
+          <td colspan="5">1无 2青霉素 3碘胺 4链霉素 5其他______ <span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span><span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span><span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span><span class="checkBox">1</span></td>
+        </tr>
+        <tr>
+          <th colspan="2">暴露史</th>
+          <td colspan="5">1无 2化学品 3毒物 4射线<span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span><span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span><span class="checkBox">1</span></td>
+        </tr>
+        <tr>
+          <th rowspan="4" width="20" style="line-height: 50px">既往史</th>
+          <th>疾病</th>
+          <td colspan="5">
+            <div>
+              1无 2高血压 3糖尿病 4冠心病 5慢性阻塞性肺疾病 6恶性肿瘤____ 7脑卒中 8严重精神障碍 9结核病 10肝炎 11其他法定传染病 12职业病____ 13其他____
+            </div>
+            <div>
+              <span class="checkBox_free">1</span> 确诊时间 年 月 日 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="checkBox_free">1</span> 确诊时间 年 月 日  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="checkBox_free">1</span> 确诊时间 年 月 日
+            </div>
+            <div>
+              <span class="checkBox_free">1</span> 确诊时间 年 月 日 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="checkBox_free">1</span> 确诊时间 年 月 日  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="checkBox_free">1</span> 确诊时间 年 月 日
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th>手术</th>
+          <td colspan="5">1无 2有：名称 <span class="circle">1</span>_____时间_______  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 名称 <span class="circle">2</span>_____时间_______ <span class="checkBox">1</span></td>
+        </tr>
+        <tr>
+          <th>外伤</th>
+          <td colspan="5">1无 2有：名称 <span class="circle">1</span>_____时间_______  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 名称 <span class="circle">2</span>_____时间_______ <span class="checkBox">1</span></td>
+        </tr>
+        <tr>
+          <th>输血</th>
+          <td colspan="5">1无 2有：原因 <span class="circle">1</span>_____时间_______  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 原因 <span class="circle">2</span>_____时间_______ <span class="checkBox">1</span></td>
+        </tr>
+        <tr>
+          <th colspan="2" rowspan="3" style="line-height: 100px">家族史</th>
+          <td>父亲</td>
+          <td><span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span><span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span><span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span><span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span><span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span><span class="checkBox">1</span></td>
+          <td>母亲</td>
+          <td colspan="2"><span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span><span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span><span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span><span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span><span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span><span class="checkBox">1</span></td>
+        </tr>
+        <tr>
+          <td>兄弟姐妹</td>
+          <td><span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span><span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span><span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span><span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span><span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span><span class="checkBox">1</span></td>
+          <td>子女</td>
+          <td colspan="2"><span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span><span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span><span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span><span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span><span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span><span class="checkBox">1</span></td>
+        </tr>
+        <tr>
+          <td colspan="5">
+            1无 2高血压 3糖尿病 4冠心病 5慢性阻塞性肺疾病 6恶性肿瘤 7脑卒中 8严重精神障碍 9结核病 10肝炎 11先天畸形 12其他____
+          </td>
+        </tr>
+        <tr>
+          <th colspan="2">遗传病史</th>
+          <td colspan="5">1无 2有：疾病名称___________________ <span class="checkBox">1</span></td>
+        </tr>
+        <tr>
+          <th colspan="2">残疾情况</th>
+          <td colspan="5">1无残疾 2视力残疾 3听力残疾 4言语残疾 5肢体残疾 6智力残疾 7精神残疾  <br/>8其他残疾________ <span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span><span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span><span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span><span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span><span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span><span class="checkBox">1</span></td>
+        </tr>
+        <tr>
+          <th colspan="2" rowspan="5" style="line-height: 180px">生活环境</th>
+          <td>厨房排风设施</td>
+          <td colspan="5">1无 2抽油烟机 3换气扇 4烟囱 <span class="checkBox">1</span></td>
+        </tr>
+        <tr>
+          <td>燃料类型</td>
+          <td colspan="5">1液化气 2煤 3天然气 4沼气 5柴火 6其他 <span class="checkBox">1</span></td>
+        </tr>
+        <tr>
+          <td>饮水</td>
+          <td colspan="5">1自来水 2经净化过滤的水 3井水 4河湖水 5塘水 6其他 <span class="checkBox">1</span></td>
+        </tr>
+        <tr>
+          <td>厕所</td>
+          <td colspan="5">1卫生厕所 2一格或二格粪池式 3马桶 4露天粪坑 5简易棚厕 <span class="checkBox">1</span></td>
+        </tr>
+        <tr>
+          <td>畜畜栏</td>
+          <td colspan="5">1无 2单设 3室内 4室外 <span class="checkBox">1</span></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+
     <br/>
     <h4>
       <span>资料</span>
@@ -163,8 +198,25 @@
 <style scoped>
   .userInfo{
     overflow: auto;
+    padding: 0;
   }
   .tableList>button{
     margin-bottom: 6px;
+  }
+  .checkBox{
+    border: 1px solid #999;
+    padding: 0 4px;
+    float: right;
+  }
+  .checkBox_free{
+    border: 1px solid #999;
+    padding:0 4px;
+    font-size: 12px;
+  }
+  .circle{
+    border: 1px solid #999;
+    padding:0 4px;
+    font-size: 12px;
+    border-radius: 50%;
   }
 </style>

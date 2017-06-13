@@ -42,6 +42,9 @@
           case 'data':
             this.title = '数据监控';
             break;
+          case 'yearRe':
+            this.title = '年度报表';
+            break;
           default :
             this.title = '';
             break;
@@ -51,7 +54,7 @@
   };
 </script>
 
-<style>
+<style scoped>
   .pointer{
     cursor: pointer;
   }

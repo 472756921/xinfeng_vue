@@ -82,7 +82,7 @@
   };
 </script>
 
-<style>
+<style scoped>
   .check>span {
     color: #000066;
     cursor: pointer;

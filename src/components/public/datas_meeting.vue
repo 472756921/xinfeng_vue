@@ -33,13 +33,13 @@
     },
     methods: {
       check() {
-        this.$router.push('/town/dataMeetingDa/12');
+        this.$router.push('dataMeetingDa/12');
       },
     },
   };
 </script>
 
-<style>
+<style scoped>
   .check>span {
     color: #000066;
     cursor: pointer;

@@ -49,8 +49,8 @@
         <textarea class="col-xs-12"></textarea>
       </div>
       <div class="btn-group col-xs-3 pull-right">
-        <button type="button" class="btn btn-success col-xs-6">回复</button>
-        <button type="button" class="btn btn-warning col-xs-6">转交</button>
+        <button v-if="countyAdmin !== 'countyAdmin'" type="button" class="btn btn-warning col-xs-6" >转交</button>
+        <button type="button" class="btn btn-success col-xs-6 pull-right">回复</button>
       </div>
     </div>
   </div>
@@ -62,6 +62,19 @@
     name: 'question',
     created() {
       this.$emit('datiChange', '问题列表>问题详情');
+      const Character = this.$route.path.split('/')[1];
+      if (Character === 'countyAdmin') {
+        this.countyAdmin = 'countyAdmin';
+      }
+      if (Character === 'county') {
+        this.countyAdmin = 'countyAdmin';
+      }
+    },
+    data() {
+      return {
+        character: '',
+        countyAdmin: '',
+      };
     },
     methods: {
       back() {

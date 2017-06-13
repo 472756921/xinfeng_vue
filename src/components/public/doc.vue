@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h5 class="check" v-if="position !== 'town'"><span @click="back">返回上一级</span></h5>
     <table class="table table-bordered">
       <thead>
         <tr>
@@ -40,18 +41,32 @@
 <script>
   export default {
     name: 'Doc',
+    data() {
+      return {
+        positiong: '',
+      };
+    },
     created() {
-      this.$emit('datiChange', '村级列表');
+      const position = this.$route.fullPath;
+      if (position.indexOf('town') > -1) {
+        this.$emit('datiChange', '村级列表');
+        this.position = 'town';
+      } else {
+        this.$emit('datiChange', '镇级列表>村级列表');
+      }
     },
     methods: {
       check() {
-        this.$router.push('file/users');
+        this.$router.push('file/user');
+      },
+      back() {
+        this.$router.go(-1);
       },
     },
   };
 </script>
 
-<style>
+<style scoped>
   .check>span {
     color: #000066;
     cursor: pointer;
