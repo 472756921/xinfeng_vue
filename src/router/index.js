@@ -25,6 +25,8 @@ import YearC from '@/components/countyAdmin/year';
 import TownList from '@/components/public/townList';
 
 import HealthCheckup from '@/components/table/healthCheckup';
+import HealthCard from '@/components/table/healthCard';
+import ImmuneProcedures from '@/components/table/immuneProcedures';
 
 import NotFoundComponent from '@/components/notFoundComponent';
 
@@ -187,6 +189,18 @@ const router = new Router({
           component: User,
         },
         {
+          path: '/countyAdmin/file/file/user/:ID/healthCheckup',
+          component: HealthCheckup,
+        },
+        {
+          path: '/countyAdmin/file/file/user/:ID/healthCard',
+          component: HealthCard,
+        },
+        {
+          path: '/countyAdmin/file/file/user/:ID/immuneProcedures',
+          component: ImmuneProcedures,
+        },
+        {
           path: '/countyAdmin/file/file/user/:ID/PIinfo',
           component: userPhysiologicalIndicators,
         },
@@ -236,7 +250,11 @@ const router = new Router({
 });
 
 router.beforeEach((to, from, next) => {
-  const status = JSON.parse(sessionStorage.getItem('user')).adminType;
+  const session = JSON.parse(sessionStorage.getItem('user'));
+  let status;
+  if (session !== null) {
+    status = session.adminType;
+  }
   const pathG = to.matched[0].path;
   if (to.fullPath.indexOf('404') !== -1) {
     next();

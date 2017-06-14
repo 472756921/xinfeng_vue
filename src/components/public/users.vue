@@ -11,39 +11,43 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>李德华</td>
-          <td>49</td>
-          <td>白血病</td>
-          <td class="check"><span @click="check">查看</span></td>
-        </tr>
-        <tr>
-          <td>张德华</td>
-          <td>57</td>
-          <td>脑瘫</td>
-          <td class="check"><span @click="check">查看</span></td>
-        </tr>
-        <tr>
-          <td>王德华</td>
-          <td>58</td>
-          <td>高血压</td>
-          <td class="check"><span @click="check">查看</span></td>
+        <tr v-for="user in userList.results">
+          <td>{{user.realName}}</td>
+          <td>{{user.age}}</td>
+          <td>{{user.disease}}</td>
+          <td class="check"><span @click="check(user.id)">查看</span></td>
         </tr>
       </tbody>
     </table>
   </div>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
+  import { getDoclist } from '../../interface/index';
 
   export default {
     name: 'Users',
+    data() {
+      return {
+        userList: '',
+      };
+    },
     created() {
       this.$emit('datiChange', '村级列表>用户列表');
+      const authTokenes = JSON.parse(sessionStorage.getItem('user')).authToken;
+      this.$http.get(
+        getDoclist(),
+        { params: { page: 1, pageSize: 2 }, headers: { authToken: authTokenes } },
+      ).then((res) => {
+        this.userList = JSON.parse(res.bodyText);
+      }).catch((error) => {
+        console.log(error);
+      });
     },
     methods: {
-      check() {
-        this.$router.push('user/12');
+      check(ID) {
+        const fiff = 'user/';
+        this.$router.push(fiff + ID);
       },
       back() {
         this.$router.go(-1);

@@ -149,13 +149,13 @@
       <span>资料</span>
     </h4>
     <div class="tableList">
-      <button class="btn btn-success">健康体检表</button>
+      <button class="btn btn-success" @click="checkTable('healthCheckup')">健康体检表</button>
       <button class="btn btn-success">接诊记录表</button>
       <button class="btn btn-success">会诊记录表</button>
       <button class="btn btn-default">双向转诊表</button>
-      <button class="btn btn-default">居民健康档案</button>
+      <button class="btn btn-default" @click="checkTable('healthCard')">居民健康档案信息卡</button>
       <button class="btn btn-default">健康教育活动表</button>
-      <button class="btn btn-default">儿童免疫程序表</button>
+      <button class="btn btn-default" @click="checkTable('immuneProcedures')">国家免疫规划疫苗儿童免疫程序表</button>
       <button class="btn btn-default">新生儿家庭访视记录表</button>
       <button class="btn btn-default">3~6岁儿童健康检查记录表</button>
       <button class="btn btn-default">第一次产前检查服务记录表</button>
@@ -190,6 +190,10 @@
       },
       checkUserPI() {
         this.$router.push('12/PIinfo');
+      },
+      checkTable(data) {
+        const diff = '12/';
+        this.$router.push(diff + data);
       },
     },
   };

@@ -37,11 +37,25 @@
   </div>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
+  import { getUnitlist } from '../../interface/index';
+
   export default {
     name: 'townList',
+    data() {
+      return {};
+    },
     created() {
       this.$emit('datiChange', '镇级列表');
+      const authTokenes = JSON.parse(sessionStorage.getItem('user')).authToken;
+      this.$http.get(
+        getUnitlist(),
+        { params: { page: 1, pageSize: 2 }, headers: { authToken: authTokenes } },
+      ).then((res) => {
+        console.log(res);
+      }).catch((error) => {
+        console.log(error);
+      });
     },
     methods: {
       check() {

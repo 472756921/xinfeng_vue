@@ -104,7 +104,7 @@
           </td>
         </tr>
         <tr>
-          <th rowspan="13">生活方式</th>
+          <th rowspan="13" style="line-height: 500px">生活方式</th>
           <th rowspan="3">体育锻炼</th>
           <th>锻炼频率</th>
           <td colspan="3">1每天 2每周一次以上 3偶尔 4不锻炼<span class="checkBox">1</span></td>
@@ -180,7 +180,7 @@
           </td>
         </tr>
         <tr>
-          <th rowspan="4">脏器功能</th>
+          <th rowspan="4" style="line-height: 160px">脏器功能</th>
           <th>口腔</th>
           <td colspan="4">
             口唇 1红润 2苍白 3发绀 4皸裂 5疱疹<span class="checkBox">1</span><br/>
@@ -201,7 +201,7 @@
           <td colspan="4">1可顺利完成 2无法独立完成任何一个动作<span class="checkBox">1</span></td>
         </tr>
         <tr>
-          <th rowspan="19">查体</th>
+          <th rowspan="19" style="line-height: 700px">查体</th>
           <th>眼底*</th>
           <td colspan="4">1正常 2异常_______<span class="checkBox">1</span></td>
         </tr>
@@ -258,7 +258,14 @@
         </tr>
         <tr>
           <th>乳腺*</th>
-          <td colspan="4">1未见异常 2乳房切除 3异常泌乳 4乳腺包块 5其他_____<span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span><span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span><span class="checkBox">1</span></td>
+          <td colspan="4">
+            1未见异常 2乳房切除 3异常泌乳 4乳腺包块 5其他_____
+            <span class="checkBox">1</span>
+            <span class="pull-right">&nbsp;/&nbsp;</span>
+            <span class="checkBox">1</span>
+            <span class="pull-right">&nbsp;/&nbsp;</span>
+            <span class="checkBox">1</span>
+          </td>
         </tr>
         <tr>
           <th rowspan="5">妇科*</th>
@@ -286,7 +293,7 @@
           <td colspan="4"></td>
         </tr>
         <tr>
-          <th rowspan="15">辅助检查</th>
+          <th rowspan="16"  style="line-height: 500px">辅助检查</th>
           <th>血常规*</th>
           <td colspan="4">
             血红蛋白________g/L 白细胞________*10<sup>9</sup>/L 血小板________*10<sup>9</sup>/L
@@ -348,6 +355,267 @@
             血清低密度脂胆固醇_____________mmol/L  &nbsp;&nbsp; 血清低高度脂胆固醇______________mmol/L  &nbsp;&nbsp;
           </td>
         </tr>
+        <tr>
+          <th>胸部X线片*</th>
+          <td colspan="4">1正常 2异常_____<span class="checkBox">1</span></td>
+        </tr>
+        <tr>
+          <th rowspan="2">B超*</th>
+          <td colspan="4">腹部B超 1正常 2异常_____<span class="checkBox">1</span></td>
+        </tr>
+        <tr>
+          <td colspan="4">其他 1正常 2异常_____<span class="checkBox">1</span></td>
+        </tr>
+        <tr>
+          <th>宫颈涂片*</th>
+          <td colspan="4">1正常 2异常_____<span class="checkBox">1</span></td>
+        </tr>
+        <tr>
+          <th>其他*</th>
+          <td colspan="4"></td>
+        </tr>
+        <tr>
+          <th rowspan="7">现存在主要健康问题</th>
+          <th>脑血管疾病</th>
+          <td colspan="4">
+            1未发现 2缺血性卒中 3脑出血 4虹网膜下腔出血 5短暂性脑缺血发作 6其他_____
+            <span class="checkBox">1</span>
+            <span class="pull-right">&nbsp;/&nbsp;</span>
+            <span class="checkBox">1</span>
+            <span class="pull-right">&nbsp;/&nbsp;</span>
+            <span class="checkBox">1</span>
+            <span class="pull-right">&nbsp;/&nbsp;</span>
+            <span class="checkBox">1</span>
+            <span class="pull-right">&nbsp;/&nbsp;</span>
+            <span class="checkBox">1</span>
+          </td>
+        </tr>
+        <tr>
+          <th>肾脏疾病</th>
+          <td colspan="4">
+            1未发现 2糖尿病肾病 3肾功能衰竭 4急性肾炎 5慢性肾炎 6其他_____
+            <span class="checkBox">1</span>
+            <span class="pull-right">&nbsp;/&nbsp;</span>
+            <span class="checkBox">1</span>
+            <span class="pull-right">&nbsp;/&nbsp;</span>
+            <span class="checkBox">1</span>
+            <span class="pull-right">&nbsp;/&nbsp;</span>
+            <span class="checkBox">1</span>
+            <span class="pull-right">&nbsp;/&nbsp;</span>
+            <span class="checkBox">1</span>
+          </td>
+        </tr>
+        <tr>
+          <th>心脏疾病</th>
+          <td colspan="4">
+            1未发现 2心肌梗死 3心绞痛 4冠状运动血运重建 5充血性心力衰竭 6心前区疼痛 7其他_____
+            <span class="checkBox">1</span>
+            <span class="pull-right">&nbsp;/&nbsp;</span>
+            <span class="checkBox">1</span>
+            <span class="pull-right">&nbsp;/&nbsp;</span>
+            <span class="checkBox">1</span>
+            <span class="pull-right">&nbsp;/&nbsp;</span>
+            <span class="checkBox">1</span>
+            <span class="pull-right">&nbsp;/&nbsp;</span>
+            <span class="checkBox">1</span>
+            <span class="pull-right">&nbsp;/&nbsp;</span>
+            <span class="checkBox">1</span>
+          </td>
+        </tr>
+        <tr>
+          <th>血管疾病</th>
+          <td colspan="4">
+            1未发现 2夹层动脉瘤 3动脉闭塞性疾病 4其他_____
+            <span class="checkBox">1</span>
+            <span class="pull-right">&nbsp;/&nbsp;</span>
+            <span class="checkBox">1</span>
+            <span class="pull-right">&nbsp;/&nbsp;</span>
+            <span class="checkBox">1</span>
+          </td>
+        </tr>
+        <tr>
+          <th>眼部疾病</th>
+          <td colspan="4">
+            1未发现 2视网膜出血或渗出 3视乳头水肿 4白内障 5其他_____
+            <span class="checkBox">1</span>
+            <span class="pull-right">&nbsp;/&nbsp;</span>
+            <span class="checkBox">1</span>
+            <span class="pull-right">&nbsp;/&nbsp;</span>
+            <span class="checkBox">1</span>
+            <span class="pull-right">&nbsp;/&nbsp;</span>
+            <span class="checkBox">1</span>
+          </td>
+        </tr>
+        <tr>
+          <th>神经系统疾病</th>
+          <td colspan="4">1未发现 2有_____<span class="checkBox">1</span></td>
+        </tr>
+        <tr>
+          <th>其他系统疾病</th>
+          <td colspan="4">1未发现 2有_____<span class="checkBox">1</span></td>
+        </tr>
+        <tr>
+          <th rowspan="6">住院治疗情况</th>
+          <th rowspan="3">住院史</th>
+          <th>入/出院日期</th>
+          <th>原因</th>
+          <th>医疗机构名称</th>
+          <th>病案号</th>
+        </tr>
+        <tr>
+          <td>/</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>/</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th rowspan="3">家庭病史</th>
+          <th>建/撤床日期</th>
+          <th>原因</th>
+          <th>医疗机构名称</th>
+          <th>病案号</th>
+        </tr>
+        <tr>
+          <td>/</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>/</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th rowspan="7">主要用药情况</th>
+          <th>药物名称</th>
+          <th>用法</th>
+          <th>用量</th>
+          <th>用药时间</th>
+          <th>
+            服药已从性<br/>
+            1规律 2间断 3不服药
+          </th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th rowspan="4">非免疫规划预防接种史</th>
+          <th>名称</th>
+          <th colspan="2">接种日期</th>
+          <th colspan="2">接种机构</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>健康评价</th>
+          <td colspan="5">
+            <span class="checkBox">1</span>
+            1体检无异常<br/>
+            2有异常<br/>
+            异常1__________<br/>
+            异常2__________<br/>
+            异常3__________<br/>
+            异常4__________<br/>
+          </td>
+        </tr>
+        <tr>
+          <th>健康指导记录</th>
+          <td colspan="3">
+            1纳入慢病患者健康管理<br/>
+            2建议复查<br/>
+            3建议转诊<br/>
+            <span class="checkBox">1</span>
+            <span class="pull-right">&nbsp;/&nbsp;</span>
+            <span class="checkBox">1</span>
+            <span class="pull-right">&nbsp;/&nbsp;</span>
+            <span class="checkBox">1</span>
+          </td>
+          <td colspan="2">
+            危险因素控制：
+            <span class="checkBox">1</span>
+            <span class="pull-right">&nbsp;/&nbsp;</span>
+            <span class="checkBox">1</span>
+            <span class="pull-right">&nbsp;/&nbsp;</span>
+            <span class="checkBox">1</span>
+            <span class="pull-right">&nbsp;/&nbsp;</span>
+            <span class="checkBox">1</span>
+            <span class="pull-right">&nbsp;/&nbsp;</span>
+            <span class="checkBox">1</span>
+            <span class="pull-right">&nbsp;/&nbsp;</span>
+            <span class="checkBox">1</span>
+            <span class="pull-right">&nbsp;/&nbsp;</span>
+            <span class="checkBox">1</span>
+            <br/>
+            1戒烟 2健康饮酒 3饮食 4锻炼 5减体重（目标____KG）<br/> 6建议接种疫苗________ 7其他____________
+          </td>
+        </tr>
 
         </tbody>
       </table>
@@ -359,6 +627,11 @@
     name: 'HealthCheckup',
     created() {
       this.$emit('datiChange', '村级列表>用户列表>用户详情>健康体检表');
+    },
+    methods: {
+      back() {
+        this.$router.go(-1);
+      },
     },
   };
 </script>
