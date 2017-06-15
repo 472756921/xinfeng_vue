@@ -51,6 +51,7 @@
             this.checkUserType(user);
           }
         }).catch((error) => {
+          console.log(error);
           this.info = error.body.message;
         });
       },

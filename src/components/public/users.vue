@@ -35,9 +35,10 @@
     created() {
       this.$emit('datiChange', '村级列表>用户列表');
       const authTokenes = JSON.parse(sessionStorage.getItem('user')).authToken;
+      const ID = this.$route.params.ID;
       this.$http.get(
         getDoclist(),
-        { params: { page: 1, pageSize: 2 }, headers: { authToken: authTokenes } },
+        { params: { page: 1, pageSize: 2, id: ID, name: '' }, headers: { authToken: authTokenes } },
       ).then((res) => {
         this.userList = JSON.parse(res.bodyText);
       }).catch((error) => {

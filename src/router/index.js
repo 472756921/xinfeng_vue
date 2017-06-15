@@ -18,6 +18,7 @@ import userPhysiologicalIndicators from '@/components/public/user_physiological_
 import Admin from '@/components/admin/admin';
 import AdminUser from '@/components/admin/user';
 import AdminHelp from '@/components/admin/help';
+import AdminUnitl from '@/components/admin/unitl';
 import UserInfo from '@/components/public/userInfoOP';
 import CountyHome from '@/components/county/countyHome';
 import CountyAdminHome from '@/components/countyAdmin/countyAdminHome';
@@ -58,6 +59,10 @@ const router = new Router({
         {
           path: 'help',
           component: AdminHelp,
+        },
+        {
+          path: 'unitl',
+          component: AdminUnitl,
         },
       ],
     },
@@ -177,11 +182,11 @@ const router = new Router({
           component: TownList,
         },
         {
-          path: '/countyAdmin/file/town',
+          path: '/countyAdmin/file/town/:ID',
           component: Doc,
         },
         {
-          path: '/countyAdmin/file/file/user',
+          path: '/countyAdmin/file/town/userList/:ID',
           component: Users,
         },
         {

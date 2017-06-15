@@ -12,52 +12,56 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>石家村</td>
+        <tr v-for="village in villageList.results">
+          <td>{{village.name}}</td>
           <td>1</td>
           <td>224</td>
           <td>224</td>
-          <td class="check"><span @click="check">查看</span></td>
-        </tr>
-        <tr>
-          <td>牛家村</td>
-          <td>2</td>
-          <td>321</td>
-          <td>321</td>
-          <td class="check"><span @click="check">查看</span></td>
-        </tr>
-        <tr>
-          <td>陈家村</td>
-          <td>1</td>
-          <td>118</td>
-          <td>118</td>
-          <td class="check"><span @click="check">查看</span></td>
+          <td class="check"><span @click="check(village.id)">查看</span></td>
         </tr>
       </tbody>
     </table>
   </div>
 </template>
 
-<script>
+<script  type="text/ecmascript-6">
+  import { getUnitlist } from '../../interface/index';
+
   export default {
     name: 'Doc',
     data() {
       return {
         positiong: '',
+        villageList: '',
       };
     },
     created() {
       const position = this.$route.fullPath;
+      const ID = this.$route.params.ID;
       if (position.indexOf('town') > -1) {
         this.$emit('datiChange', '村级列表');
         this.position = 'town';
       } else {
         this.$emit('datiChange', '镇级列表>村级列表');
       }
+      this.getTheList(ID);
     },
     methods: {
-      check() {
-        this.$router.push('file/user');
+      getTheList(ID) {
+        const authTokenes = JSON.parse(sessionStorage.getItem('user')).authToken;
+        this.$http.get(
+          getUnitlist(),
+          { params: { page: 1, pageSize: 2, level: 2, id: ID }, headers: { authToken: authTokenes } },
+        ).then((res) => {
+          this.villageList = JSON.parse(res.bodyText);
+          console.log(res);
+        }).catch((error) => {
+          console.log(error);
+        });
+      },
+      check(ID) {
+        const diff = 'userList/';
+        this.$router.push(diff + ID);
       },
       back() {
         this.$router.go(-1);

@@ -11,26 +11,12 @@
       </tr>
       </thead>
       <tbody>
-      <tr>
-        <td>新丰镇</td>
+      <tr v-for="town in townList.results">
+        <td>{{town.name}}</td>
         <td>1</td>
         <td>224</td>
         <td>224</td>
-        <td class="check"><span @click="check">查看</span></td>
-      </tr>
-      <tr>
-        <td>立新镇</td>
-        <td>2</td>
-        <td>321</td>
-        <td>321</td>
-        <td class="check"><span @click="check">查看</span></td>
-      </tr>
-      <tr>
-        <td>高新镇</td>
-        <td>1</td>
-        <td>118</td>
-        <td>118</td>
-        <td class="check"><span @click="check">查看</span></td>
+        <td class="check"><span @click="check(town.id)">查看</span></td>
       </tr>
       </tbody>
     </table>
@@ -43,23 +29,27 @@
   export default {
     name: 'townList',
     data() {
-      return {};
+      return {
+        townList: '',
+      };
     },
     created() {
       this.$emit('datiChange', '镇级列表');
       const authTokenes = JSON.parse(sessionStorage.getItem('user')).authToken;
       this.$http.get(
         getUnitlist(),
-        { params: { page: 1, pageSize: 2 }, headers: { authToken: authTokenes } },
+        { params: { page: 1, pageSize: 2, level: 0, id: '' }, headers: { authToken: authTokenes } },
       ).then((res) => {
+        this.townList = JSON.parse(res.bodyText);
         console.log(res);
       }).catch((error) => {
         console.log(error);
       });
     },
     methods: {
-      check() {
-        this.$router.push('file/town');
+      check(ID) {
+        const diff = 'file/town/';
+        this.$router.push(diff + ID);
       },
     },
   };

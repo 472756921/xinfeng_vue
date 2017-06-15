@@ -3,6 +3,7 @@
     <div class="nav col-xs-12 col-sm-2">
       <div v-bind:class="{ 'active' : active === 'user'}" @click="changenav('user')">用户管理</div>
       <div v-bind:class="{ 'active' : active === 'help'}" @click="changenav('help')">支持管理</div>
+      <div v-bind:class="{ 'active' : active === 'unitl'}" @click="changenav('unitl')">机构管理</div>
     </div>
     <router-view class="col-sm-10"></router-view>
   </div>
