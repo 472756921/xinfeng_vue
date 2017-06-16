@@ -2,6 +2,7 @@
   <div class="col-sm-12 col-md-8 col-md-offset-2 admin">
     <div class="nav col-xs-12 col-sm-2">
       <div v-bind:class="{ 'active' : active === 'user'}" @click="changenav('user')">用户管理</div>
+      <div v-bind:class="{ 'active' : active === 'docMannger'}" @click="changenav('docMannger')">村医管理</div>
       <div v-bind:class="{ 'active' : active === 'help'}" @click="changenav('help')">支持管理</div>
       <div v-bind:class="{ 'active' : active === 'unitl'}" @click="changenav('unitl')">机构管理</div>
     </div>
@@ -16,6 +17,11 @@
       return {
         active: 'user',
       };
+    },
+    created() {
+      let position = this.$route.path;
+      position = position.split('/');
+      this.active = position[2];
     },
     methods: {
       changenav(position) {

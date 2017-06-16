@@ -19,6 +19,7 @@ import Admin from '@/components/admin/admin';
 import AdminUser from '@/components/admin/user';
 import AdminHelp from '@/components/admin/help';
 import AdminUnitl from '@/components/admin/unitl';
+import DocMannger from '@/components/admin/docMannger';
 import UserInfo from '@/components/public/userInfoOP';
 import CountyHome from '@/components/county/countyHome';
 import CountyAdminHome from '@/components/countyAdmin/countyAdminHome';
@@ -63,6 +64,10 @@ const router = new Router({
         {
           path: 'unitl',
           component: AdminUnitl,
+        },
+        {
+          path: 'docMannger',
+          component: DocMannger,
         },
       ],
     },
@@ -190,11 +195,11 @@ const router = new Router({
           component: Users,
         },
         {
-          path: '/countyAdmin/file/file/user/:ID',
+          path: '/countyAdmin/file/town/userList/user/:ID',
           component: User,
         },
         {
-          path: '/countyAdmin/file/file/user/:ID/healthCheckup',
+          path: '/countyAdmin/file/town/userList/user/:ID/healthCheckup',
           component: HealthCheckup,
         },
         {

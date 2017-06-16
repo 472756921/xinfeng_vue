@@ -1,13 +1,7 @@
 <template>
   <div>
     <div>
-      <h4>新增用户</h4>
-      <select v-model="adminTypeNew">
-        <option value="4">镇卫生中心</option>
-        <option value="3">县卫生中心</option>
-        <option value="2">县卫计委</option>
-        <option value="1">管理员</option>
-      </select>
+      <h4>新增村医</h4>
       <select v-if="adminTypeNew == 5" v-model="townID" @change="getTheViList">
         <option value="0">新丰县</option>
         <option :value="town.id" v-for="town in townList.results">{{town.name}}</option>
@@ -19,41 +13,30 @@
       <button class="btn btn-info" @click="newUser">新增</button>
     </div>
     <br/>
-    <h4>用户列表</h4>
+    <h4>村医列表</h4>
     <Searcher />
-    <span>分类：</span>
-    <select @change="getTheList" v-model="adminType">
-      <option value="0">所有用户</option>
-      <option value="4">镇卫生中心</option>
-      <option value="3">县卫生中心</option>
-      <option value="2">县卫计委</option>
-      <option value="1">管理员</option>
-    </select>
     <table class="table">
       <thead>
-        <tr>
-          <th>用户名</th>
-          <th>身份</th>
-          <th>状态</th>
-          <th width="300">操作</th>
-        </tr>
+      <tr>
+        <th>用户名</th>
+        <th>身份</th>
+        <th>状态</th>
+        <th width="300">操作</th>
+      </tr>
       </thead>
       <tbody>
-        <tr v-for="(user, index) in userList.results">
-          <td>{{ user.username }}</td>
-          <td v-if="user.adminType === 1">管理员</td>
-          <td v-if="user.adminType === 2">县卫计委</td>
-          <td v-if="user.adminType === 3">县卫生中心</td>
-          <td v-if="user.adminType === 4">镇卫生中心</td>
-          <td v-if="user.status">正常</td>
-          <td v-if="!user.status" class="text-danger">禁用</td>
-          <td class="option">
-            <span @click="del(user.id)">删除</span>
-            <span @click="able(user.id)"  v-if="!user.status">启用</span>
-            <span @click="enAble(user.id)"  v-if="user.status">禁用</span>
-            <span @click="reset(user.id)">重置密码</span>
-          </td>
-        </tr>
+      <tr v-for="(user, index) in userList.results">
+        <td>{{ user.account }}</td>
+        <td>村医</td>
+        <td v-if="user.abledStatus">正常</td>
+        <td v-if="!user.abledStatus" class="text-danger">禁用</td>
+        <td class="option">
+          <span @click="del(user.id)">删除</span>
+          <span @click="able(user.id)"  v-if="!user.abledStatus">启用</span>
+          <span @click="enAble(user.id)"  v-if="user.abledStatus">禁用</span>
+          <span @click="reset(user.id)">重置密码</span>
+        </td>
+      </tr>
       </tbody>
     </table>
     <Page/>
@@ -63,16 +46,16 @@
 <script type="text/ecmascript-6">
   import Page from '../public/page';
   import Searcher from '../public/searcher';
-  import { getAdminitlist, delAdminitlist, addAdmin, enAbleAdmin, ableAdmin, resetAdminPWD, getUnitlist } from '../../interface/index';
+  import { doclist, delAdminitlist, addAdmin, enAbleAdmin, ableAdmin, resetAdminPWD, getUnitlist } from '../../interface/index';
 
   export default {
-    name: 'app',
+    name: 'docMannger',
     components: { Page, Searcher },
     data() {
       return {
         userList: { results: [{ id: 0, username: '暂无', adminType: 1, status: 0 }] },
         userNameNew: '',
-        adminTypeNew: 1,
+        adminTypeNew: 5,
         adminType: 0,
         townList: '',
         townID: 0,
@@ -88,8 +71,8 @@
       getTheList() {
         const authTokenes = JSON.parse(sessionStorage.getItem('user')).authToken;
         this.$http.get(
-          getAdminitlist(),
-          { params: { page: 1, pageSize: 50, username: '', adminType: this.adminType }, headers: { authToken: authTokenes } },
+          doclist(),
+          { params: { page: 1, pageSize: 50, account: '', unitId: '' }, headers: { authToken: authTokenes } },
         ).then((res) => {
           this.userList = JSON.parse(res.bodyText);
         }).catch((error) => {
@@ -114,7 +97,7 @@
         }
         this.$http.post(
           addAdmin(this.adminTypeNew),
-          { username: this.userNameNew, adminType: this.adminTypeNew, unitId: this.VID },
+          { account: this.userNameNew, adminType: this.adminTypeNew, unitId: this.VID },
         ).then((res) => {
           this.getTheList();
           console.log(res);

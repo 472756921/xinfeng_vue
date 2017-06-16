@@ -67,4 +67,18 @@ export const delAdminitlist = function () {
   const API = Host + URL;
   return API;
 };
+// 查询村医列表
+export const doclist = function () {
+  const URL = '/app/api/doctor/findAllDoctor';
+  const API = Host + URL;
+  return API;
+};
+
+
+// 查询用户信息
+export const getUserInfo = function () {
+  const URL = '/app/api/customer/queryUserById';
+  const API = Host + URL;
+  return API;
+};
 

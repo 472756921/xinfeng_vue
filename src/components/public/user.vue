@@ -7,25 +7,25 @@
       <table class="table table-bordered">
         <caption class="">
           <h3 class="text-center">个人信息</h3>
-          <span>姓名：</span>
-          <span class="pull-right">编号：123-122332</span>
+          <span>姓名：{{userInfo.realName}}</span>
+          <span class="pull-right">编号：{{userInfo.code}}</span>
         </caption >
         <tbody>
         <tr>
           <th width="165" colspan="2">性别</th>
-          <td colspan="3">1男 2女 9未说明的性别 0未知的性别  <span class="checkBox">2</span></td>
+          <td colspan="3">1男 2女 9未说明的性别 0未知的性别  <span class="checkBox">{{userInfo.gender}}</span></td>
           <th>出生日期</th>
-          <td>2012-12-12</td>
+          <td>{{userInfo.birthday}}</td>
         </tr>
         <tr>
           <th colspan="2">身份证号码</th>
-          <td  colspan="2">392001199308123921</td>
+          <td  colspan="2">{{userInfo.idCardNumber}}</td>
           <th>工作单位</th>
-          <td  colspan="2">天赋兴趣浮沉国际49楼4990号</td>
+          <td  colspan="2">{{userInfo.address}}</td>
         </tr>
         <tr>
           <th colspan="2">本人电话</th>
-          <td>12282293847</td>
+          <td>{{userInfo.phoneNumber}}</td>
           <th>联系人姓名</th>
           <td>张三</td>
           <th>联系人电话</th>
@@ -33,37 +33,63 @@
         </tr>
         <tr>
           <th colspan="2">常驻类型</th>
-          <td colspan="2">1户籍 2非户籍<span class="checkBox">1</span></td>
+          <td colspan="2">1户籍 2非户籍<span class="checkBox">{{userInfo.residentType}}</span></td>
           <th>民族</th>
-          <td colspan="2">01汉 99少数民族______<span class="checkBox">1</span></td>
+          <td colspan="2">01汉 99少数民族
+            <span class="unline">{{userInfo.nation!=='01'?userInfo.nation.split(' ')[1]:'01'}}</span>
+            <span class="checkBox">{{userInfo.nation!=='01'?'99':'01'}}</span>
+          </td>
         </tr>
         <tr>
           <th colspan="2">血型</th>
-          <td colspan="5">1A型 2B型 3O型 4AB型 5不详 / RH 1阴性 2阳性 3不详  <span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span><span class="checkBox">1</span></td>
+          <td colspan="5">
+            1A型 2B型 3O型 4AB型 5不详 / RH 1阴性 2阳性 3不详
+            <span class="checkBox">{{userInfo.bloodType}}</span><span class="pull-right">&nbsp;/&nbsp;</span>
+            <span class="checkBox">{{userInfo.RH}}</span>
+          </td>
         </tr>
         <tr>
           <th colspan="2">文化程度</th>
-          <td colspan="5">1研究生 2大学本科 3大学专科和专科学校 4中等专业学校 5技工学校 6高中 7初中 8小学 9文盲或半文盲 10 不详 <span class="checkBox">1</span></td>
+          <td colspan="5">1研究生 2大学本科 3大学专科和专科学校 4中等专业学校 5技工学校 6高中 7初中 8小学 9文盲或半文盲 10 不详 <span class="checkBox">{{userInfo.degreeOfEducation}}</span></td>
         </tr>
         <tr>
           <th colspan="2">职业</th>
-          <td colspan="5">0国家机关、党群组织、企业、事业单位负责人 1专业技术人员 2办事人员和有关人员 3商业服务业人员 4农、林、牧、渔、水利业生产人员 5生产、运输设备操作人员及有关人员 6军人 7不便分类的其他人员 8无职业  <span class="checkBox">1</span></td>
+          <td colspan="5">0国家机关、党群组织、企业、事业单位负责人 1专业技术人员 2办事人员和有关人员 3商业服务业人员 4农、林、牧、渔、水利业生产人员 5生产、运输设备操作人员及有关人员 6军人 7不便分类的其他人员 8无职业  <span class="checkBox">{{userInfo.occupation}}</span></td>
         </tr>
         <tr>
           <th colspan="2">婚姻情况</th>
-          <td colspan="5">1未婚 2已婚 3丧偶 4离婚 5未说明的婚姻情况 <span class="checkBox">1</span></td>
+          <td colspan="5">1未婚 2已婚 3丧偶 4离婚 5未说明的婚姻情况 <span class="checkBox">{{userInfo.marriage}}</span></td>
         </tr>
         <tr>
           <th colspan="2">医疗费用支付方式</th>
-          <td colspan="5">1城镇职工基本医疗保险 2诚征居民基本医疗保险 3新型农村合作医疗 4贫困救助 5商业医疗保险 6全公费 7全自费 <br/> 8其他______ <span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span><span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span><span class="checkBox">1</span></td>
+          <td colspan="5">
+            1城镇职工基本医疗保险 2诚征居民基本医疗保险 3新型农村合作医疗 4贫困救助 5商业医疗保险 6全公费 7全自费 <br/> 8其他 <span class="unline">{{payWay[2].split(' ')[1]}}</span>
+            <span class="checkBox">{{payWay[2]==' '?'&nbsp;':payWay[2].split(' ')[0]}}</span><span class="pull-right">&nbsp;/&nbsp;</span>
+            <span class="checkBox">{{payWay[1]==' '?'&nbsp;':payWay[1]}}</span><span class="pull-right">&nbsp;/&nbsp;</span>
+            <span class="checkBox">{{payWay[0]==' '?'&nbsp;':payWay[0]}}</span>
+          </td>
         </tr>
         <tr>
           <th colspan="2">药物过敏史</th>
-          <td colspan="5">1无 2青霉素 3碘胺 4链霉素 5其他______ <span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span><span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span><span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span><span class="checkBox">1</span></td>
+          <td colspan="5">
+            1无 2青霉素 3碘胺 4链霉素 5其他 <span class="unline">{{userInfo.historyOfDrugAllergy.split(',')[3].split(' ')[1]}}</span>
+            <span class="checkBox">
+              {{userInfo.historyOfDrugAllergy.split(',')[3]==' '?'&nbsp;':userInfo.historyOfDrugAllergy.split(',')[3].split(' ')[0]}}
+            </span>
+            <span class="pull-right">&nbsp;/&nbsp;</span>
+            <span class="checkBox">{{userInfo.historyOfDrugAllergy.split(',')[2]==' '?'&nbsp;':userInfo.historyOfDrugAllergy.split(',')[2]}}</span><span class="pull-right">&nbsp;/&nbsp;</span>
+            <span class="checkBox">{{userInfo.historyOfDrugAllergy.split(',')[1]==' '?'&nbsp;':userInfo.historyOfDrugAllergy.split(',')[1]}}</span><span class="pull-right">&nbsp;/&nbsp;</span>
+            <span class="checkBox">{{userInfo.historyOfDrugAllergy.split(',')[0]==' '?'&nbsp;':userInfo.historyOfDrugAllergy.split(',')[0]}}</span>
+          </td>
         </tr>
         <tr>
           <th colspan="2">暴露史</th>
-          <td colspan="5">1无 2化学品 3毒物 4射线<span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span><span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span><span class="checkBox">1</span></td>
+          <td colspan="5">
+            1无 2化学品 3毒物 4射线
+            <span class="checkBox">{{userInfo.expose.split(',')[2]}}</span><span class="pull-right">&nbsp;/&nbsp;
+          </span><span class="checkBox">{{userInfo.expose.split(',')[1]}}</span><span class="pull-right">&nbsp;/&nbsp;
+          </span><span class="checkBox">{{userInfo.expose.split(',')[0]}}</span>
+          </td>
         </tr>
         <tr>
           <th rowspan="4" width="20" style="line-height: 50px">既往史</th>
@@ -112,32 +138,40 @@
         </tr>
         <tr>
           <th colspan="2">遗传病史</th>
-          <td colspan="5">1无 2有：疾病名称___________________ <span class="checkBox">1</span></td>
+          <td colspan="5">1无 2有：疾病名称___________________ <span class="checkBox">{{userInfo.geneticHistory}}</span></td>
         </tr>
         <tr>
           <th colspan="2">残疾情况</th>
-          <td colspan="5">1无残疾 2视力残疾 3听力残疾 4言语残疾 5肢体残疾 6智力残疾 7精神残疾  <br/>8其他残疾________ <span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span><span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span><span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span><span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span><span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span><span class="checkBox">1</span></td>
+          <td colspan="5">
+            1无残疾 2视力残疾 3听力残疾 4言语残疾 5肢体残疾 6智力残疾 7精神残疾  <br/>8其他残疾________
+            <span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span>
+            <span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span>
+            <span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span>
+            <span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span>
+            <span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span>
+            <span class="checkBox">{{userInfo.disability}}</span>
+          </td>
         </tr>
         <tr>
           <th colspan="2" rowspan="5" style="line-height: 180px">生活环境</th>
           <td>厨房排风设施</td>
-          <td colspan="5">1无 2抽油烟机 3换气扇 4烟囱 <span class="checkBox">1</span></td>
+          <td colspan="5">1无 2抽油烟机 3换气扇 4烟囱 <span class="checkBox">{{userInfo.kitchenVentilationFacilities}}</span></td>
         </tr>
         <tr>
           <td>燃料类型</td>
-          <td colspan="5">1液化气 2煤 3天然气 4沼气 5柴火 6其他 <span class="checkBox">1</span></td>
+          <td colspan="5">1液化气 2煤 3天然气 4沼气 5柴火 6其他 <span class="checkBox">{{userInfo.fuelType}}</span></td>
         </tr>
         <tr>
           <td>饮水</td>
-          <td colspan="5">1自来水 2经净化过滤的水 3井水 4河湖水 5塘水 6其他 <span class="checkBox">1</span></td>
+          <td colspan="5">1自来水 2经净化过滤的水 3井水 4河湖水 5塘水 6其他 <span class="checkBox">{{userInfo.drinkingWater}}</span></td>
         </tr>
         <tr>
           <td>厕所</td>
-          <td colspan="5">1卫生厕所 2一格或二格粪池式 3马桶 4露天粪坑 5简易棚厕 <span class="checkBox">1</span></td>
+          <td colspan="5">1卫生厕所 2一格或二格粪池式 3马桶 4露天粪坑 5简易棚厕 <span class="checkBox">{{userInfo.toilet}}</span></td>
         </tr>
         <tr>
           <td>畜畜栏</td>
-          <td colspan="5">1无 2单设 3室内 4室外 <span class="checkBox">1</span></td>
+          <td colspan="5">1无 2单设 3室内 4室外 <span class="checkBox">{{userInfo.aBird}}</span></td>
         </tr>
         </tbody>
       </table>
@@ -178,13 +212,47 @@
   </div>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
+  import { getUserInfo } from '../../interface';
+
   export default {
     name: 'User',
     created() {
       this.$emit('datiChange', '村级列表>用户列表>用户详情');
+      const ID = this.$route.params.ID;
+      this.getUserInfo(ID);
+    },
+    data() {
+      return {
+        userInfo: '',
+        payWay: [],
+      };
     },
     methods: {
+      mingzhu() {
+        if (this.userInfo.nation === '01') {
+          console.log('123');
+        }
+      },
+      getUserInfo(ID) {
+        const authTokenes = JSON.parse(sessionStorage.getItem('user')).authToken;
+        this.$http.get(
+          getUserInfo(),
+          {
+            params: {
+              id: ID,
+            },
+            headers: {
+              authToken: authTokenes,
+            },
+          },
+        ).then((res) => {
+          this.userInfo = JSON.parse(res.bodyText);
+          this.payWay = this.userInfo.medicalPaymentMode.split(',');
+        }).catch((error) => {
+          console.log(error);
+        });
+      },
       back() {
         this.$router.go(-1);
       },
@@ -222,5 +290,9 @@
     padding:0 4px;
     font-size: 12px;
     border-radius: 50%;
+  }
+  .unline{
+    text-decoration:underline;
+    color: #cc0000;
   }
 </style>

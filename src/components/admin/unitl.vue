@@ -23,10 +23,11 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>asdf</td>
-          <td>asdf</td>
-          <td>asdf</td>
+        <tr v-for="u in AllUnilt.results">
+          <td>{{u.name}}</td>
+          <td>{{u.level}}</td>
+          <td v-if="u.parientName !== null">{{u.parientName}}</td>
+          <td v-if="u.parientName === null">新丰县</td>
           <td>
             <span>修改名称</span>
             <span>删除</span>
@@ -46,21 +47,35 @@
       return {
         townList: '',
         newName: '',
-        unitl: 0,
+        unitl: 1,
         newCode: '',
+        AllUnilt: '',
       };
     },
     created() {
       this.getTheTownList();
+      this.getAllUniltList();
     },
     methods: {
       getTheTownList() {
         const authTokenes = JSON.parse(sessionStorage.getItem('user')).authToken;
         this.$http.get(
           getUnitlist(),
-          { params: { page: 1, pageSize: 2, level: 0, id: '' }, headers: { authToken: authTokenes } },
+          { params: { page: 1, pageSize: 20, level: 0, id: '' }, headers: { authToken: authTokenes } },
         ).then((res) => {
           this.townList = JSON.parse(res.bodyText);
+          console.log(res);
+        }).catch((error) => {
+          console.log(error);
+        });
+      },
+      getAllUniltList() {
+        const authTokenes = JSON.parse(sessionStorage.getItem('user')).authToken;
+        this.$http.get(
+          getUnitlist(),
+          { params: { page: 1, pageSize: 20, level: '', id: '' }, headers: { authToken: authTokenes } },
+        ).then((res) => {
+          this.AllUnilt = JSON.parse(res.bodyText);
           console.log(res);
         }).catch((error) => {
           console.log(error);

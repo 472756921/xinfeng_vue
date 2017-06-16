@@ -38,7 +38,7 @@
       const authTokenes = JSON.parse(sessionStorage.getItem('user')).authToken;
       this.$http.get(
         getUnitlist(),
-        { params: { page: 1, pageSize: 2, level: 0, id: '' }, headers: { authToken: authTokenes } },
+        { params: { page: 1, pageSize: 20, level: 0, id: '' }, headers: { authToken: authTokenes } },
       ).then((res) => {
         this.townList = JSON.parse(res.bodyText);
         console.log(res);

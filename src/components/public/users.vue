@@ -38,7 +38,17 @@
       const ID = this.$route.params.ID;
       this.$http.get(
         getDoclist(),
-        { params: { page: 1, pageSize: 2, id: ID, name: '' }, headers: { authToken: authTokenes } },
+        {
+          params: {
+            page: 1,
+            pageSize: 20,
+            id: ID,
+            name: '',
+          },
+          headers: {
+            authToken: authTokenes,
+          },
+        },
       ).then((res) => {
         this.userList = JSON.parse(res.bodyText);
       }).catch((error) => {
