@@ -81,7 +81,7 @@
         this.$router.go(-1);
       },
       checkInfo() {
-        this.$router.push('../file/user/12');
+        this.$router.push('/countyAdmin/file/town/userList/user/1');
       },
     },
   };

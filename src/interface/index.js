@@ -44,25 +44,45 @@ export const addAdmin = function (type) {
   return API;
 };
 // 禁用用户
-export const enAbleAdmin = function () {
+export const enAbleAdmin = function (type) {
+  if (type === 'doc') {
+    const URL = '/app/api/doctor/disabled';
+    const API = Host + URL;
+    return API;
+  }
   const URL = '/app/api/admin/disabled';
   const API = Host + URL;
   return API;
 };
 // 启用用户
-export const ableAdmin = function () {
+export const ableAdmin = function (type) {
+  if (type === 'doc') {
+    const URL = '/app/api/doctor/abled';
+    const API = Host + URL;
+    return API;
+  }
   const URL = '/app/api/admin/abled';
   const API = Host + URL;
   return API;
 };
 // 重置密码
-export const resetAdminPWD = function () {
+export const resetAdminPWD = function (type) {
+  if (type === 'doc') {
+    const URL = '/app/api/doctor/reset';
+    const API = Host + URL;
+    return API;
+  }
   const URL = '/app/api/admin/reset';
   const API = Host + URL;
   return API;
 };
 
-export const delAdminitlist = function () {
+export const delAdminitlist = function (type) {
+  if (type === 'doc') {
+    const URL = '/app/api/doctor/delete';
+    const API = Host + URL;
+    return API;
+  }
   const URL = '/app/api/admin/delete';
   const API = Host + URL;
   return API;

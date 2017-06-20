@@ -1,5 +1,5 @@
-<template>
-  <div>
+<template xmlns:v-bind="http://www.w3.org/1999/xhtml">
+  <div class="table-responsive">
     <h5 class="check"><span @click="back">返回上一级</span></h5>
     <table class="table table-bordered">
       <caption class="">
@@ -7,8 +7,8 @@
       </caption >
       <tbody>
       <tr>
-        <th colspan="2">疫苗种类</th>
-        <th colspan="15">接种年（月）龄</th>
+        <th colspan="2" class="text-center">疫苗种类</th>
+        <th colspan="15" class="text-center">接种年（月）龄</th>
       </tr>
       <tr>
         <th>名称</th>
@@ -33,7 +33,9 @@
         <td>{{data.name}}</td>
         <td>{{data.code}}</td>
         <td v-for="d in 15">
-          <span v-for="(show,i) in data.normal" v-if="d === show[0]">{{show[1]}}</span>
+          <span v-for="(show,i) in data.normal" v-if="d === show[0]">{{show[1]}}
+            <span class="icon iconfont icon-gou gou" v-if="show[2] === true"></span>
+          </span>
         </td>
       </tr>
       </tbody>
@@ -49,12 +51,8 @@
     },
     data() {
       return {
-        listName: ['乙肝疫苗', '卡介苗', '脊灰灭活疫苗', '脊灰减毒活疫苗', '百白破疫苗', '白破疫苗',
-          '麻-风疫苗', '麻腮风疫苗', '乙脑减毒活疫苗或', '乙脑灭活疫苗 1', 'A 群流脑多糖疫苗 ',
-          'A 群 C 群流脑多糖疫苗', '甲肝减毒活疫苗或', '甲肝灭活疫苗 2'],
-        listCode: ['HepB', 'BCG', 'IPV', 'OPV', 'DTaP', 'DT', 'MR', 'MMR', 'JE-L', 'JE-I', 'MPSV-A', 'MPSV-AC', 'HepA-L', 'HepA-I'],
         list: [
-          { name: '乙肝疫苗', code: 'HepB', normal: [[1, 1], [2, 2], [7, 3]] },
+          { name: '乙肝疫苗', code: 'HepB', normal: [[1, 1, true], [2, 2, true], [7, 3, false]] },
           { name: '卡介苗', code: 'BCG', normal: [[1, 1]] },
           { name: '脊灰灭活疫苗', code: 'IPV', normal: [[3, 1]] },
           { name: '脊灰减毒活疫苗', code: 'OPV', normal: [[4, 1], [5, 2], [13, 3]] },
@@ -83,5 +81,9 @@
   .check > span:hover{
     color: #cc0000;
     cursor: pointer;
+  }
+  .gou{
+    color: green;
+    font-size: 16px;
   }
 </style>

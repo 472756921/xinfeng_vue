@@ -8,12 +8,9 @@
         <option value="2">县卫计委</option>
         <option value="1">管理员</option>
       </select>
-      <select v-if="adminTypeNew == 5" v-model="townID" @change="getTheViList">
+      <select v-if="adminTypeNew == 4" v-model="townID">
         <option value="0">新丰县</option>
         <option :value="town.id" v-for="town in townList.results">{{town.name}}</option>
-      </select>
-      <select v-if="adminTypeNew == 5" v-model="VID">
-        <option :value="v.id" v-for="v in VList.results">{{v.name}}</option>
       </select>
       <input placeholder="用户名" v-model="userNameNew" maxlength="20"/>
       <button class="btn btn-info" @click="newUser">新增</button>
@@ -45,12 +42,12 @@
           <td v-if="user.adminType === 2">县卫计委</td>
           <td v-if="user.adminType === 3">县卫生中心</td>
           <td v-if="user.adminType === 4">镇卫生中心</td>
-          <td v-if="user.status">正常</td>
-          <td v-if="!user.status" class="text-danger">禁用</td>
+          <td v-if="user.abledStatus">正常</td>
+          <td v-if="!user.abledStatus" class="text-danger">禁用</td>
           <td class="option">
             <span @click="del(user.id)">删除</span>
-            <span @click="able(user.id)"  v-if="!user.status">启用</span>
-            <span @click="enAble(user.id)"  v-if="user.status">禁用</span>
+            <span @click="able(user.id)"  v-if="!user.abledStatus">启用</span>
+            <span @click="enAble(user.id)"  v-if="user.abledStatus">禁用</span>
             <span @click="reset(user.id)">重置密码</span>
           </td>
         </tr>
@@ -99,7 +96,7 @@
       del(ID) {
         const del = confirm('删除该用户？');
         if (del) {
-          this.$http.get(delAdminitlist(), { params: { Id: ID } }).then((res) => {
+          this.$http.get(delAdminitlist('noDoc'), { params: { Id: ID } }).then((res) => {
             this.getTheList();
             console.log(res);
           }).catch((error) => {
@@ -114,7 +111,7 @@
         }
         this.$http.post(
           addAdmin(this.adminTypeNew),
-          { username: this.userNameNew, adminType: this.adminTypeNew, unitId: this.VID },
+          { username: this.userNameNew, adminType: this.adminTypeNew, unitId: this.townID },
         ).then((res) => {
           this.getTheList();
           console.log(res);
@@ -157,19 +154,6 @@
           { params: { page: 1, pageSize: 100, level: 0, id: '' }, headers: { authToken: authTokenes } },
         ).then((res) => {
           this.townList = JSON.parse(res.bodyText);
-          console.log(res);
-        }).catch((error) => {
-          console.log(error);
-        });
-      },
-      getTheViList() {
-        const authTokenes = JSON.parse(sessionStorage.getItem('user')).authToken;
-        this.$http.get(
-          getUnitlist(),
-          { params: { page: 1, pageSize: 100, level: 3, id: this.townID },
-            headers: { authToken: authTokenes } },
-        ).then((res) => {
-          this.VList = JSON.parse(res.bodyText);
           console.log(res);
         }).catch((error) => {
           console.log(error);

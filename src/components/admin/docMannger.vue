@@ -80,9 +80,10 @@
         });
       },
       del(ID) {
+        console.log(ID);
         const del = confirm('删除该用户？');
         if (del) {
-          this.$http.get(delAdminitlist(), { params: { Id: ID } }).then((res) => {
+          this.$http.get(delAdminitlist('doc'), { params: { Id: ID } }).then((res) => {
             this.getTheList();
             console.log(res);
           }).catch((error) => {
@@ -107,7 +108,7 @@
         });
       },
       enAble(ID) {
-        this.$http.get(enAbleAdmin(), { params: { Id: ID } }).then((res) => {
+        this.$http.get(enAbleAdmin('doc'), { params: { Id: ID } }).then((res) => {
           this.getTheList();
           console.log(res);
         }).catch((error) => {
@@ -116,7 +117,7 @@
         });
       },
       able(ID) {
-        this.$http.get(ableAdmin(), { params: { Id: ID } }).then((res) => {
+        this.$http.get(ableAdmin('doc'), { params: { Id: ID } }).then((res) => {
           this.getTheList();
           console.log(res);
         }).catch((error) => {
@@ -125,7 +126,7 @@
         });
       },
       reset(ID) {
-        this.$http.get(resetAdminPWD(), { params: { Id: ID } }).then((res) => {
+        this.$http.get(resetAdminPWD('doc'), { params: { Id: ID } }).then((res) => {
           this.getTheList();
           console.log(res);
         }).catch((error) => {

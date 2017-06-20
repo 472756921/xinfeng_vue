@@ -1,6 +1,6 @@
 <template>
-  <footer class="col-sm-12">
-    <div class="text-center">深圳优医汇技术有限公司 版权所有 Copyright © 2015-2017 All Rights Reserved</div>
+  <footer class="col-xs-12">
+    <div class="text-center">深圳优医汇信息技术有限公司 版权所有 Copyright © 2015-2017 All Rights Reserved</div>
   </footer>
 </template>
 

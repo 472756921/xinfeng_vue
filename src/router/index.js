@@ -34,6 +34,8 @@ import NewbornFamilyVisitRecords from '@/components/table/newbornFamilyVisitReco
 import MonthsOldChildrenHealthCheckRecordsOE from '@/components/table/monthsOldChildrenHealthCheckRecordsOE';
 import MonthsOldChildrenHealthCheckRecordsTS from '@/components/table/monthsOldChildrenHealthCheckRecordsTS';
 import MonthsOldChildrenHealthCheckRecordsTOSO from '@/components/table/monthsOldChildrenHealthCheckRecordsTOSO';
+import Boy from '@/components/table/boy';
+import Grli from '@/components/table/grli';
 
 import NotFoundComponent from '@/components/notFoundComponent';
 
@@ -236,6 +238,14 @@ const router = new Router({
           component: MonthsOldChildrenHealthCheckRecordsTOSO,
         },
         {
+          path: '/countyAdmin/file/town/userList/user/:ID/boy',
+          component: Boy,
+        },
+        {
+          path: '/countyAdmin/file/town/userList/user/:ID/grli',
+          component: Grli,
+        },
+        {
           path: '/countyAdmin/file/town/userList/user/12/PIinfo',
           component: userPhysiologicalIndicators,
         },
@@ -298,7 +308,7 @@ router.beforeEach((to, from, next) => {
     if (status === 4) {
       router.push('/town/file');
     }
-  } else if (to.fullPath === '/') {
+  } else if (to.fullPath === '/' || to.fullPath === '/userInfo') {
     next();
   } else if (status === 4) {
     if (pathG.indexOf('town') !== -1) {
