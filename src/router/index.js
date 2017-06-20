@@ -29,6 +29,11 @@ import TownList from '@/components/public/townList';
 import HealthCheckup from '@/components/table/healthCheckup';
 import HealthCard from '@/components/table/healthCard';
 import ImmuneProcedures from '@/components/table/immuneProcedures';
+import HealthEducationActivities from '@/components/table/healthEducationActivities';
+import NewbornFamilyVisitRecords from '@/components/table/newbornFamilyVisitRecords';
+import MonthsOldChildrenHealthCheckRecordsOE from '@/components/table/monthsOldChildrenHealthCheckRecordsOE';
+import MonthsOldChildrenHealthCheckRecordsTS from '@/components/table/monthsOldChildrenHealthCheckRecordsTS';
+import MonthsOldChildrenHealthCheckRecordsTOSO from '@/components/table/monthsOldChildrenHealthCheckRecordsTOSO';
 
 import NotFoundComponent from '@/components/notFoundComponent';
 
@@ -203,15 +208,35 @@ const router = new Router({
           component: HealthCheckup,
         },
         {
-          path: '/countyAdmin/file/file/user/:ID/healthCard',
+          path: '/countyAdmin/file/town/userList/user/:ID/healthCard',
           component: HealthCard,
         },
         {
-          path: '/countyAdmin/file/file/user/:ID/immuneProcedures',
+          path: '/countyAdmin/file/town/userList/user/:ID/immuneProcedures',
           component: ImmuneProcedures,
         },
         {
-          path: '/countyAdmin/file/file/user/:ID/PIinfo',
+          path: '/countyAdmin/file/town/userList/user/:ID/healthEducationActivities',
+          component: HealthEducationActivities,
+        },
+        {
+          path: '/countyAdmin/file/town/userList/user/:ID/newbornFamilyVisitRecords',
+          component: NewbornFamilyVisitRecords,
+        },
+        {
+          path: '/countyAdmin/file/town/userList/user/:ID/monthsOldChildrenHealthCheckRecordsOE',
+          component: MonthsOldChildrenHealthCheckRecordsOE,
+        },
+        {
+          path: '/countyAdmin/file/town/userList/user/:ID/monthsOldChildrenHealthCheckRecordsTS',
+          component: MonthsOldChildrenHealthCheckRecordsTS,
+        },
+        {
+          path: '/countyAdmin/file/town/userList/user/:ID/monthsOldChildrenHealthCheckRecordsTOSO',
+          component: MonthsOldChildrenHealthCheckRecordsTOSO,
+        },
+        {
+          path: '/countyAdmin/file/town/userList/user/12/PIinfo',
           component: userPhysiologicalIndicators,
         },
         {
@@ -260,6 +285,7 @@ const router = new Router({
 });
 
 router.beforeEach((to, from, next) => {
+  console.log(to);
   const session = JSON.parse(sessionStorage.getItem('user'));
   let status;
   if (session !== null) {

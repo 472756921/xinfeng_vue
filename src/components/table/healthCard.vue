@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="table-responsive">
     <h5 class="check"><span @click="back">返回上一级</span></h5>
     <table class="table table-bordered">
       <caption class="">

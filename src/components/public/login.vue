@@ -7,7 +7,7 @@
     <div class="col-lg-8 col-lg-offset-2"><input type="password" v-model="pwd" class="form-control" placeholder="密码"></div>
     <div class="col-lg-8 col-lg-offset-2"><input type="checkbox" ref="remb"/>记住密码</div>
     <div class="col-lg-8 col-lg-offset-2 info">{{info}}</div>
-    <div class="col-lg-8 col-lg-offset-2 "><input type="button" value="登录" @click="login" class="btn btn-success col-xs-12"/></div>
+    <div class="col-lg-8 col-lg-offset-2" style="overflow: auto"><input type="button" value="登录" @click="login" class="btn btn-success col-xs-12"/></div>
     <div class="col-lg-8 col-lg-offset-2 text-right"><span class="fpwd">忘记密码</span></div>
   </div>
 </template>

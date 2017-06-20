@@ -3,7 +3,7 @@
     <h5 class="check"><span @click="back">返回上一级</span></h5>
     <button class="btn btn-info" @click="checkUserPI">查看生理指标</button>
     <br/>
-    <div class="col-xs-12 col-lg-8" style="padding:0;margin-right: 10px">
+    <div class="col-xs-12 col-lg-8 table-responsive" style="padding:0;margin-right: 10px">
       <table class="table table-bordered">
         <caption class="">
           <h3 class="text-center">个人信息</h3>
@@ -45,7 +45,7 @@
           <td colspan="5">
             1A型 2B型 3O型 4AB型 5不详 / RH 1阴性 2阳性 3不详
             <span class="checkBox">{{userInfo.bloodType}}</span><span class="pull-right">&nbsp;/&nbsp;</span>
-            <span class="checkBox">{{userInfo.RH}}</span>
+            <span class="checkBox">{{userInfo.rh}}</span>
           </td>
         </tr>
         <tr>
@@ -63,32 +63,31 @@
         <tr>
           <th colspan="2">医疗费用支付方式</th>
           <td colspan="5">
-            1城镇职工基本医疗保险 2诚征居民基本医疗保险 3新型农村合作医疗 4贫困救助 5商业医疗保险 6全公费 7全自费 <br/> 8其他 <span class="unline">{{payWay[2].split(' ')[1]}}</span>
-            <span class="checkBox">{{payWay[2]==' '?'&nbsp;':payWay[2].split(' ')[0]}}</span><span class="pull-right">&nbsp;/&nbsp;</span>
-            <span class="checkBox">{{payWay[1]==' '?'&nbsp;':payWay[1]}}</span><span class="pull-right">&nbsp;/&nbsp;</span>
-            <span class="checkBox">{{payWay[0]==' '?'&nbsp;':payWay[0]}}</span>
+            1城镇职工基本医疗保险 2诚征居民基本医疗保险 3新型农村合作医疗 4贫困救助 5商业医疗保险 6全公费 7全自费 <br/> 8其他 <span class="unline">{{getTheContent(userInfo.medicalPaymentMode).ortherData}}</span>
+             <span v-for="(da, index) in getTheContent(userInfo.medicalPaymentMode).data">
+              <span class="pull-right" v-if="index !== 0">&nbsp;/&nbsp;</span>
+              <span class="checkBox">{{da}}</span>
+            </span>
           </td>
         </tr>
         <tr>
           <th colspan="2">药物过敏史</th>
           <td colspan="5">
-            1无 2青霉素 3碘胺 4链霉素 5其他 <span class="unline">{{userInfo.historyOfDrugAllergy.split(',')[3].split(' ')[1]}}</span>
-            <span class="checkBox">
-              {{userInfo.historyOfDrugAllergy.split(',')[3]==' '?'&nbsp;':userInfo.historyOfDrugAllergy.split(',')[3].split(' ')[0]}}
+            1无 2青霉素 3碘胺 4链霉素 5其他 <span class="unline">{{getTheContent(userInfo.historyOfDrugAllergy).ortherData}}</span>
+            <span v-for="(da, index) in getTheContent(userInfo.historyOfDrugAllergy).data">
+              <span class="pull-right" v-if="index !== 0">&nbsp;/&nbsp;</span>
+              <span class="checkBox">{{da}}</span>
             </span>
-            <span class="pull-right">&nbsp;/&nbsp;</span>
-            <span class="checkBox">{{userInfo.historyOfDrugAllergy.split(',')[2]==' '?'&nbsp;':userInfo.historyOfDrugAllergy.split(',')[2]}}</span><span class="pull-right">&nbsp;/&nbsp;</span>
-            <span class="checkBox">{{userInfo.historyOfDrugAllergy.split(',')[1]==' '?'&nbsp;':userInfo.historyOfDrugAllergy.split(',')[1]}}</span><span class="pull-right">&nbsp;/&nbsp;</span>
-            <span class="checkBox">{{userInfo.historyOfDrugAllergy.split(',')[0]==' '?'&nbsp;':userInfo.historyOfDrugAllergy.split(',')[0]}}</span>
           </td>
         </tr>
         <tr>
           <th colspan="2">暴露史</th>
           <td colspan="5">
             1无 2化学品 3毒物 4射线
-            <span class="checkBox">{{userInfo.expose.split(',')[2]}}</span><span class="pull-right">&nbsp;/&nbsp;
-          </span><span class="checkBox">{{userInfo.expose.split(',')[1]}}</span><span class="pull-right">&nbsp;/&nbsp;
-          </span><span class="checkBox">{{userInfo.expose.split(',')[0]}}</span>
+            <span v-for="(da,index) in getTheContent(userInfo.expose).data">
+              <span class="pull-right" v-if="index !== 0">&nbsp;/&nbsp;</span>
+              <span class="checkBox">{{da}}</span>
+            </span>
           </td>
         </tr>
         <tr>
@@ -120,8 +119,20 @@
         </tr>
         <tr>
           <th colspan="2" rowspan="3" style="line-height: 100px">家族史</th>
-          <td>父亲</td>
-          <td><span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span><span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span><span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span><span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span><span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span><span class="checkBox">1</span></td>
+          <td width="100">父亲</td>
+          <td>
+            <span class="checkBox">1</span>
+            <span class="pull-right">&nbsp;/&nbsp;</span>
+            <span class="checkBox">1</span>
+            <span class="pull-right">&nbsp;/&nbsp;</span>
+            <span class="checkBox">1</span>
+            <span class="pull-right">&nbsp;/&nbsp;</span>
+            <span class="checkBox">1</span>
+            <span class="pull-right">&nbsp;/&nbsp;</span>
+            <span class="checkBox">1</span>
+            <span class="pull-right">&nbsp;/&nbsp;</span>
+            <span class="checkBox">1</span>
+          </td>
           <td>母亲</td>
           <td colspan="2"><span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span><span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span><span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span><span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span><span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span><span class="checkBox">1</span></td>
         </tr>
@@ -143,13 +154,17 @@
         <tr>
           <th colspan="2">残疾情况</th>
           <td colspan="5">
-            1无残疾 2视力残疾 3听力残疾 4言语残疾 5肢体残疾 6智力残疾 7精神残疾  <br/>8其他残疾________
-            <span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span>
-            <span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span>
-            <span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span>
-            <span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span>
-            <span class="checkBox">1</span><span class="pull-right">&nbsp;/&nbsp;</span>
-            <span class="checkBox">{{userInfo.disability}}</span>
+            1无残疾 2视力残疾 3听力残疾 4言语残疾 5肢体残疾 6智力残疾 7精神残疾  <br/>8其他残疾 <span class="unline">{{getTheContent(userInfo.disability).ortherData}}</span>
+            <span v-for="(da, index) in getTheContent(userInfo.disability).data">
+              <span class="pull-right" v-if="index !== 0">&nbsp;/&nbsp;</span>
+              <span class="checkBox">{{da}}</span>
+            </span>
+            <!--<span class="checkBox">{{userInfo.disability.split(',')[5].split(' ')[0]}}</span><span class="pull-right">&nbsp;/&nbsp;</span>-->
+            <!--<span class="checkBox">{{userInfo.disability.split(',')[4]}}</span><span class="pull-right">&nbsp;/&nbsp;</span>-->
+            <!--<span class="checkBox">{{userInfo.disability.split(',')[3]}}</span><span class="pull-right">&nbsp;/&nbsp;</span>-->
+            <!--<span class="checkBox">{{userInfo.disability.split(',')[2]}}</span><span class="pull-right">&nbsp;/&nbsp;</span>-->
+            <!--<span class="checkBox">{{userInfo.disability.split(',')[1]}}</span><span class="pull-right">&nbsp;/&nbsp;</span>-->
+            <!--<span class="checkBox">{{userInfo.disability.split(',')[0]}}</span>-->
           </td>
         </tr>
         <tr>
@@ -188,10 +203,12 @@
       <button class="btn btn-success">会诊记录表</button>
       <button class="btn btn-default">双向转诊表</button>
       <button class="btn btn-default" @click="checkTable('healthCard')">居民健康档案信息卡</button>
-      <button class="btn btn-default">健康教育活动表</button>
+      <button class="btn btn-default" @click="checkTable('healthEducationActivities')">健康教育活动表</button>
       <button class="btn btn-default" @click="checkTable('immuneProcedures')">国家免疫规划疫苗儿童免疫程序表</button>
-      <button class="btn btn-default">新生儿家庭访视记录表</button>
-      <button class="btn btn-default">3~6岁儿童健康检查记录表</button>
+      <button class="btn btn-default" @click="checkTable('NewbornFamilyVisitRecords')">新生儿家庭访视记录表</button>
+      <button class="btn btn-default" @click="checkTable('MonthsOldChildrenHealthCheckRecordsOE')">1～8月龄儿童健康检查记录表</button>
+      <button class="btn btn-default" @click="checkTable('monthsOldChildrenHealthCheckRecordsTS')">3~6岁儿童健康检查记录表</button>
+      <button class="btn btn-default" @click="checkTable('monthsOldChildrenHealthCheckRecordsTOSO')">12～30月龄儿童健康检查记录表</button>
       <button class="btn btn-default">第一次产前检查服务记录表</button>
       <button class="btn btn-default">第2~5次产前随访服务记录表</button>
       <button class="btn btn-default">产后访视记录表</button>
@@ -248,7 +265,6 @@
           },
         ).then((res) => {
           this.userInfo = JSON.parse(res.bodyText);
-          this.payWay = this.userInfo.medicalPaymentMode.split(',');
         }).catch((error) => {
           console.log(error);
         });
@@ -262,6 +278,26 @@
       checkTable(data) {
         const diff = '12/';
         this.$router.push(diff + data);
+      },
+      getTheContent(data) {
+        if (data === '' || data === null) {
+          return '';
+        }
+        const dataList = data.split(',');
+        const LastData = [];
+        let orther = '';
+        for (let i = 0; i < dataList.length; i += 1) {
+          if (dataList[i].indexOf('^') !== -1) {
+            orther = dataList[i].split('^')[1];
+            LastData.push(dataList[i].split('^')[0]);
+          } else {
+            LastData.push(dataList[i]);
+          }
+        }
+        return {
+          data: LastData,
+          ortherData: orther,
+        };
       },
     },
   };
