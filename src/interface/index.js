@@ -93,12 +93,15 @@ export const doclist = function () {
   const API = Host + URL;
   return API;
 };
-
-
 // 查询用户信息
 export const getUserInfo = function () {
   const URL = '/app/api/customer/queryUserById';
   const API = Host + URL;
   return API;
 };
-
+// 查询儿童免疫程序表
+export const getUserBaby = function () {
+  const URL = '/app/api/vaccine/queryByCustomer';
+  const API = Host + URL;
+  return API;
+};

@@ -14,6 +14,7 @@
 
 <script type="text/ecmascript-6">
   import { userLogin } from '../../interface/index';
+  import bus from '../eventBus';
 
   export default {
     name: 'app',
@@ -57,6 +58,7 @@
       },
 
       checkUserType(user) {
+        bus.$emit('sendMessages', user);
         switch (user.adminType) {
           case 1:
             this.$router.push('/admin/user');
