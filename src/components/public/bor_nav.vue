@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="hidden-print">
     <h3>{{title}} <Searcher /></h3>
     <h5 class="text-warning">{{title2}}</h5>
   </div>

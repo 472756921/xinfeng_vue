@@ -1,6 +1,6 @@
 <template>
   <div class="table-responsive content">
-    <h5 class="check"><span @click="back">返回上一级</span></h5>
+    <h5 class="check hidden-print"><span @click="back">返回上一级</span></h5>
     <table class="table table-bordered">
       <caption class="">
         <h3 class="text-center">健康教育活动表</h3>
@@ -9,10 +9,10 @@
       </caption >
       <tbody>
       <tr>
-        <td>活动时间：</td>
-        <td width="400"></td>
-        <td>活动地点：</td>
-        <td width="400"></td>
+        <td width="150">活动时间：</td>
+        <td></td>
+        <td width="150">活动地点：</td>
+        <td></td>
       </tr>
       <tr>
         <td colspan="4">活动形式：</td>
@@ -47,11 +47,36 @@
       </tr>
       </tbody>
     </table>
-    <div>
-      <span class="col-xs-12 col-sm-4">填表人（签字）：</span>
-      <span class="col-xs-12 col-sm-4">负责人（签字）：</span>
-      <span class="col-xs-12 col-sm-4">填表时间： 年 月 日</span>
-    </div>
+    <span class="col-xs-12 col-sm-4 hidden-print">填表人（签字）：</span>
+    <span class="col-xs-12 col-sm-4 hidden-print">负责人（签字）：</span>
+    <span class="col-xs-12 col-sm-4 hidden-print">填表时间： 年 月 日</span>
+
+    <span class="col-xs-4 visible-print-block">填表人（签字）：</span>
+    <span class="col-xs-4 visible-print-block">负责人（签字）：</span>
+    <span class="col-xs-4 visible-print-block">填表时间： 年 月 日</span>
+
+    <br class="hidden-print"/>
+    <br class="hidden-print"/>
+    <br class="hidden-print"/>
+
+    <table class="table table-bordered hidden-print">
+      <caption class="">
+        <h4 class="text-center">健康教育活动历史记录</h4>
+      </caption >
+      <tbody>
+        <tr>
+          <th>时间</th>
+          <th>主题</th>
+          <th>详情</th>
+        </tr>
+        <tr>
+          <td>2017-03-22</td>
+          <td>天下第一武道大会</td>
+          <td>查看</td>
+        </tr>
+      </tbody>
+    </table>
+
   </div>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h5 class="check"><span @click="back">返回上一级</span></h5>
+    <h5 class="check hidden-print"><span @click="back">返回上一级</span></h5>
       <div class="table-responsive">
         <table class="table table-bordered">
           <caption class="">
@@ -45,7 +45,7 @@
             </td>
           </tr>
           <tr>
-            <th rowspan="10" style="line-height: 300px">一般情况</th>
+            <th rowspan="10">一般情况</th>
             <th>体温</th>
             <td class="text-right">℃</td>
             <th>脉率</th>
@@ -105,7 +105,7 @@
             </td>
           </tr>
           <tr>
-            <th rowspan="13" style="line-height: 500px">生活方式</th>
+            <th rowspan="13">生活方式</th>
             <th rowspan="3">体育锻炼</th>
             <th>锻炼频率</th>
             <td colspan="3">1每天 2每周一次以上 3偶尔 4不锻炼<span class="checkBox">1</span></td>
@@ -181,7 +181,7 @@
             </td>
           </tr>
           <tr>
-            <th rowspan="4" style="line-height: 160px">脏器功能</th>
+            <th rowspan="4">脏器功能</th>
             <th>口腔</th>
             <td colspan="4">
               口唇 1红润 2苍白 3发绀 4皸裂 5疱疹<span class="checkBox">1</span><br/>
@@ -202,7 +202,7 @@
             <td colspan="4">1可顺利完成 2无法独立完成任何一个动作<span class="checkBox">1</span></td>
           </tr>
           <tr>
-            <th rowspan="19" style="line-height: 700px">查体</th>
+            <th rowspan="19">查体</th>
             <th>眼底*</th>
             <td colspan="4">1正常 2异常_______<span class="checkBox">1</span></td>
           </tr>
@@ -294,7 +294,7 @@
             <td colspan="4"></td>
           </tr>
           <tr>
-            <th rowspan="16"  style="line-height: 500px">辅助检查</th>
+            <th rowspan="16">辅助检查</th>
             <th>血常规*</th>
             <td colspan="4">
               血红蛋白________g/L 白细胞________*10<sup>9</sup>/L 血小板________*10<sup>9</sup>/L
@@ -302,9 +302,9 @@
             </td>
           </tr>
           <tr>
-            <th>鸟常规*</th>
+            <th>尿常规*</th>
             <td colspan="4">
-              鸟蛋白________尿糖________尿酮体________尿潜血________
+              尿蛋白________尿糖________尿酮体________尿潜血________
               其他____________________________
             </td>
           </tr>

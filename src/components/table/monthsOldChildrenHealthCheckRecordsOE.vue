@@ -218,10 +218,21 @@
 </template>
 
 <script type="text/ecmascript-6">
+  import { getUserBabyOE } from '../../interface/index';
+
   export default {
     name: 'monthsOldChildrenHealthCheckRecordsOE',
     created() {
       this.$emit('datiChange', '村级列表>用户列表>用户详情>1～8月龄儿童健康检查记录表');
+      const authTokenes = JSON.parse(sessionStorage.getItem('user')).authToken;
+      this.$http.get(
+        getUserBabyOE(),
+        { params: { id: 1 }, headers: { authToken: authTokenes } },
+      ).then((res) => {
+        console.log(res);
+      }).catch((error) => {
+        console.log(error);
+      });
     },
     methods: {
       back() {

@@ -1,5 +1,5 @@
 <template xmlns:v-bind="http://www.w3.org/1999/xhtml">
-  <ul class="nav">
+  <ul class="nav hidden-print">
     <li class="col-sm-6 col-md-3 col-xs-6 text-center" v-bind:class="{ 'active' : active === 'file'}" @click='navChange("file")'>
       <i class="icon iconfont icon-activity"></i>
       <h3>健康档案</h3>

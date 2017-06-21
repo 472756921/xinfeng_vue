@@ -1,6 +1,6 @@
 <template>
   <div class="table-responsive">
-    <h5 class="check"><span @click="back">返回上一级</span></h5>
+    <h5 class="check hidden-print"><span @click="back">返回上一级</span></h5>
     <table class="table table-bordered">
       <caption class="">
         <h3 class="text-center">居民健康档案信息卡</h3>

@@ -1,9 +1,11 @@
 <template xmlns:v-bind="http://www.w3.org/1999/xhtml">
   <div class="table-responsive">
-    <h5 class="check"><span @click="back">返回上一级</span></h5>
+    <h5 class="check hidden-print"><span @click="back">返回上一级</span></h5>
     <table class="table table-bordered" style="border: none">
       <caption class="">
         <h3 class="text-center">国家免疫规划疫苗儿童免疫程序表</h3>
+        <span>姓名：{{userName}}</span>
+        <span class="pull-right">编号：{{code}}</span>
       </caption >
       <tbody>
       <tr>
@@ -31,7 +33,7 @@
       </tr>
       <tr v-for="(data, index) in list">
         <td v-if="index == 8 || index == 12" class="borderBN">{{data.name}}</td>
-        <td v-if="index == 9 || index == 13" class="borderUN">{{data.name}}</td>
+        <td v-else-if="index == 9 || index == 13" class="borderUN">{{data.name}}</td>
         <td v-else>{{data.name}}</td>
         <td>{{data.code}}</td>
         <td v-for="d in 15">
@@ -77,10 +79,12 @@
           { name: '乙脑减毒活疫苗', code: 'JE-L', normal: [[8, 1], [12, 2]] },
           { name: '或乙脑灭活疫苗 1', code: 'JE-I', normal: [[8, '1、2'], [11, 3]] },
           { name: 'A 群流脑多糖疫苗', code: 'MPSV-A', normal: [[7, 1], [9, 2]] },
-          { name: 'A 群 C 群流脑多糖疫苗', code: 'MPSV-AC ', normal: [[7, 1], [9, 2]] },
+          { name: 'A 群 C 群流脑多糖疫苗', code: 'MPSV-AC', normal: [[7, 1], [9, 2]] },
           { name: '甲肝减毒活疫苗', code: 'HepA-L ', normal: [[10, 1]] },
           { name: '或甲肝灭活疫苗 2', code: 'HepA-I ', normal: [[10, 1], [11, 2]] },
         ],
+        userName: '',
+        code: '',
       };
     },
     methods: {
@@ -88,11 +92,24 @@
         this.$router.go(-1);
       },
       addData(data) {
+        this.userName = data[0].name;
+        this.code = data[0].code;
         data.map((obj, index) => {
           this.list.map((o, i) => {
             if (obj.vaccineAbbreviation === o.code) {
               o.normal.map((d, j) => {
-                console.log(d);
+                if (j === 0 && obj.firstTime) {
+                  d.push(true);
+                }
+                if (j === 1 && obj.secondTime) {
+                  d.push(true);
+                }
+                if (j === 2 && obj.thirdTime) {
+                  d.push(true);
+                }
+                if (j === 3 && obj.fourthTime) {
+                  d.push(true);
+                }
                 return j;
               });
             }

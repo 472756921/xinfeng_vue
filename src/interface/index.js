@@ -105,3 +105,9 @@ export const getUserBaby = function () {
   const API = Host + URL;
   return API;
 };
+// 查询1-8月龄儿童健康检查记录表
+export const getUserBabyOE = function () {
+  const URL = '/app/api/examination/queryByCustomer';
+  const API = Host + URL;
+  return API;
+};

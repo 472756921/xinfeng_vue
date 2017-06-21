@@ -1,5 +1,5 @@
 <template xmlns:v-bind="http://www.w3.org/1999/xhtml">
-  <header class='head col-md-8 col-md-offset-2 col-sm-12'>
+  <header class='head col-md-8 col-md-offset-2 col-sm-12 hidden-print'>
     <img src="../../assets/public/icon/logo.png" @click="index" class="pointer"/>
     <div class="pull-right user" @click="back" v-if="position!='/'">退出</div>
     <div class="pull-right user" v-if="position!='/'" @click="user">{{name}}</div>

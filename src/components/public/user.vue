@@ -1,8 +1,8 @@
 <template>
   <div class="table-responsive col-xs-12 userInfo">
-    <h5 class="check"><span @click="back">返回上一级</span></h5>
-    <button class="btn btn-info" @click="checkUserPI">查看生理指标</button>
-    <br/>
+    <h5 class="check hidden-print"><span @click="back">返回上一级</span></h5>
+    <button class="btn btn-info hidden-print" @click="checkUserPI">查看生理指标</button>
+    <br class="hidden-print"/>
     <div class="col-xs-12 col-lg-8 table-responsive" style="padding:0;margin-right: 10px">
       <table class="table table-bordered">
         <caption class="">
@@ -236,11 +236,11 @@
     </div>
 
 
-    <br/>
-    <h4>
+    <br class="hidden-print"/>
+    <h4 class="hidden-print">
       <span>资料</span>
     </h4>
-    <div class="tableList">
+    <div class="tableList hidden-print">
       <button class="btn btn-success" @click="checkTable('healthCheckup')">健康体检表</button>
       <button class="btn btn-success">接诊记录表</button>
       <button class="btn btn-success">会诊记录表</button>
@@ -269,8 +269,9 @@
       <button class="btn btn-default">体质判定标准表</button>
       <button class="btn btn-default">卫生计生监督协管信息报告登记表</button>
       <button class="btn btn-default">月龄儿童健康检查记录表</button>
+      <button class="btn btn-default" @click="print">打印</button>
     </div>
-    <br/>
+    <br class="hidden-print"/>
   </div>
 </template>
 
@@ -344,6 +345,9 @@
           ortherData: orther,
         };
       },
+      print() {
+        window.print();
+      },
     },
   };
 </script>
@@ -373,8 +377,9 @@
     border-radius: 50%;
   }
   .unline{
-    text-decoration:underline;
+    border-bottom: 1px solid #000 ;
     color: #cc0000;
+    padding: 0 5px;
   }
   .check > span:hover{
     color: #cc0000;
