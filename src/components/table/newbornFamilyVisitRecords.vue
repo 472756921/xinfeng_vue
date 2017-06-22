@@ -4,46 +4,46 @@
     <table class="table table-bordered">
       <caption class="">
         <h3 class="text-center">新生儿家庭访视记录表</h3>
-        <span>姓名：</span>
-        <span class="pull-right">编号：123-122332</span>
+        <span>姓名：{{tableData.name}}</span>
+        <span class="pull-right">编号：{{tableData.code}}</span>
       </caption >
       <tbody>
         <tr>
           <td>性 别</td>
-          <td colspan="2">1 男 2 女 9 未说明的性别 0 未知的性别</td>
+          <td colspan="2">1 男 2 女 9 未说明的性别 0 未知的性别 <span class="checkBox_free pull-right">{{tableData.sex}}</span></td>
           <td>出生日期&nbsp;&nbsp;&nbsp;</td>
-          <td></td>
+          <td>{{tableData.birthDay}}</td>
         </tr>
         <tr>
           <td>身份证号&nbsp;&nbsp;&nbsp;</td>
-          <td colspan="2"></td>
+          <td colspan="2">{{tableData.idNumber}}</td>
           <td>家庭住址&nbsp;&nbsp;&nbsp;</td>
-          <td></td>
+          <td>{{tableData.idNumber}}</td>
         </tr>
         <tr>
           <td>父亲&nbsp;&nbsp;&nbsp;</td>
-          <td>姓名&nbsp;&nbsp;&nbsp;</td>
-          <td>职业&nbsp;&nbsp;&nbsp;</td>
-          <td>联系电话&nbsp;&nbsp;&nbsp;</td>
-          <td>出生日期&nbsp;&nbsp;&nbsp;</td>
+          <td>姓名&nbsp;&nbsp;&nbsp;{{tableData.parentMaleName}}</td>
+          <td>职业&nbsp;&nbsp;&nbsp;{{tableData.parentMaleOccupation}}</td>
+          <td>联系电话&nbsp;&nbsp;&nbsp;{{tableData.parentMalePhone}}</td>
+          <td>出生日期&nbsp;&nbsp;&nbsp;{{tableData.parentMaleBirthDay}}</td>
         </tr>
         <tr>
           <td>母亲&nbsp;&nbsp;&nbsp;</td>
-          <td>姓名&nbsp;&nbsp;&nbsp;</td>
-          <td>职业&nbsp;&nbsp;&nbsp;</td>
-          <td>出生日期&nbsp;&nbsp;&nbsp;</td>
-          <td>出生日期&nbsp;&nbsp;&nbsp;</td>
+          <td>姓名&nbsp;&nbsp;&nbsp;{{tableData.parentFamaleName}}</td>
+          <td>职业&nbsp;&nbsp;&nbsp;{{tableData.parentFamaleOccupation}}</td>
+          <td>联系电话&nbsp;&nbsp;&nbsp;{{tableData.parentFamalePhone}}</td>
+          <td>出生日期&nbsp;&nbsp;&nbsp;{{tableData.parentFamaleBirthDay}}</td>
         </tr>
         <tr>
-          <td colspan="2">出生孕周&nbsp;&nbsp;&nbsp; 周</td>
+          <td colspan="2">出生孕周&nbsp;&nbsp;&nbsp;<span class="unline">{{tableData.birthWeek}}</span> 周</td>
           <td colspan="3">母亲妊娠期患病情况 &nbsp;&nbsp;&nbsp;1 无 2 糖尿病 3 妊娠期高血压 4 其他</td>
         </tr>
         <tr>
           <td colspan="3">助产机构名称：</td>
-          <td colspan="2">出生情况 &nbsp;&nbsp;&nbsp;1 顺产 2 胎头吸引 3 产钳 4 剖宫<br>5 双多胎 6 臀位 7 其他</td>
+          <td colspan="2">出生情况 &nbsp;&nbsp;&nbsp;1 顺产 2 胎头吸引 3 产钳 4 剖宫<br>5 双多胎 6 臀位 7 其他 <span class="checkBox_free pull-right">{{tableData.birthEvent}}</span></td>
         </tr>
         <tr>
-          <td colspan="3">新生儿窒息&nbsp;&nbsp;&nbsp; 1 无 2 有<br>(Apgar 评分：1min 5min 不详）</td>
+          <td colspan="3">新生儿窒息&nbsp;&nbsp;&nbsp; 1 无 2 有<br>(Apgar 评分：1min 5min 不详）<span class="checkBox_free pull-right">{{tableData.birthAsphyxia}}</span></td>
           <td colspan="2">畸型&nbsp;&nbsp;&nbsp; 1 无 2 有</td>
         </tr>
         <tr>
@@ -130,14 +130,33 @@
 </template>
 
 <script type="text/ecmascript-6">
+  import { getNewBaby } from '../../interface/index';
+
   export default {
     name: 'newbornFamilyVisitRecords',
     created() {
       this.$emit('datiChange', '村级列表>用户列表>用户详情>新生儿家庭访视记录表');
+      this.getData();
+    },
+    data() {
+      return {
+        tableData: '',
+      };
     },
     methods: {
       back() {
         this.$router.go(-1);
+      },
+      getData() {
+        const authTokenes = JSON.parse(sessionStorage.getItem('user')).authToken;
+        this.$http.get(
+          getNewBaby(),
+          { params: { Id: 1 }, headers: { authToken: authTokenes } },
+        ).then((res) => {
+          this.tableData = res.body;
+        }).catch((error) => {
+          console.log(error);
+        });
       },
     },
   };
@@ -151,5 +170,15 @@
   .content{
     overflow: auto;
     padding-bottom: 30px;
+  }
+  .checkBox_free{
+    border: 1px solid #999;
+    padding:0 4px;
+    font-size: 12px;
+  }
+  .unline{
+    border-bottom: 1px solid #000 ;
+    color: #cc0000;
+    padding: 0 5px;
   }
 </style>

@@ -17,17 +17,16 @@
         </tr>
         <tr>
           <th colspan="2">随访日期</th>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td v-for="data in tableData">{{data.birthday}}</td>
+          <td v-for="n in 4-tableData.length"></td>
         </tr>
         <tr>
           <th colspan="2">体 重/kg</th>
-          <td>上 中 下</td>
-          <td>上 中 下</td>
-          <td>上 中 下</td>
-          <td>上 中 下</td>
+          <td v-for="data in tableData"><span class="unline">{{data.weight.split(',')[0]}}</span>
+            上<span class="icon iconfont icon-gou gou" v-if="data.weight.split(',')[1].indexOf('上') != -1"></span>
+            中<span class="icon iconfont icon-gou gou" v-if="data.weight.split(',')[1].indexOf('中') != -1"></span>
+            下<span class="icon iconfont icon-gou gou" v-if="data.weight.split(',')[1].indexOf('下') != -1"></span>
+          </td>
         </tr>
         <tr>
           <th colspan="2">身 长/cm</th>
@@ -229,10 +228,15 @@
         getUserBabyOE(),
         { params: { id: 1 }, headers: { authToken: authTokenes } },
       ).then((res) => {
-        console.log(res);
+        this.tableData = res.body;
       }).catch((error) => {
         console.log(error);
       });
+    },
+    data() {
+      return {
+        tableData: '',
+      };
     },
     methods: {
       back() {
@@ -250,5 +254,13 @@
   .content{
     overflow: auto;
     padding-bottom: 30px;
+  }
+  .unline{
+    border-bottom: 1px solid #000 ;
+    color: #cc0000;
+    padding: 0 5px;
+  }
+  .gou{
+    color: green;
   }
 </style>

@@ -170,14 +170,33 @@
 </template>
 
 <script type="text/ecmascript-6">
+  import { getThreeToSixChildHealthRecord } from '../../interface/index';
+
   export default {
     name: 'monthsOldChildrenHealthCheckRecordsTS',
     created() {
       this.$emit('datiChange', '村级列表>用户列表>用户详情>3~6岁儿童健康检查记录表');
+      this.getData();
+    },
+    data() {
+      return {
+        tableData: '',
+      };
     },
     methods: {
       back() {
         this.$router.go(-1);
+      },
+      getData() {
+        const authTokenes = JSON.parse(sessionStorage.getItem('user')).authToken;
+        this.$http.get(
+          getThreeToSixChildHealthRecord(),
+          { params: { Id: 1 }, headers: { authToken: authTokenes } },
+        ).then((res) => {
+          this.tableData = res.body;
+        }).catch((error) => {
+          console.log(error);
+        });
       },
     },
   };

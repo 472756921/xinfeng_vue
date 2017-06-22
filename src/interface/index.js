@@ -111,3 +111,51 @@ export const getUserBabyOE = function () {
   const API = Host + URL;
   return API;
 };
+// 健康体检列表
+export const getHealthList = function () {
+  const URL = '/app/api/health/queryHealthList';
+  const API = Host + URL;
+  return API;
+};
+// 健康体检表详情
+export const getHealthData = function () {
+  const URL = '/app/api/health/queryHealthById';
+  const API = Host + URL;
+  return API;
+};
+// 3-6岁儿童
+export const getThreeToSixChildHealthRecord = function () {
+  const URL = '/app/api/threeToSixChildHealthRecord/find';
+  const API = Host + URL;
+  return API;
+};
+// 12-30月儿童
+export const getTecondExamination = function () {
+  const URL = '/app/api/secondExamination/queryByCustomer';
+  const API = Host + URL;
+  return API;
+};
+// 新生儿童
+export const getNewBaby = function () {
+  const URL = '/app/api/newbornHome/find';
+  const API = Host + URL;
+  return API;
+};
+// 健康教育轰动详情
+export const getHE = function () {
+  const URL = '/app/api/healthEducationActivityRecord/find';
+  const API = Host + URL;
+  return API;
+};
+// 健康教育轰动详情列表
+export const getHEList = function () {
+  const URL = '/app/api/healthEducationActivityRecord/findAllHealthEducationActivityRecord';
+  const API = Host + URL;
+  return API;
+};
+// 查询健康体检信息卡
+export const getUserHealthById = function () {
+  const URL = '/app/api/customer/queryUserHealthById';
+  const API = Host + URL;
+  return API;
+};
