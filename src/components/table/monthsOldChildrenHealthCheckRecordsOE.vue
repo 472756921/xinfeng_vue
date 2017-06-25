@@ -4,7 +4,7 @@
     <table class="table table-bordered">
       <caption class="">
         <h3 class="text-center">1～8月龄儿童健康检查记录表</h3>
-        <span>姓名：</span>
+        <span>姓名:</span>
         <span class="pull-right">编号：123-122332</span>
       </caption >
       <tbody>
@@ -30,88 +30,128 @@
         </tr>
         <tr>
           <th colspan="2">身 长/cm</th>
-          <td>上 中 下</td>
-          <td>上 中 下</td>
-          <td>上 中 下</td>
-          <td>上 中 下</td>
+          <td v-for="data in tableData"><span class="unline">{{data.height.split(',')[0]}}</span>
+            上 <span class="icon iconfont icon-gou gou" v-if="data.height.split(',')[1].indexOf('上') != -1"></span>
+            中<span class="icon iconfont icon-gou gou" v-if="data.height.split(',')[1].indexOf('中') != -1"></span>
+            下<span class="icon iconfont icon-gou gou" v-if="data.height.split(',')[1].indexOf('下') != -1"></span>
+          </td>
+          <td v-for="n in 4-tableData.length">____上 中 下</td>
         </tr>
         <tr>
           <th colspan="2">头 围/cm</th>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td v-for="data in tableData">{{data.headCircumference}}</td>
         </tr>
         <tr>
           <th rowspan="16" style="line-height: 700px">体格检查</th>
           <th>面 色</th>
-          <td>1红润 2黄染 3其他</td>
-          <td>1红润 2黄染 3其他</td>
-          <td>1红润 2黄染 3其他</td>
-          <td>1红润 2黄染 3其他</td>
+          <td v-for="data in tableData">
+            <span>1红润</span>
+            <span class="icon iconfont icon-gou gou" v-if="data.complexion == '1'"></span>
+            <span>2其他</span>
+            <span class="icon iconfont icon-gou gou" v-if="data.complexion == '2'"></span>
+          </td>
+          <td v-for="n in 4-tableData.length">1红润 2其他</td>
         </tr>
         <tr>
           <th>皮 肤</th>
-          <td>1 未见异常 2异常</td>
-          <td>1 未见异常 2异常</td>
-          <td>1 未见异常 2异常</td>
-          <td>1 未见异常 2异常</td>
+          <td v-for="data in tableData">
+            <span>1红润</span>
+            <span class="icon iconfont icon-gou gou" v-if="data.complexion == '1'"></span>
+            <span>2其他</span>
+            <span class="icon iconfont icon-gou gou" v-if="data.complexion == '2'"></span>
+          </td>
+          <td v-for="n in 4-tableData.length">1红润 2其他</td>
         </tr>
         <tr>
           <th>前 囟</th>
-          <td>1 闭合 ２未闭,cm× cm</td>
-          <td>1 闭合 ２未闭,cm× cm</td>
-          <td>1 闭合 ２未闭,cm× cm</td>
-          <td>1 闭合 ２未闭,cm× cm</td>
+          <td v-for="data in tableData">
+            <span>1闭合</span>
+            <span class="icon iconfont icon-gou gou" v-if="data.bregmatic.split('^')[0] == '1'"></span>
+            <span>2未闭</span>
+            <span class="icon iconfont icon-gou gou" v-if="data.bregmatic.split('^')[0] == '2'"><br/><span class="unline">{{data.bregmatic.split('^')[1]}}</span>CM</span>
+          </td>
+          <td v-for="n in 4-tableData.length"></td>
         </tr>
         <tr>
           <th>颈部包块</th>
-          <td>1 有 2 无</td>
-          <td>1 有 2 无</td>
-          <td>1 有 2 无</td>
-          <td>1 有 2 无</td>
+          <td v-for="(data, i) in tableData" v-if="i!=3">
+            <span>1有</span>
+            <span class="icon iconfont icon-gou gou" v-if="data.cervicalMass.split('^')[0] == '1'"></span>
+            <span>2无</span>
+          </td>
+          <td>----</td>
         </tr>
         <tr>
           <th>眼 睛</th>
-          <td>1 未见异常 2 异常</td>
-          <td>1 未见异常 2 异常</td>
-          <td>1 未见异常 2 异常</td>
-          <td>1 未见异常 2 异常</td>
+          <td v-for="data in tableData">
+            <span>1未见异常</span>
+            <span class="icon iconfont icon-gou gou" v-if="data.eye == '1'"></span>
+            <span>2异常</span>
+            <span class="icon iconfont icon-gou gou" v-if="data.eye == '2'"></span>
+          </td>
+          <td v-for="n in 4-tableData.length">1未见异常 2异常</td>
         </tr>
         <tr>
           <th>耳</th>
-          <td>1 未见异常 2 异常</td>
-          <td>1 未见异常 2 异常</td>
-          <td>1 未见异常 2 异常</td>
-          <td>1 未见异常 2 异常</td>
+          <td v-for="data in tableData">
+            <span>1未见异常</span>
+            <span class="icon iconfont icon-gou gou" v-if="data.ear == '1'"></span>
+            <span>2异常</span>
+            <span class="icon iconfont icon-gou gou" v-if="data.ear == '2'"></span>
+          </td>
+          <td v-for="n in 4-tableData.length">1未见异常 2异常</td>
         </tr>
         <tr>
           <th>听 力</th>
+          <td>
+            <span>1通过</span>
+            <span class="icon iconfont icon-gou gou" v-if="tableData[0]!=undefined&&tableData[0].hearing == '1'"></span>
+            <span>2未通过</span>
+            <span class="icon iconfont icon-gou gou" v-if="tableData[0]!=undefined&&tableData[0].hearing == '2'"></span>
+          </td>
+          <td>
+            <span>1通过</span>
+            <span class="icon iconfont icon-gou gou" v-if="tableData[1]!=undefined&&tableData[1].hearing == '1'"></span>
+            <span>2未通过</span>
+            <span class="icon iconfont icon-gou gou" v-if="tableData[1]!=undefined&&tableData[1].hearing == '2'"></span>
+          </td>
           <td class="text-center">--</td>
-          <td class="text-center">--</td>
-          <td>1 通过 2 未通过</td>
-          <td class="text-center">--</td>
+          <td>
+            <span>1通过</span>
+            <span class="icon iconfont icon-gou gou" v-if="tableData[3]!=undefined&&tableData[3].hearing == '1'"></span>
+            <span>2未通过</span>
+            <span class="icon iconfont icon-gou gou" v-if="tableData[3]!=undefined&&tableData[3].hearing == '2'"></span>
+          </td>
         </tr>
         <tr>
           <th>口 腔</th>
-          <td>1 未见异常 2 异常</td>
-          <td>1 未见异常 2 异常</td>
-          <td>1 未见异常 2 异常</td>
-          <td>1 未见异常 2 异常</td>
+          <td v-for="data in tableData">
+            <span>1未见异常</span>
+            <span class="icon iconfont icon-gou gou" v-if="data.oralCavity == '1'"></span>
+            <span>2异常</span>
+            <span class="icon iconfont icon-gou gou" v-if="data.oralCavity == '2'"></span>
+          </td>
+          <td v-for="n in 4-tableData.length">1未见异常 2异常</td>
         </tr>
         <tr>
           <th>胸 部</th>
-          <td>1 未见异常 2 异常</td>
-          <td>1 未见异常 2 异常</td>
-          <td>1 未见异常 2 异常</td>
-          <td>1 未见异常 2 异常</td>
+          <td v-for="data in tableData">
+            <span>1未见异常</span>
+            <span class="icon iconfont icon-gou gou" v-if="data.chest == '1'"></span>
+            <span>2异常</span>
+            <span class="icon iconfont icon-gou gou" v-if="data.chest == '2'"></span>
+          </td>
+          <td v-for="n in 4-tableData.length">1未见异常 2异常</td>
         </tr>
         <tr>
           <th>腹 部</th>
-          <td>1 未见异常 2 异常</td>
-          <td>1 未见异常 2 异常</td>
-          <td>1 未见异常 2 异常</td>
-          <td>1 未见异常 2 异常</td>
+          <td v-for="data in tableData">
+            <span>1未见异常</span>
+            <span class="icon iconfont icon-gou gou" v-if="data.abdomen == '1'"></span>
+            <span>2异常</span>
+            <span class="icon iconfont icon-gou gou" v-if="data.abdomen == '2'"></span>
+          </td>
+          <td v-for="n in 4-tableData.length">1未见异常 2异常</td>
         </tr>
         <tr>
           <th>脐 部</th>
@@ -122,17 +162,24 @@
         </tr>
         <tr>
           <th>四 肢</th>
-          <td>1 未见异常 2 异常</td>
-          <td>1 未见异常 2 异常</td>
-          <td>1 未见异常 2 异常</td>
-          <td>1 未见异常 2 异常</td>
+          <td v-for="data in tableData">
+            <span>1未见异常</span>
+            <span class="icon iconfont icon-gou gou" v-if="data.limb == '1'"></span>
+            <span>2异常</span>
+            <span class="icon iconfont icon-gou gou" v-if="data.limb == '2'"></span>
+          </td>
+          <td v-for="n in 4-tableData.length">1未见异常 2异常</td>
         </tr>
         <tr>
           <th>可疑佝偻病症状</th>
           <td class="text-center">--</td>
-          <td>1 无 2 夜惊<br>3 多汗 4 烦躁</td>
-          <td>1 无 2 夜惊<br>3 多汗 4 烦躁</td>
-          <td>1 无 2 夜惊<br>3 多汗 4 烦躁</td>
+          <td v-for="(data,i) in tableData"  v-if="i!=1">
+            <span>1未见异常</span>
+            <span class="icon iconfont icon-gou gou" v-if="data.suspectedRicketsSign == '1'"></span>
+            <span>2异常</span>
+            <span class="icon iconfont icon-gou gou" v-if="data.suspectedRicketsSign == '2'"></span>
+          </td>
+          <td v-for="n in 4-tableData.length">1未见异常 2异常</td>
         </tr>
         <tr>
           <th>可疑佝偻病体征</th>
@@ -143,73 +190,97 @@
         </tr>
         <tr>
           <th>肛门/外生殖器</th>
-          <td>1 未见异常 2 异常</td>
-          <td>1 未见异常 2 异常</td>
-          <td>1 未见异常 2 异常</td>
-          <td>1 未见异常 2 异常</td>
+          <td v-for="data in tableData">
+            <span>1未见异常</span>
+            <span class="icon iconfont icon-gou gou" v-if="data.anus == '1'"></span>
+            <span>2异常</span>
+            <span class="icon iconfont icon-gou gou" v-if="data.anus == '2'"></span>
+          </td>
+          <td v-for="n in 4-tableData.length">1未见异常 2异常</td>
         </tr>
         <tr>
           <th>血红蛋白值</th>
-          <td class="text-center">--</td>
-          <td class="text-center">--</td>
-          <td class="text-center">g/L</td>
-          <td class="text-center">g/L</td>
+          <td class="">--</td>
+          <td class="">--</td>
+          <td v-if="tableData[2]!=undefined"><span class="unline">{{tableData[2].hemoglobinValue}}</span> g/L</td>
+          <td v-else>g/L</td>
+          <td v-if="tableData[3]!=undefined"><span class="unline">{{tableData[3].hemoglobinValue}}</span> g/L</td>
+          <td v-else>g/L</td>
         </tr>
         <tr>
           <th colspan="2">户外活动</th>
-          <td>小时/日</td>
-          <td>小时/日</td>
-          <td>小时/日</td>
-          <td>小时/日</td>
+          <td class="" v-for="data in tableData"><span class="unline">{{data.outdoorActivities}}</span> 小时/日</td>
+          <td v-for="n in 4-tableData.length">小时/日</td>
         </tr>
         <tr>
           <th colspan="2">服用维生素 D</th>
-          <td>IU/日</td>
-          <td>IU/日</td>
-          <td>IU/日</td>
-          <td>IU/日</td>
+          <td class="" v-for="data in tableData"><span class="unline">{{data.takeVitaminD}}</span> IU/日</td>
+          <td v-for="n in 4-tableData.length">IU/日</td>
         </tr>
         <tr>
           <th colspan="2">发育评估</th>
           <td class="text-center">---------</td>
-          <td>1.对很大声音没有反应<br>2.逗引时不发音或不会<br>微笑<br>3.不注视人脸，不追视<br>移动人或物品<br>4.俯卧时不会抬头</td>
-          <td>1.发音少，不会笑出<br>声<br>2.不会伸手抓物<br>3.紧握拳松不开<br>4.不能扶坐</td>
-          <td>1.听到声音无应答<br>2.不会区分生人和熟<br>人<br>3.双手间不会传递玩<br>具<br>4.不会独坐</td>
+          <td>
+            1.对很大声音没有反应<span v-if="tableData[1]!=undefined&&tableData[1].developmentEvaluation.indexOf('1') != -1" class="icon iconfont icon-gou gou"></span><br>
+            2.逗引时不发音或不会微笑<span v-if="tableData[1]!=undefined&&tableData[1].developmentEvaluation.indexOf('2') != -1" class="icon iconfont icon-gou gou"></span><br>
+            3.不注视人脸,不追视移动人或物品<span v-if="tableData[1]!=undefined&&tableData[1].developmentEvaluation.indexOf('3') != -1" class="icon iconfont icon-gou gou"></span><br>
+            4.俯卧时不会抬头<span v-if="tableData[1]!=undefined&&tableData[1].developmentEvaluation.indexOf('4') != -1" class="icon iconfont icon-gou gou"></span>
+          </td>
+          <td>
+            1.发音少，不会笑出声<span v-if="tableData[2]!=undefined&&tableData[2].developmentEvaluation.indexOf('1') != -1" class="icon iconfont icon-gou gou"></span><br>
+            2.不会伸手抓物<span v-if="tableData[2]!=undefined&&tableData[2].developmentEvaluation.indexOf('2') != -1" class="icon iconfont icon-gou gou"></span><br>
+            3.紧握拳松不开<span v-if="tableData[2]!=undefined&&tableData[2].developmentEvaluation.indexOf('3') != -1" class="icon iconfont icon-gou gou"></span><br>
+            4.不能扶坐<span v-if="tableData[2]!=undefined&&tableData[2].developmentEvaluation.indexOf('4') != -1" class="icon iconfont icon-gou gou"></span>
+          </td>
+          <td>
+            1.听到声音无应答<span v-if="tableData[3]!=undefined&&tableData[2].developmentEvaluation.indexOf('1') != -1" class="icon iconfont icon-gou gou"></span><br>
+            2.不会区分生人和熟人<span v-if="tableData[3]!=undefined&&tableData[2].developmentEvaluation.indexOf('2') != -1" class="icon iconfont icon-gou gou"></span><br>
+            3.双手间不会传递玩具<span v-if="tableData[3]!=undefined&&tableData[2].developmentEvaluation.indexOf('3') != -1" class="icon iconfont icon-gou gou"></span><br>
+            4.不会独坐<span v-if="tableData[3]!=undefined&&tableData[2].developmentEvaluation.indexOf('4') != -1" class="icon iconfont icon-gou gou"></span>
+          </td>
         </tr>
         <tr>
           <th colspan="2">两次随访间患病情况</th>
-          <td>1 无<br>2 肺炎 次<br>3 腹泻 次<br>4 外伤 次<br>5 其他</td>
-          <td>1 无<br>2 肺炎 次<br>3 腹泻 次<br>4 外伤 次<br>5 其他</td>
-          <td>1 无<br>2 肺炎 次<br>3 腹泻 次<br>4 外伤 次<br>5 其他</td>
-          <td>1 无<br>2 肺炎 次<br>3 腹泻 次<br>4 外伤 次<br>5 其他</td>
+          <td class="" v-for="data in tableData">
+            1 无 <span class="icon iconfont icon-gou gou" v-if="data.twoFollowUpVisits == '1'"></span><br>
+            2 肺炎 <span class="unline">{{data.pneumonia}}</span> 次 <span class="icon iconfont icon-gou gou" v-if="data.pneumonia != null"></span> <br>
+            3 腹泻 <span class="unline">{{data.diarrhea}}</span> 次 <span class="icon iconfont icon-gou gou" v-if="data.diarrhea != null"></span> <br>
+            4 外伤 <span class="unline">{{data.trauma}}</span> 次 <span class="icon iconfont icon-gou gou" v-if="data.trauma != null"></span><br>
+            5 其他 <span class="unline">{{data.otherConditions}}</span> <span class="icon iconfont icon-gou gou" v-if="data.otherConditions != null"></span>
+          </td>
+          <td v-for="n in 4-tableData.length">1 无<br>2 肺炎 次<br>3 腹泻 次<br>4 外伤 次<br>5 其他</td>
         </tr>
         <tr>
           <th colspan="2">转诊建议</th>
-          <td>1 无 2 有<br>原因：<br>机构及科室：</td>
-          <td>1 无 2 有<br>原因：<br>机构及科室：</td>
-          <td>1 无 2 有<br>原因：<br>机构及科室：</td>
-          <td>1 无 2 有<br>原因：<br>机构及科室：</td>
+          <td class="" v-for="data in tableData">
+            1 无 <span class="icon iconfont icon-gou gou" v-if="data.referralcode == '1'"></span>
+            2 有 <span class="icon iconfont icon-gou gou" v-if="data.referralcode == '2'"></span><br>
+            原因：<span class="unline">{{data.referralReason}}</span><br>
+            机构及科室：<span class="unline">{{data.referralInstitution}}</span>
+          </td>
+          <td v-for="n in 4-tableData.length">1 无 2 有<br>原因：<br>机构及科室：</td>
         </tr>
         <tr>
           <th colspan="2">指 导</th>
-          <td>1 科学喂养<br>2 生长发育<br>3 疾病预防<br>4 预防伤害<br>5 口腔保健<br>6 其他</td>
-          <td>1 科学喂养<br>2 生长发育<br>3 疾病预防<br>4 预防伤害<br>5 口腔保健<br>6 其他</td>
-          <td>1 科学喂养<br>2 生长发育<br>3 疾病预防<br>4 预防伤害<br>5 口腔保健<br>6 其他</td>
-          <td>1 科学喂养<br>2 生长发育<br>3 疾病预防<br>4 预防伤害<br>5 口腔保健<br>6 其他</td>
+          <td class="" v-for="data in tableData">
+            1 科学喂养 <span v-if="data.referralcode.indexOf('1') != -1" class="icon iconfont icon-gou gou"></span><br>
+            2 生长发育 <span v-if="data.referralcode.indexOf('2') != -1" class="icon iconfont icon-gou gou"></span><br>
+            3 疾病预防 <span v-if="data.referralcode.indexOf('3') != -1" class="icon iconfont icon-gou gou"></span><br>
+            4 预防伤害 <span v-if="data.referralcode.indexOf('4') != -1" class="icon iconfont icon-gou gou"></span><br>
+            5 口腔保健 <span v-if="data.referralcode.indexOf('5') != -1" class="icon iconfont icon-gou gou"></span><br>
+            6 其他<span class="unline">{{data.otherGuidance}}</span> <span v-if="data.otherGuidance!= ''" class="icon iconfont icon-gou gou"></span> <br>
+          </td>
+          <td v-for="n in 4-tableData.length">1 科学喂养<br>2 生长发育<br>3 疾病预防<br>4 预防伤害<br>5 口腔保健<br>6 其他</td>
         </tr>
         <tr>
           <th colspan="2">下次随访日期</th>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td v-for="data in tableData">{{data.nextVisitDate}}</td>
+          <td v-for="n in 4-tableData.length"></td>
         </tr>
         <tr>
           <th colspan="2">随访医生签名</th>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td v-for="data in tableData">{{data.followYourDoctor}}</td>
+          <td v-for="n in 4-tableData.length"></td>
         </tr>
       </tbody>
     </table>

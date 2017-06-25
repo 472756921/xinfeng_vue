@@ -2,7 +2,7 @@
  * Created by Benson on 2017/6/13.
  */
 
-const Host = 'http://192.168.0.201:8080';
+const Host = 'http://121.42.142.228:8090';
 
 // 登录接口
 export const userLogin = function () {
@@ -125,7 +125,7 @@ export const getHealthData = function () {
 };
 // 3-6岁儿童
 export const getThreeToSixChildHealthRecord = function () {
-  const URL = '/app/api/threeToSixChildHealthRecord/find';
+  const URL = '/app/api/threeToSixChildHealthRecord/findAllThreeToSixChildHealthRecordByCustomreId';
   const API = Host + URL;
   return API;
 };

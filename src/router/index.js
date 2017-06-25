@@ -88,20 +88,60 @@ const router = new Router({
           component: Doc,
         },
         {
-          path: '/town/file/user',
+          path: '/town/userList/:ID',
           component: Users,
         },
         {
-          path: '/town/file/user/:ID',
+          path: '/town/userList/user/:ID',
           component: User,
         },
         {
-          path: '/town/file/user/:ID/PIinfo',
+          path: '/town/userList/user/:ID/PIinfo',
           component: userPhysiologicalIndicators,
         },
         {
-          path: '/town/file/user/:ID/healthCheckup',
+          path: '/town/userList/user/:ID/healthCheckup',
           component: HealthCheckup,
+        },
+        {
+          path: '/town/userList/user/:ID/healthCheckup',
+          component: HealthCheckup,
+        },
+        {
+          path: '/town/userList/user/:ID/healthCard',
+          component: HealthCard,
+        },
+        {
+          path: '/town/userList/user/:ID/immuneProcedures',
+          component: ImmuneProcedures,
+        },
+        {
+          path: '/town/userList/user/:ID/healthEducationActivities',
+          component: HealthEducationActivities,
+        },
+        {
+          path: '/town/userList/user/:ID/newbornFamilyVisitRecords',
+          component: NewbornFamilyVisitRecords,
+        },
+        {
+          path: '/town/userList/user/:ID/monthsOldChildrenHealthCheckRecordsOE',
+          component: MonthsOldChildrenHealthCheckRecordsOE,
+        },
+        {
+          path: '/town/userList/user/:ID/monthsOldChildrenHealthCheckRecordsTS',
+          component: MonthsOldChildrenHealthCheckRecordsTS,
+        },
+        {
+          path: '/town/userList/user/:ID/monthsOldChildrenHealthCheckRecordsTOSO',
+          component: MonthsOldChildrenHealthCheckRecordsTOSO,
+        },
+        {
+          path: '/town/userList/user/:ID/boy',
+          component: Boy,
+        },
+        {
+          path: '/town/userList/user/:ID/grli',
+          component: Grli,
         },
         {
           path: '/town/question',
@@ -151,20 +191,64 @@ const router = new Router({
           component: TownList,
         },
         {
-          path: '/county/file/town',
+          path: '/county/file/town/:ID',
           component: Doc,
         },
         {
-          path: '/county/file/file/user',
+          path: '/county/file/town/userList/:ID',
           component: Users,
         },
         {
-          path: '/county/file/file/user/:ID',
+          path: '/county/file/town/userList/user/:ID',
           component: User,
         },
         {
-          path: '/county/file/file/user/:ID/PIinfo',
+          path: '/county/file/town/userList/user/:ID/PIinfo',
           component: userPhysiologicalIndicators,
+        },
+        {
+          path: '/county/file/town/userList/user/:ID/healthCheckup',
+          component: HealthCheckup,
+        },
+        {
+          path: '/county/file/town/userList/user/:ID/healthCheckup',
+          component: HealthCheckup,
+        },
+        {
+          path: '/county/file/town/userList/user/:ID/healthCard',
+          component: HealthCard,
+        },
+        {
+          path: '/county/file/town/userList/user/:ID/immuneProcedures',
+          component: ImmuneProcedures,
+        },
+        {
+          path: '/county/file/town/userList/user/:ID/healthEducationActivities',
+          component: HealthEducationActivities,
+        },
+        {
+          path: '/county/file/town/userList/user/:ID/newbornFamilyVisitRecords',
+          component: NewbornFamilyVisitRecords,
+        },
+        {
+          path: '/county/file/town/userList/user/:ID/monthsOldChildrenHealthCheckRecordsOE',
+          component: MonthsOldChildrenHealthCheckRecordsOE,
+        },
+        {
+          path: '/county/file/town/userList/user/:ID/monthsOldChildrenHealthCheckRecordsTS',
+          component: MonthsOldChildrenHealthCheckRecordsTS,
+        },
+        {
+          path: '/county/file/town/userList/user/:ID/monthsOldChildrenHealthCheckRecordsTOSO',
+          component: MonthsOldChildrenHealthCheckRecordsTOSO,
+        },
+        {
+          path: '/county/file/town/userList/user/:ID/boy',
+          component: Boy,
+        },
+        {
+          path: '/county/file/town/userList/user/:ID/grli',
+          component: Grli,
         },
         {
           path: '/county/question',

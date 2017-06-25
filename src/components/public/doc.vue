@@ -37,12 +37,16 @@
     },
     created() {
       const position = this.$route.fullPath;
-      const ID = this.$route.params.ID;
+      let ID = this.$route.params.ID;
       if (position.indexOf('town') > -1) {
         this.$emit('datiChange', '村级列表');
         this.position = 'town';
       } else {
         this.$emit('datiChange', '镇级列表>村级列表');
+      }
+      console.log(ID);
+      if (ID === undefined) {
+        ID = 3;
       }
       this.getTheList(ID);
     },

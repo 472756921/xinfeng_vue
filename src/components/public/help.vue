@@ -7,12 +7,12 @@
     <div class="col-sm-4 col-xs-12">需求类型：药品</div>
     <div class="col-sm-4 col-xs-12">发起时间：2012-12-21</div>
     <div class="col-sm-4 col-xs-12">状&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;态：<span class="status">正在处理</span></div>
-    <div class="col-sm-4 col-xs-12">请求人&nbsp;&nbsp;&nbsp;：XXX镇卫生中心</div>
+    <div class="col-sm-4 col-xs-12">请求人&nbsp;&nbsp;&nbsp;：华阳镇卫生中心</div>
     <br/>
     <br/>
     <div class="col-xs-12 zhichi">
       <span>支持描述:</span>
-      <p>我要点阿莫西连</p>
+      <p>我院急需阿莫西林等消炎药</p>
     </div>
     <br/>
     <div>
@@ -24,16 +24,16 @@
         <div class="tokeBox_user">
           <div class="head">
             <img src="http://iph.href.lu/60x60?text=Head"/>
-            <div class="text-center">刘德华</div>
+            <div class="text-center">新丰县医院</div>
           </div>
-          <div class="words col-xs-8"> 人活着一辈子，身体难免会有点小病痛，最常见的就是头疼，肚子疼的。如果肚子疼了，有的人想想工作太忙了，或者懒得去医院，忍一忍就过去了；还有的认为肯定是着凉了，赶紧用个热水袋敷一敷，再喝点热水热汤。肚子疼会有很多原因，当然有些肚子疼就是着凉或者岔气了，一会儿也就自己好了，可是也有因为太过忽视，肚子疼不但没有减轻，反而延误了病情，后果很严重。 </div>
+          <div class="words col-xs-8">已通过系调配，先药品已经发出，请等待接收</div>
         </div>
         <div class="tokeBox_doc col-xs-12">
           <div class="head">
             <img src="http://iph.href.lu/60x60?text=Head"/>
-            <div class="text-center">刘德华</div>
+            <div class="text-center">华阳镇卫生中心</div>
           </div>
-          <div class="words  col-xs-8"> 人活着一辈子，身体难免会有点小病痛，最常见的就是头疼，肚子疼的。如果肚子疼了，有的人想想工作太忙了，或者懒得去医院，忍一忍就过去了；还有的认为肯定是着凉了，赶紧用个热水袋敷一敷，再喝点热水热汤。肚子疼会有很多原因，当然有些肚子疼就是着凉或者岔气了，一会儿也就自己好了，可是也有因为太过忽视，肚子疼不但没有减轻，反而延误了病情，后果很严重。</div>
+          <div class="words  col-xs-8">收到，请尽快送达</div>
         </div>
       </div>
       <div class="inputBox col-xs-12">

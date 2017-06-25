@@ -190,8 +190,8 @@
           <td>
             1.呼唤名字无反应 <span v-if="tableData[0]!=undefined&&tableData[0].developmentEvaluation.indexOf('1') != -1" class="icon iconfont icon-gou gou"></span><br>
             2.不会模仿“再见”或<br>“欢迎”动作 <span v-if="tableData[0]!=undefined&&tableData[0].developmentEvaluation.indexOf('2') != -1" class="icon iconfont icon-gou gou"></span><br>
-            3.不会用拇食指对捏<br>小物品 <span v-if="tableData[0]!=undefined&&tableData[0].developmentEvaluation.indexOf('1') != -1" class="icon iconfont icon-gou gou"></span><br>
-            4.不会扶物站立 <span v-if="tableData[0]!=undefined&&tableData[0].developmentEvaluation.indexOf('1') != -1" class="icon iconfont icon-gou gou"></span></td>
+            3.不会用拇食指对捏<br>小物品 <span v-if="tableData[0]!=undefined&&tableData[0].developmentEvaluation.indexOf('3') != -1" class="icon iconfont icon-gou gou"></span><br>
+            4.不会扶物站立 <span v-if="tableData[0]!=undefined&&tableData[0].developmentEvaluation.indexOf('4') != -1" class="icon iconfont icon-gou gou"></span></td>
           <td>
             1.不会有意识叫“爸<br>爸”或“妈妈”<span v-if="tableData[1]!=undefined&&tableData[1].developmentEvaluation.indexOf('1') != -1" class="icon iconfont icon-gou gou"></span><br>
             2.不会按要求指人或<br>物<span v-if="tableData[1]!=undefined&&tableData[1].developmentEvaluation.indexOf('2') != -1" class="icon iconfont icon-gou gou"></span><br>
@@ -214,9 +214,9 @@
           <th colspan="2">两次随访间患病情况</th>
           <td class="" v-for="data in tableData">
             1 无 <span class="icon iconfont icon-gou gou" v-if="data.twoFollowUpVisits == '1'"></span><br>
-            2 肺炎 {{data.pneumonia}} 次 <span class="icon iconfont icon-gou gou" v-if="data.pneumonia != null"></span> <br>
-            3 腹泻 {{data.diarrhea}} 次 <span class="icon iconfont icon-gou gou" v-if="data.diarrhea != null"></span> <br>
-            4 外伤 {{data.trauma}} 次 <span class="icon iconfont icon-gou gou" v-if="data.trauma != null"></span><br>
+            2 肺炎 <span class="unline">{{data.pneumonia}}</span> 次 <span class="icon iconfont icon-gou gou" v-if="data.pneumonia != null"></span> <br>
+            3 腹泻 <span class="unline">{{data.diarrhea}}</span> 次 <span class="icon iconfont icon-gou gou" v-if="data.diarrhea != null"></span> <br>
+            4 外伤 <span class="unline">{{data.trauma}}</span> 次 <span class="icon iconfont icon-gou gou" v-if="data.trauma != null"></span><br>
             5 其他 <span class="unline">{{data.otherConditions}}</span> <span class="icon iconfont icon-gou gou" v-if="data.otherConditions != null"></span>
           </td>
           <td v-for="n in 4-tableData.length">1 无<br>2 肺炎 次<br>3 腹泻 次<br>4 外伤 次<br>5 其他</td>
@@ -226,8 +226,8 @@
           <td class="" v-for="data in tableData">
             1 无 <span class="icon iconfont icon-gou gou" v-if="data.referralcode == '1'"></span>
             2 有 <span class="icon iconfont icon-gou gou" v-if="data.referralcode == '2'"></span><br>
-            原因：{{data.referralReason}}<br>
-            机构及科室：{{data.referralInstitution}}
+            原因：<span class="unline">{{data.referralReason}}</span><br>
+            机构及科室：<span class="unline">{{data.referralInstitution}}</span>
           </td>
           <td v-for="n in 4-tableData.length">1 无 2 有<br>原因：<br>机构及科室：</td>
         </tr>

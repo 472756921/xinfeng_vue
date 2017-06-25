@@ -11,7 +11,7 @@
           <tbody>
           <tr>
             <th width="100">体检日期</th>
-            <td width="150">{{tableData.checkTime}} 年 月 日</td>
+            <td width="150">{{tableData.checkTime.split(' ')[0]}}</td>
             <th>责任医生</th>
             <td colspan="3">{{tableData.responsibleDoctor}}</td>
           </tr>
@@ -153,7 +153,12 @@
           </tr>
           <tr>
             <th>饮酒种类</th>
-            <td colspan="3">1白酒 2啤酒 3红酒 4黄酒 5其他___ <span class="checkBox" v-if="tableData.lifeStyle!=undefined">{{tableData.lifeStyle.drunkType}}</span></td>
+            <td colspan="3">1白酒 2啤酒 3红酒 4黄酒 5其他 <span class="unline">{{getTheContent(tableData.lifeStyle.drunkType).ortherData}}</span>
+               <span v-for="(da, index) in getTheContent(tableData.lifeStyle.drunkType).data">
+                <span class="pull-right" v-if="index !== 0">&nbsp;/&nbsp;</span>
+                <span class="checkBox">{{da}}</span>
+              </span>
+            </td>
           </tr>
           <tr>
             <th>职业危害因素接触史</th>
@@ -162,11 +167,31 @@
               从业时间<span class="unline" v-if="tableData.lifeStyle!=undefined">{{tableData.lifeStyle.employmentTime}}</span> 年）
               <span class="checkBox" v-if="tableData.lifeStyle!=undefined">{{tableData.lifeStyle.typeOfWork}}</span><br/>
               毒物种类  <br/>
-              粉尘<span class="unline" v-if="tableData.lifeStyle!=undefined">{{tableData.lifeStyle.dust}}</span>防护措施1无 2有<span class="checkBox">{{tableData.lifeStyle.dustProtection}}</span><br/>
-              放射物质<span class="unline" v-if="tableData.lifeStyle!=undefined">{{tableData.lifeStyle.radioactiveSubstance}}</span>防护措施1无 2有<span class="checkBox">{{tableData.lifeStyle.radioactiveSubstanceProtection}}</span><br/>
-              物理因素<span class="unline" v-if="tableData.lifeStyle!=undefined">{{tableData.lifeStyle.physicalFactors}}</span>防护措施1无 2有<span class="checkBox">{{tableData.lifeStyle.physicalFactorsProtection}}</span><br/>
-              化学物质<span class="unline" v-if="tableData.lifeStyle!=undefined">{{tableData.lifeStyle.chemicalSubstances}}</span>防护措施1无 2有<span class="checkBox">{{tableData.lifeStyle.chemicalSubstancesProtection}}</span><br/>
-              其他<span class="unline" v-if="tableData.lifeStyle!=undefined">{{tableData.lifeStyle.otherPoison}}</span>防护措施1无 2有<span class="checkBox">{{tableData.lifeStyle.otherPoisonProtection}}</span>
+              粉尘<span class="unline" v-if="tableData.lifeStyle!=undefined">{{getTheContent(tableData.lifeStyle.dustProtection).ortherData}}</span>防护措施1无 2有
+              <span v-for="(da, index) in getTheContent(tableData.lifeStyle.dustProtection).data">
+                <span class="pull-right" v-if="index !== 0">&nbsp;/&nbsp;</span>
+                <span class="checkBox">{{da}}</span>
+              </span><br/>
+              放射物质<span class="unline" v-if="tableData.lifeStyle!=undefined">{{getTheContent(tableData.lifeStyle.radioactiveSubstanceProtection).ortherData}}</span>防护措施1无 2有
+              <span v-for="(da, index) in getTheContent(tableData.lifeStyle.radioactiveSubstanceProtection).data">
+                <span class="pull-right" v-if="index !== 0">&nbsp;/&nbsp;</span>
+                <span class="checkBox">{{da}}</span>
+              </span><br/>
+              物理因素<span class="unline" v-if="tableData.lifeStyle!=undefined">{{getTheContent(tableData.lifeStyle.physicalFactorsProtection).ortherData}}</span>防护措施1无 2有
+              <span v-for="(da, index) in getTheContent(tableData.lifeStyle.physicalFactorsProtection).data">
+                <span class="pull-right" v-if="index !== 0">&nbsp;/&nbsp;</span>
+                <span class="checkBox">{{da}}</span>
+              </span><br/>
+              化学物质<span class="unline" v-if="tableData.lifeStyle!=undefined">{{getTheContent(tableData.lifeStyle.chemicalSubstancesProtection).ortherData}}</span>防护措施1无 2有
+              <span v-for="(da, index) in getTheContent(tableData.lifeStyle.chemicalSubstancesProtection).data">
+                <span class="pull-right" v-if="index !== 0">&nbsp;/&nbsp;</span>
+                <span class="checkBox">{{da}}</span>
+              </span><br/>
+              其他<span class="unline" v-if="tableData.lifeStyle!=undefined">{{getTheContent(tableData.lifeStyle.otherPoisonProtection).ortherData}}</span>防护措施1无 2有
+              <span v-for="(da, index) in getTheContent(tableData.lifeStyle.otherPoisonProtection).data">
+                <span class="pull-right" v-if="index !== 0">&nbsp;/&nbsp;</span>
+                <span class="checkBox">{{da}}</span>
+              </span>
             </td>
           </tr>
           <tr>
@@ -202,45 +227,99 @@
           <tr>
             <th rowspan="19">查体</th>
             <th>眼底*</th>
-            <td colspan="4">1正常 2异常_______<span class="checkBox">{{tableData.checkTheBody.theFundusOculi}}</span></td>
+            <td colspan="4">1正常 2异常<span class="unline">{{getTheContent(tableData.checkTheBody.theFundusOculi).ortherData}}</span>
+              <span v-for="(da, index) in getTheContent(tableData.checkTheBody.theFundusOculi).data">
+                <span class="pull-right" v-if="index !== 0">&nbsp;/&nbsp;</span>
+                <span class="checkBox">{{da}}</span>
+              </span>
+            </td>
           </tr>
           <tr>
             <th>皮肤</th>
-            <td colspan="4">1正常 2潮红 3苍白 4发绀 5黄染 6色素沉着 7其他_______<span class="checkBox">{{tableData.checkTheBody.skin}}</span></td>
+            <td colspan="4">1正常 2潮红 3苍白 4发绀 5黄染 6色素沉着 7其他<span class="unline">{{getTheContent(tableData.checkTheBody.skin).ortherData}}</span>
+              <span v-for="(da, index) in getTheContent(tableData.checkTheBody.skin).data">
+                <span class="pull-right" v-if="index !== 0">&nbsp;/&nbsp;</span>
+                <span class="checkBox">{{da}}</span>
+              </span>
+            </td>
           </tr>
           <tr>
             <th>巩膜</th>
-            <td colspan="4">1正常 2黄染 3充血 4其他_______<span class="checkBox">{{tableData.checkTheBody.sclera}}</span></td>
+            <td colspan="4">1正常 2黄染 3充血 4其他<span class="unline">{{getTheContent(tableData.checkTheBody.sclera).ortherData}}</span>
+              <span v-for="(da, index) in getTheContent(tableData.checkTheBody.sclera).data">
+                <span class="pull-right" v-if="index !== 0">&nbsp;/&nbsp;</span>
+                <span class="checkBox">{{da}}</span>
+              </span>
+            </td>
           </tr>
           <tr>
             <th>淋巴结</th>
-            <td colspan="4">1未触及 2锁骨上 3腋窝 4其他_______<span class="checkBox">{{tableData.checkTheBody.lymphGland}}</span></td>
+            <td colspan="4">1未触及 2锁骨上 3腋窝 4其他<span class="unline">{{getTheContent(tableData.checkTheBody.lymphGland).ortherData}}</span>
+              <span v-for="(da, index) in getTheContent(tableData.checkTheBody.lymphGland).data">
+                <span class="pull-right" v-if="index !== 0">&nbsp;/&nbsp;</span>
+                <span class="checkBox">{{da}}</span>
+              </span>
+            </td>
           </tr>
           <tr>
             <th rowspan="3">肺</th>
             <td colspan="4">桶状胸 1否 2是<span class="checkBox">{{tableData.checkTheBody.barrelChest}}</span></td>
           </tr>
           <tr>
-            <td colspan="4">呼吸音 1正常 2异常____<span class="checkBox">{{tableData.checkTheBody.breathSounds}}</span></td>
+            <td colspan="4">呼吸音 1正常 2异常<span class="unline">{{getTheContent(tableData.checkTheBody.breathSounds).ortherData}}</span>
+              <span v-for="(da, index) in getTheContent(tableData.checkTheBody.breathSounds).data">
+                <span class="pull-right" v-if="index !== 0">&nbsp;/&nbsp;</span>
+                <span class="checkBox">{{da}}</span>
+              </span>
+            </td>
           </tr>
           <tr>
-            <td colspan="4">罗音 1无 2干罗音 3湿罗音 4其他____<span class="checkBox">{{tableData.checkTheBody.rale}}</span></td>
+            <td colspan="4">罗音 1无 2干罗音 3湿罗音 4其他<span class="unline">{{getTheContent(tableData.checkTheBody.rale).ortherData}}</span>
+              <span v-for="(da, index) in getTheContent(tableData.checkTheBody.rale).data">
+                <span class="pull-right" v-if="index !== 0">&nbsp;/&nbsp;</span>
+                <span class="checkBox">{{da}}</span>
+              </span>
+            </td>
           </tr>
           <tr>
             <th>心脏</th>
             <td colspan="4">
               心率：<span class="unline">{{tableData.checkTheBody.heartRate}}</span> 次/分钟 心律：1齐 2不齐 3绝对不齐<span class="checkBox">{{tableData.checkTheBody.rhythm}}</span><br/>
-              杂音：1无 2有_____<span class="checkBox">{{tableData.checkTheBody.noise}}</span>
+              杂音：1无 2有<span class="unline">{{getTheContent(tableData.checkTheBody.noise).ortherData}}</span>
+              <span v-for="(da, index) in getTheContent(tableData.checkTheBody.noise).data">
+                <span class="pull-right" v-if="index !== 0">&nbsp;/&nbsp;</span>
+                <span class="checkBox">{{da}}</span>
+              </span>
             </td>
           </tr>
           <tr>
             <th>腹部</th>
             <td colspan="4">
-              压痛：1无 2有_____<span class="checkBox">{{tableData.checkTheBody.tenderness}}</span><br/>
-              包块：1无 2有_____<span class="checkBox">{{tableData.checkTheBody.bagPiece}}</span><br/>
-              肝大：1无 2有_____<span class="checkBox">{{tableData.checkTheBody.liver}}</span><br/>
-              脾大：1无 2有_____<span class="checkBox">{{tableData.checkTheBody.splenomegaly}}</span><br/>
-              移动性浊音：1无 2有_____<span class="checkBox">{{tableData.checkTheBody.mobileDullness}}</span><br/>
+              压痛：1无 2有<span class="unline">{{getTheContent(tableData.checkTheBody.tenderness).ortherData}}</span>
+               <span v-for="(da, index) in getTheContent(tableData.checkTheBody.tenderness).data">
+                <span class="pull-right" v-if="index !== 0">&nbsp;/&nbsp;</span>
+                <span class="checkBox">{{da}}</span>
+              </span><br/>
+              包块：1无 2有<span class="unline">{{getTheContent(tableData.checkTheBody.bagPiece).ortherData}}</span>
+               <span v-for="(da, index) in getTheContent(tableData.checkTheBody.bagPiece).data">
+                <span class="pull-right" v-if="index !== 0">&nbsp;/&nbsp;</span>
+                <span class="checkBox">{{da}}</span>
+              </span><br/>
+              肝大：1无 2有<span class="unline">{{getTheContent(tableData.checkTheBody.liver).ortherData}}</span>
+               <span v-for="(da, index) in getTheContent(tableData.checkTheBody.liver).data">
+                <span class="pull-right" v-if="index !== 0">&nbsp;/&nbsp;</span>
+                <span class="checkBox">{{da}}</span>
+              </span><br/>
+              脾大：1无 2有<span class="unline">{{getTheContent(tableData.checkTheBody.splenomegaly).ortherData}}</span>
+               <span v-for="(da, index) in getTheContent(tableData.checkTheBody.splenomegaly).data">
+                <span class="pull-right" v-if="index !== 0">&nbsp;/&nbsp;</span>
+                <span class="checkBox">{{da}}</span>
+              </span><br/>
+              移动性浊音：1无 2有<span class="unline">{{getTheContent(tableData.checkTheBody.mobileDullness).ortherData}}</span>
+               <span v-for="(da, index) in getTheContent(tableData.checkTheBody.mobileDullness).data">
+                <span class="pull-right" v-if="index !== 0">&nbsp;/&nbsp;</span>
+                <span class="checkBox">{{da}}</span>
+              </span><br/>
             </td>
           </tr>
           <tr>
@@ -253,42 +332,70 @@
           </tr>
           <tr>
             <th>肛门指诊*</th>
-            <td colspan="4">1未及异常 2触痛 3包块 4前列腺异常 5其他_____<span class="checkBox">{{tableData.checkTheBody.analDampness}}</span></td>
+            <td colspan="4">1未及异常 2触痛 3包块 4前列腺异常 5其他<span class="unline">{{getTheContent(tableData.checkTheBody.analDampness).ortherData}}</span>
+               <span v-for="(da, index) in getTheContent(tableData.checkTheBody.analDampness).data">
+                <span class="pull-right" v-if="index !== 0">&nbsp;/&nbsp;</span>
+                <span class="checkBox">{{da}}</span>
+              </span></td>
           </tr>
           <tr>
             <th>乳腺*</th>
             <td colspan="4">
-              1未见异常 2乳房切除 3异常泌乳 4乳腺包块 5其他_____
-              <span class="checkBox">{{tableData.checkTheBody.breast}}</span>
-              <span class="pull-right">&nbsp;/&nbsp;</span>
-              <span class="checkBox">1</span>
-              <span class="pull-right">&nbsp;/&nbsp;</span>
-              <span class="checkBox">1</span>
+              1未见异常 2乳房切除 3异常泌乳 4乳腺包块 5其他<span class="unline">{{getTheContent(tableData.checkTheBody.breast).ortherData}}</span>
+               <span v-for="(da, index) in getTheContent(tableData.checkTheBody.breast).data">
+                <span class="pull-right" v-if="index !== 0">&nbsp;/&nbsp;</span>
+                <span class="checkBox">{{da}}</span>
+              </span>
             </td>
           </tr>
           <tr>
             <th rowspan="5">妇科*</th>
             <td >外阴</td>
-            <td colspan="3">1未见异常 2异常_____<span class="checkBox">{{tableData.checkTheBody.vulva}}</span></td>
+            <td colspan="3">1未见异常 2异常<span class="unline">{{getTheContent(tableData.checkTheBody.vulva).ortherData}}</span>
+               <span v-for="(da, index) in getTheContent(tableData.checkTheBody.vulva).data">
+                <span class="pull-right" v-if="index !== 0">&nbsp;/&nbsp;</span>
+                <span class="checkBox">{{da}}</span>
+              </span>
+            </td>
           </tr>
           <tr>
             <td >阴道</td>
-            <td colspan="3">1未见异常 2异常_____<span class="checkBox">{{tableData.checkTheBody.vagina}}</span></td>
+            <td colspan="3">1未见异常 2异常<span class="unline">{{getTheContent(tableData.checkTheBody.vagina).ortherData}}</span>
+               <span v-for="(da, index) in getTheContent(tableData.checkTheBody.vagina).data">
+                <span class="pull-right" v-if="index !== 0">&nbsp;/&nbsp;</span>
+                <span class="checkBox">{{da}}</span>
+              </span>
+            </td>
           </tr>
           <tr>
             <td>宫颈</td>
-            <td colspan="3">1未见异常 2异常_____<span class="checkBox">{{tableData.checkTheBody.cervical}}</span></td>
+            <td colspan="3">1未见异常 2异常<span class="unline">{{getTheContent(tableData.checkTheBody.cervical).ortherData}}</span>
+               <span v-for="(da, index) in getTheContent(tableData.checkTheBody.cervical).data">
+                <span class="pull-right" v-if="index !== 0">&nbsp;/&nbsp;</span>
+                <span class="checkBox">{{da}}</span>
+              </span>
+            </td>
           </tr>
           <tr>
             <td>宫体</td>
-            <td colspan="3">1未见异常 2异常_____<span class="checkBox">{{tableData.checkTheBody.palace}}</span></td>
+            <td colspan="3">1未见异常 2异常<span class="unline">{{getTheContent(tableData.checkTheBody.palace).ortherData}}</span>
+               <span v-for="(da, index) in getTheContent(tableData.checkTheBody.palace).data">
+                <span class="pull-right" v-if="index !== 0">&nbsp;/&nbsp;</span>
+                <span class="checkBox">{{da}}</span>
+              </span>
+            </td>
           </tr>
           <tr>
             <td>附件</td>
-            <td colspan="3">1未见异常 2异常_____<span class="checkBox">{{tableData.checkTheBody.enclosure}}</span></td>
+            <td colspan="3">1未见异常 2异常<span class="unline">{{getTheContent(tableData.checkTheBody.enclosure).ortherData}}</span>
+               <span v-for="(da, index) in getTheContent(tableData.checkTheBody.enclosure).data">
+                <span class="pull-right" v-if="index !== 0">&nbsp;/&nbsp;</span>
+                <span class="checkBox">{{da}}</span>
+              </span>
+            </td>
           </tr>
           <tr>
-            <td>其他</td>
+            <th>其他</th>
             <td colspan="4">{{tableData.checkTheBody.otherGynaecology}}</td>
           </tr>
           <tr>
@@ -515,10 +622,10 @@
               <span class="checkBox">{{tableData.healthAssessment}}</span>
               1体检无异常<br/>
               2有异常<br/>
-              异常1__________<br/>
-              异常2__________<br/>
-              异常3__________<br/>
-              异常4__________<br/>
+              异常1<span class="unline">{{tableData.abnormalOne}}</span><br/>
+              异常2<span class="unline">{{tableData.abnormalTwo}}</span><br/>
+              异常3<span class="unline">{{tableData.abnormalThree}}</span><br/>
+              异常4<span class="unline">{{tableData.abnormalFour}}</span><br/>
             </td>
           </tr>
           <tr>
@@ -539,7 +646,8 @@
                 <span class="checkBox">{{da}}</span>
               </span>
               <br/>
-              1戒烟 2健康饮酒 3饮食 4锻炼 5减体重（目标____KG）<br/> 6建议接种疫苗________ 7其他____________
+              1戒烟 2健康饮酒 3饮食 4锻炼 5减体重（目标<span class="unline">{{tableData.weightReduction}}</span>KG）<br/>
+              6建议接种疫苗<span class="unline">{{tableData.vaccine}}</span> 7其他<span class="unline">{{tableData.otherControl}}</span>
             </td>
           </tr>
           </tbody>
