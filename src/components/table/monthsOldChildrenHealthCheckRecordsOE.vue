@@ -184,9 +184,17 @@
         <tr>
           <th>可疑佝偻病体征</th>
           <td class="text-center">--</td>
-          <td>1 无 2 颅骨软化</td>
-          <td>1 无 2 肋串珠<br>3 肋软骨沟<br>4 鸡胸 5 手足镯<br>6 颅骨软化 7 方颅</td>
-          <td>1 无 2 肋串珠<br>3 肋软骨沟<br>4 鸡胸 5 手足镯<br>6 颅骨软化 7 方颅</td>
+          <td>1 无<span class="icon iconfont icon-gou gou" v-if="tableData[1]!=undefined&&tableData[1].suspectedRicketsSign == 1"></span> 2 颅骨软化<span class="icon iconfont icon-gou gou" v-if="tableData[1]!=undefined&&tableData[1].suspectedRicketsSign == 2"></span></td>
+          <td>1 无<span class="icon iconfont icon-gou gou" v-if="tableData[2]!=undefined&&tableData[2].suspectedRicketsSign == 1"></span> 2 肋串珠<span class="icon iconfont icon-gou gou" v-if="tableData[2]!=undefined&&tableData[2].suspectedRicketsSign == 2"></span><br>
+            3 肋软骨沟<span class="icon iconfont icon-gou gou" v-if="tableData[2]!=undefined&&tableData[2].suspectedRicketsSign == 3"></span><br>4 鸡胸<span class="icon iconfont icon-gou gou" v-if="tableData[2]!=undefined&&tableData[2].suspectedRicketsSign == 4"></span>
+            5 手足镯<span class="icon iconfont icon-gou gou" v-if="tableData[2]!=undefined&&tableData[2].suspectedRicketsSign == 5"></span><br>
+            6 颅骨软化<span class="icon iconfont icon-gou gou" v-if="tableData[2]!=undefined&&tableData[2].suspectedRicketsSign == 6"></span> 7 方颅<span class="icon iconfont icon-gou gou" v-if="tableData[2]!=undefined&&tableData[2].suspectedRicketsSign == 7"></span>
+          </td>
+          <td>1 无<span class="icon iconfont icon-gou gou" v-if="tableData[3]!=undefined&&tableData[3].suspectedRicketsSign == 1"></span> 2 肋串珠<span class="icon iconfont icon-gou gou" v-if="tableData[3]!=undefined&&tableData[3]!=undefined&&tableData[3].suspectedRicketsSign == 2"></span><br>
+            3 肋软骨沟<span class="icon iconfont icon-gou gou" v-if="tableData[3]!=undefined&&tableData[3].suspectedRicketsSign == 3"></span><br>4 鸡胸<span class="icon iconfont icon-gou gou" v-if="tableData[3]!=undefined&&tableData[3]!=undefined&&tableData[3].suspectedRicketsSign == 4"></span>
+            5 手足镯<span class="icon iconfont icon-gou gou" v-if="tableData[3]!=undefined&&tableData[3].suspectedRicketsSign == 5"></span><br>
+            6 颅骨软化<span class="icon iconfont icon-gou gou" v-if="tableData[3]!=undefined&&tableData[3].suspectedRicketsSign == 6"></span> 7 方颅<span class="icon iconfont icon-gou gou" v-if="tableData[3]!=undefined&&tableData[3]!=undefined&&tableData[3].suspectedRicketsSign == 7"></span>
+          </td>
         </tr>
         <tr>
           <th>肛门/外生殖器</th>

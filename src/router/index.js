@@ -36,6 +36,14 @@ import MonthsOldChildrenHealthCheckRecordsTS from '@/components/table/monthsOldC
 import MonthsOldChildrenHealthCheckRecordsTOSO from '@/components/table/monthsOldChildrenHealthCheckRecordsTOSO';
 import Boy from '@/components/table/boy';
 import Grli from '@/components/table/grli';
+import FirstPrenatalInspectionServiceRecord from '@/components/table/firstPrenatalInspectionServiceRecord';
+import PrenatalFollowUpServiceRecordTF from '@/components/table/prenatalFollowUpServiceRecordTF';
+import PostpartumVisitRecordForm from '@/components/table/postpartumVisitRecordForm';
+import PostpartumDaysHealthChecklistFT from '@/components/table/PostpartumDaysHealthChecklistFT';
+import EvaluationOfSelfCareAbilityOfTheElderly from '@/components/table/evaluationOfSelfCareAbilityOfTheElderly';
+import FollowUpServiceRecordsForPatientsWithHypertension from '@/components/table/followUpServiceRecordsForPatientsWithHypertension';
+import FollowUpServiceRecordsForPatientsWithType2DiabetesMellitus from '@/components/table/followUpServiceRecordsForPatientsWithType2DiabetesMellitus';
+import SupplementaryInformationOnMentalDisorders from '@/components/table/supplementaryInformationOnMentalDisorders';
 
 import NotFoundComponent from '@/components/notFoundComponent';
 
@@ -328,6 +336,38 @@ const router = new Router({
         {
           path: '/countyAdmin/file/town/userList/user/:ID/grli',
           component: Grli,
+        },
+        {
+          path: '/countyAdmin/file/town/userList/user/:ID/firstPrenatalInspectionServiceRecord',
+          component: FirstPrenatalInspectionServiceRecord,
+        },
+        {
+          path: '/countyAdmin/file/town/userList/user/:ID/prenatalFollowUpServiceRecordTF',
+          component: PrenatalFollowUpServiceRecordTF,
+        },
+        {
+          path: '/countyAdmin/file/town/userList/user/:ID/postpartumVisitRecordForm',
+          component: PostpartumVisitRecordForm,
+        },
+        {
+          path: '/countyAdmin/file/town/userList/user/:ID/PostpartumDaysHealthChecklistFT',
+          component: PostpartumDaysHealthChecklistFT,
+        },
+        {
+          path: '/countyAdmin/file/town/userList/user/:ID/evaluationOfSelfCareAbilityOfTheElderly',
+          component: EvaluationOfSelfCareAbilityOfTheElderly,
+        },
+        {
+          path: '/countyAdmin/file/town/userList/user/:ID/followUpServiceRecordsForPatientsWithHypertension',
+          component: FollowUpServiceRecordsForPatientsWithHypertension,
+        },
+        {
+          path: '/countyAdmin/file/town/userList/user/:ID/followUpServiceRecordsForPatientsWithType2DiabetesMellitus',
+          component: FollowUpServiceRecordsForPatientsWithType2DiabetesMellitus,
+        },
+        {
+          path: '/countyAdmin/file/town/userList/user/:ID/supplementaryInformationOnMentalDisorders',
+          component: SupplementaryInformationOnMentalDisorders,
         },
         {
           path: '/countyAdmin/file/town/userList/user/12/PIinfo',

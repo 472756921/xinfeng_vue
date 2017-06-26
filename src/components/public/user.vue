@@ -254,14 +254,14 @@
       <button class="btn btn-default" @click="checkTable('monthsOldChildrenHealthCheckRecordsTOSO')">12～30月龄儿童健康检查记录表</button>
       <button class="btn btn-default" @click="checkTable('boy')">男童生长发育图</button>
       <button class="btn btn-default" @click="checkTable('grli')">女童生长发育图</button>
-      <button class="btn btn-default">第一次产前检查服务记录表</button>
-      <button class="btn btn-default">第2~5次产前随访服务记录表</button>
-      <button class="btn btn-default">产后访视记录表</button>
-      <button class="btn btn-default">产后42天健康检查记录表</button>
-      <button class="btn btn-default">老年人生活自理能力评估表</button>
-      <button class="btn btn-default">高血压患者随访服务记录表</button>
-      <button class="btn btn-default">糖尿病患者随访服务记录表</button>
-      <button class="btn btn-default">严重精神障碍患者随访服务记录表</button>
+      <button class="btn btn-default" @click="checkTable('firstPrenatalInspectionServiceRecord')">第一次产前检查服务记录表</button>
+      <button class="btn btn-default" @click="checkTable('prenatalFollowUpServiceRecordTF')">第2~5次产前随访服务记录表</button>
+      <button class="btn btn-default" @click="checkTable('postpartumVisitRecordForm')">产后访视记录表</button>
+      <button class="btn btn-default" @click="checkTable('PostpartumDaysHealthChecklistFT')">产后42天健康检查记录表</button>
+      <button class="btn btn-default" @click="checkTable('evaluationOfSelfCareAbilityOfTheElderly')">老年人生活自理能力评估表</button>
+      <button class="btn btn-default" @click="checkTable('followUpServiceRecordsForPatientsWithHypertension')">高血压患者随访服务记录表</button>
+      <button class="btn btn-default" @click="checkTable('followUpServiceRecordsForPatientsWithType2DiabetesMellitus')">2型糖尿病患者随访服务记录表</button>
+      <button class="btn btn-default" @click="checkTable('supplementaryInformationOnMentalDisorders')">严重精神障碍患者随访服务记录表</button>
       <button class="btn btn-default">严重精神障碍患者个人信息补充表</button>
       <button class="btn btn-default">肺结核患者第一次入户随访记录表</button>
       <button class="btn btn-default">肺结核患者随访服务记录表</button>
