@@ -261,14 +261,16 @@
       <button class="btn btn-default" @click="checkTable('evaluationOfSelfCareAbilityOfTheElderly')">老年人生活自理能力评估表</button>
       <button class="btn btn-default" @click="checkTable('followUpServiceRecordsForPatientsWithHypertension')">高血压患者随访服务记录表</button>
       <button class="btn btn-default" @click="checkTable('followUpServiceRecordsForPatientsWithType2DiabetesMellitus')">2型糖尿病患者随访服务记录表</button>
-      <button class="btn btn-default" @click="checkTable('supplementaryInformationOnMentalDisorders')">严重精神障碍患者随访服务记录表</button>
-      <button class="btn btn-default">严重精神障碍患者个人信息补充表</button>
-      <button class="btn btn-default">肺结核患者第一次入户随访记录表</button>
-      <button class="btn btn-default">肺结核患者随访服务记录表</button>
-      <button class="btn btn-default">老年人中医药健康管理服务记录表</button>
-      <button class="btn btn-default">体质判定标准表</button>
-      <button class="btn btn-default">卫生计生监督协管信息报告登记表</button>
-      <button class="btn btn-default">月龄儿童健康检查记录表</button>
+      <button class="btn btn-default" @click="checkTable('followUpServiceRecordsForPatientsWithSevereMentalDisorders')">严重精神障碍患者随访服务记录表</button>
+      <button class="btn btn-default" @click="checkTable('supplementaryInformationOnMentalDisorders')">严重精神障碍患者个人信息补充表</button>
+      <button class="btn btn-default" @click="checkTable('listOfPatientsWithTuberculosisForTheFirstTime')">肺结核患者第一次入户随访记录表</button>
+      <button class="btn btn-default" @click="checkTable('listOfPatientsWithPulmonaryTuberculosisFollowUpService')">肺结核患者随访服务记录表</button>
+      <button class="btn btn-default" @click="checkTable('listOfTraditionalChineseMedicineHealthManagementServiceForTheElderly')">老年人中医药健康管理服务记录表</button>
+      <button class="btn btn-default" @click="checkTable('criteriaForPhysicalFitness')">体质判定标准表</button>
+      <button class="btn btn-default" @click="checkTable('listOfTCMHealthManagementServiceForChildrenFrom6To18Months')">6～18 月龄儿童中医药健康管理服务记录表</button>
+      <button class="btn btn-default" @click="checkTable('listOfTCMHealthManagementServiceForChildrenFrom24To36Months')">24~36 月龄儿童中医药健康管理服务记录表</button>
+      <button class="btn btn-default" @click="checkTable('registrationFormForInformationManagementOfHealthSurveys')">卫生计生监督协管信息报告登记表</button>
+      <button class="btn btn-default" @click="checkTable('healthAndHygieneSupervisionCoManagementInspectionForm')">卫生计生监督协管巡查登记表</button>
       <button class="btn btn-default" @click="print">打印</button>
     </div>
     <br class="hidden-print"/>

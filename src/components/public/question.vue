@@ -68,7 +68,7 @@
         this.countyAdmin = 'countyAdmin';
       }
       if (Character === 'county') {
-        this.countyAdmin = 'countyAdmin';
+        this.countyAdmin = 'county';
       }
     },
     data() {
@@ -82,7 +82,9 @@
         this.$router.go(-1);
       },
       checkInfo() {
-        this.$router.push('/countyAdmin/file/town/userList/user/1');
+        const path = '/file/town/userList/user/1';
+        const pathF = '/';
+        this.$router.push(pathF + this.countyAdmin + path);
       },
     },
   };

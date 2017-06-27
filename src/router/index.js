@@ -44,6 +44,15 @@ import EvaluationOfSelfCareAbilityOfTheElderly from '@/components/table/evaluati
 import FollowUpServiceRecordsForPatientsWithHypertension from '@/components/table/followUpServiceRecordsForPatientsWithHypertension';
 import FollowUpServiceRecordsForPatientsWithType2DiabetesMellitus from '@/components/table/followUpServiceRecordsForPatientsWithType2DiabetesMellitus';
 import SupplementaryInformationOnMentalDisorders from '@/components/table/supplementaryInformationOnMentalDisorders';
+import FollowUpServiceRecordsForPatientsWithSevereMentalDisorders from '@/components/table/followUpServiceRecordsForPatientsWithSevereMentalDisorders';
+import ListOfPatientsWithTuberculosisForTheFirstTime from '@/components/table/listOfPatientsWithTuberculosisForTheFirstTime';
+import ListOfPatientsWithPulmonaryTuberculosisFollowUpService from '@/components/table/listOfPatientsWithPulmonaryTuberculosisFollowUpService';
+import ListOfTraditionalChineseMedicineHealthManagementServiceForTheElderly from '@/components/table/listOfTraditionalChineseMedicineHealthManagementServiceForTheElderly';
+import CriteriaForPhysicalFitness from '@/components/table/criteriaForPhysicalFitness';
+import ListOfTCMHealthManagementServiceForChildrenFrom6To18Months from '@/components/table/listOfTCMHealthManagementServiceForChildrenFrom6To18Months';
+import RegistrationFormForInformationManagementOfHealthSurveys from '@/components/table/registrationFormForInformationManagementOfHealthSurveys';
+import ListOfTCMHealthManagementServiceForChildrenFrom24To36Months from '@/components/table/listOfTCMHealthManagementServiceForChildrenFrom24To36Months';
+import HealthAndHygieneSupervisionCoManagementInspectionForm from '@/components/table/healthAndHygieneSupervisionCoManagementInspectionForm';
 
 import NotFoundComponent from '@/components/notFoundComponent';
 
@@ -368,6 +377,42 @@ const router = new Router({
         {
           path: '/countyAdmin/file/town/userList/user/:ID/supplementaryInformationOnMentalDisorders',
           component: SupplementaryInformationOnMentalDisorders,
+        },
+        {
+          path: '/countyAdmin/file/town/userList/user/:ID/followUpServiceRecordsForPatientsWithSevereMentalDisorders',
+          component: FollowUpServiceRecordsForPatientsWithSevereMentalDisorders,
+        },
+        {
+          path: '/countyAdmin/file/town/userList/user/:ID/listOfPatientsWithTuberculosisForTheFirstTime',
+          component: ListOfPatientsWithTuberculosisForTheFirstTime,
+        },
+        {
+          path: '/countyAdmin/file/town/userList/user/:ID/listOfPatientsWithPulmonaryTuberculosisFollowUpService',
+          component: ListOfPatientsWithPulmonaryTuberculosisFollowUpService,
+        },
+        {
+          path: '/countyAdmin/file/town/userList/user/:ID/listOfTraditionalChineseMedicineHealthManagementServiceForTheElderly',
+          component: ListOfTraditionalChineseMedicineHealthManagementServiceForTheElderly,
+        },
+        {
+          path: '/countyAdmin/file/town/userList/user/:ID/criteriaForPhysicalFitness',
+          component: CriteriaForPhysicalFitness,
+        },
+        {
+          path: '/countyAdmin/file/town/userList/user/:ID/listOfTCMHealthManagementServiceForChildrenFrom6To18Months',
+          component: ListOfTCMHealthManagementServiceForChildrenFrom6To18Months,
+        },
+        {
+          path: '/countyAdmin/file/town/userList/user/:ID/registrationFormForInformationManagementOfHealthSurveys',
+          component: RegistrationFormForInformationManagementOfHealthSurveys,
+        },
+        {
+          path: '/countyAdmin/file/town/userList/user/:ID/listOfTCMHealthManagementServiceForChildrenFrom24To36Months',
+          component: ListOfTCMHealthManagementServiceForChildrenFrom24To36Months,
+        },
+        {
+          path: '/countyAdmin/file/town/userList/user/:ID/healthAndHygieneSupervisionCoManagementInspectionForm',
+          component: HealthAndHygieneSupervisionCoManagementInspectionForm,
         },
         {
           path: '/countyAdmin/file/town/userList/user/12/PIinfo',
