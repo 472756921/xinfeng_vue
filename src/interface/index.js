@@ -172,3 +172,15 @@ export const oldManSByID = function () {
   const API = Host + URL;
   return API;
 };
+// 型糖尿病患者随访服务记录列表
+export const diabetesList = function () {
+  const URL = '/app/api/diabetes/query';
+  const API = Host + URL;
+  return API;
+};
+// 型糖尿病患者随访服务记录
+export const diabetes = function () {
+  const URL = '/app/api/diabetes/find';
+  const API = Host + URL;
+  return API;
+};

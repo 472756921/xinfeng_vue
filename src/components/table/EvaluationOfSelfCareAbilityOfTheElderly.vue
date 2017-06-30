@@ -81,7 +81,7 @@
         <td>{{data.name}}</td>
         <td>{{data.selfCareDate}}</td>
         <td>{{data.total}}</td>
-        <td>详情</td>
+        <td>详情 {{data.id}}</td>
       </tr>
       </tbody>
     </table>

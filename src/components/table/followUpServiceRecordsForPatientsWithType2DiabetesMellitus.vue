@@ -215,15 +215,83 @@
       </tr>
       </tbody>
     </table>
+    <table class="table">
+      <thead>
+      <tr>
+        <th>姓名</th>
+        <th>随访日期</th>
+        <th>操作</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr v-for="data in listData.results">
+        <td>{{data.name}}</td>
+        <td>{{data.obj1[0].starTime}} ~ {{data.obj1[0].endTime}}</td>
+        <td>详情 {{data.id}}</td>
+      </tr>
+      </tbody>
+    </table>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
+  import { diabetesList, diabetes } from '../../interface';
+
   export default {
     name: 'followUpServiceRecordsForPatientsWithType2DiabetesMellitus',
+    data() {
+      return {
+        tableData: '',
+        listData: '',
+      };
+    },
+    created() {
+      this.getListData(1);
+      this.getTableData(1);
+    },
     methods: {
       back() {
         this.$router.go(-1);
+      },
+      getListData(ID) {
+        const authTokenes = JSON.parse(sessionStorage.getItem('user')).authToken;
+        this.$http.get(
+          diabetesList(),
+          {
+            params: {
+              id: ID,
+              page: 1,
+              pageSize: 10,
+            },
+            headers: {
+              authToken: authTokenes,
+            },
+          },
+        ).then((res) => {
+          this.listData = JSON.parse(res.bodyText);
+        }).catch((error) => {
+          console.log(error);
+        });
+      },
+      getTableData(ID) {
+        const authTokenes = JSON.parse(sessionStorage.getItem('user')).authToken;
+        this.$http.get(
+          diabetes(),
+          {
+            params: {
+              id: ID,
+              starTime: '2017-09-09 ',
+              endTime: '2017-11-09',
+            },
+            headers: {
+              authToken: authTokenes,
+            },
+          },
+        ).then((res) => {
+          this.tableData = JSON.parse(res.bodyText);
+        }).catch((error) => {
+          console.log(error);
+        });
       },
     },
   };
