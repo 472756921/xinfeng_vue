@@ -194,9 +194,9 @@
         const LastData = [];
         let orther = '';
         for (let i = 0; i < dataList.length; i += 1) {
-          if (dataList[i].indexOf('^') !== -1) {
-            orther = dataList[i].split('^')[1];
-            LastData.push(dataList[i].split('^')[0]);
+          if (dataList[i].indexOf('_') !== -1) {
+            orther = dataList[i].split('_')[1];
+            LastData.push(dataList[i].split('_')[0]);
           } else {
             LastData.push(dataList[i]);
           }

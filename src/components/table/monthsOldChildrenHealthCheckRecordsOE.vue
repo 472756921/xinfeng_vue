@@ -66,9 +66,9 @@
           <th>前 囟</th>
           <td v-for="data in tableData">
             <span>1闭合</span>
-            <span class="icon iconfont icon-gou gou" v-if="data.bregmatic.split('^')[0] == '1'"></span>
+            <span class="icon iconfont icon-gou gou" v-if="data.bregmatic.split('_')[0] == '1'"></span>
             <span>2未闭</span>
-            <span class="icon iconfont icon-gou gou" v-if="data.bregmatic.split('^')[0] == '2'"><br/><span class="unline">{{data.bregmatic.split('^')[1]}}</span>CM</span>
+            <span class="icon iconfont icon-gou gou" v-if="data.bregmatic.split('_')[0] == '2'"><br/><span class="unline">{{data.bregmatic.split('_')[1]}}</span>CM</span>
           </td>
           <td v-for="n in 4-tableData.length"></td>
         </tr>
@@ -76,7 +76,7 @@
           <th>颈部包块</th>
           <td v-for="(data, i) in tableData" v-if="i!=3">
             <span>1有</span>
-            <span class="icon iconfont icon-gou gou" v-if="data.cervicalMass.split('^')[0] == '1'"></span>
+            <span class="icon iconfont icon-gou gou" v-if="data.cervicalMass.split('_')[0] == '1'"></span>
             <span>2无</span>
           </td>
           <td>----</td>

@@ -44,8 +44,7 @@
             <input type="radio" name="mbqk" :checked="tableData.disease=='冠心病'" />冠心病 &nbsp;&nbsp;
             <input type="radio" name="mbqk" :checked="tableData.disease=='哮喘'" />哮喘 &nbsp;&nbsp;
             <input type="radio" name="mbqk" :checked="tableData.disease=='职业病'" />职业病 &nbsp;&nbsp;
-            <input type="radio" name="mbqk" :checked="tableData.disease.split('^')[0]=='其他疾病'" />其他疾病<span class="unline" v-if="tableData.disease.split('^')[1]!=undefined">{{tableData.disease.spilt('^')[1]}}</span> &nbsp;&nbsp;
-
+            <input type="radio" name="mbqk" :checked="tableData.disease.split('_')[0]=='其他疾病'" />其他疾病<span class="unline" v-if="tableData.disease.split('_')[1]!=undefined">{{tableData.disease.spilt('_')[1]}}</span> &nbsp;&nbsp;
           </td>
         <tr>
           <td colspan="6">

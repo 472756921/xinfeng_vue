@@ -36,7 +36,7 @@
           <td colspan="2">1户籍 2非户籍<span class="checkBox">{{userInfo.residentType}}</span></td>
           <th>民族</th>
           <td colspan="2">01汉 99少数民族
-            <span class="unline" v-if="userInfo.birthday!==undefined">{{userInfo.nation!=='01'?userInfo.nation.split(' ')[1]:'01'}}</span>
+            <span class="unline" v-if="userInfo.birthday!==undefined">{{userInfo.nation!=='01'?userInfo.nation.split('_')[1]:''}}</span>
             <span class="checkBox">{{userInfo.nation!=='01'?'99':'01'}}</span>
           </td>
         </tr>
@@ -127,7 +127,8 @@
               时间<span class="unline"> {{data.operationTime.split(' ')[0]}} </span>
               <span  v-if="index != userInfo.operationJson.length-1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
             </span>
-            <span class="checkBox"  v-if="userInfo.operationJson!=undefined">{{userInfo.operationJson[0].operationCode}}</span>
+            <span class="checkBox"  v-if="userInfo.operationJson!==undefined&&userInfo.operationJson.length!=0">2</span>
+            <span class="checkBox"  v-else>1</span>
           </td>
         </tr>
         <tr>
@@ -139,7 +140,8 @@
               时间<span class="unline"> {{data.traumaTime.split(' ')[0]}} </span>
               <span  v-if="index != userInfo.traumaJson.length-1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
             </span>
-            <span class="checkBox"  v-if="userInfo.traumaJson!=undefined">{{userInfo.traumaJson[0].traumaCode}}</span>
+            <span class="checkBox"  v-if="userInfo.traumaJson!==undefined&&userInfo.traumaJson.length!=0">2</span>
+            <span class="checkBox"  v-else>1</span>
           </td>
         </tr>
         <tr>
@@ -151,7 +153,8 @@
               时间<span class="unline"> {{data.bloodTime.split(' ')[0]}} </span>
               <span  v-if="index != userInfo.bloodTransfusionJson.length-1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
             </span>
-            <span v-if="userInfo.bloodTransfusionJson!=undefined" class="checkBox">{{userInfo.bloodTransfusionJson[0].bloodCode}}</span>
+            <span v-if="userInfo.bloodTransfusionJson!==undefined&&userInfo.bloodTransfusionJson.length!=0" class="checkBox">2</span>
+            <span class="checkBox"  v-else>1</span>
           </td>
         </tr>
         <tr>
@@ -163,6 +166,7 @@
               <span class="unline pull-right" v-if="da==12">&nbsp;{{getTheContent(userInfo.familyHistorySon).ortherData}}</span>
               <span class="checkBox">{{da}}</span>
             </span>
+            <span v-if="userInfo.familyHistoryFather!==undefined&&userInfo.familyHistoryFather.length==0" class="checkBox">1</span>
           </td>
           <td>母亲</td>
           <td colspan="2">
@@ -171,6 +175,7 @@
               <span class="unline pull-right" v-if="da==12">&nbsp;{{getTheContent(userInfo.familyHistorySon).ortherData}}</span>
               <span class="checkBox">{{da}}</span>
             </span>
+            <span v-if="userInfo.familyHistoryMother!==undefined&&userInfo.familyHistoryMother.length==0" class="checkBox">1</span>
           </td>
         </tr>
         <tr>
@@ -181,6 +186,7 @@
               <span class="unline pull-right" v-if="da==12">&nbsp;{{getTheContent(userInfo.familyHistorySon).ortherData}}</span>
               <span class="checkBox">{{da}}</span>
             </span>
+            <span v-if="userInfo.familyHistoryBorther!==undefined&&userInfo.familyHistoryBorther.length==0" class="checkBox">1</span>
           </td>
           <td>子女</td>
           <td colspan="2">
@@ -189,6 +195,7 @@
               <span class="unline pull-right" v-if="da==12">&nbsp;{{getTheContent(userInfo.familyHistorySon).ortherData}}</span>
               <span class="checkBox">{{da}}</span>
             </span>
+            <span v-if="userInfo.familyHistorySon!==undefined&&userInfo.familyHistorySon.length==0" class="checkBox">1</span>
           </td>
         </tr>
         <tr>
@@ -208,6 +215,7 @@
               <span class="pull-right" v-if="index !== 0">&nbsp;/&nbsp;</span>
               <span class="checkBox">{{da}}</span>
             </span>
+            <span v-if="userInfo.disability!==undefined&&userInfo.disability.length==0" class="checkBox">1</span>
           </td>
         </tr>
         <tr>
@@ -242,10 +250,10 @@
     </h4>
     <div class="tableList hidden-print">
       <button class="btn btn-success" @click="checkTable('healthCheckup')">健康体检表</button>
-      <button class="btn btn-success">接诊记录表</button>
-      <button class="btn btn-success">会诊记录表</button>
+      <button class="btn btn-default">接诊记录表</button>
+      <button class="btn btn-default">会诊记录表</button>
       <button class="btn btn-default">双向转诊表</button>
-      <button class="btn btn-default" @click="checkTable('healthCard')">居民健康档案信息卡</button>
+      <button class="btn btn-success" @click="checkTable('healthCard')">居民健康档案信息卡</button>
       <button class="btn btn-default" @click="checkTable('healthEducationActivities')">健康教育活动表</button>
       <button class="btn btn-default" @click="checkTable('immuneProcedures')">国家免疫规划疫苗儿童免疫程序表</button>
       <button class="btn btn-default" @click="checkTable('NewbornFamilyVisitRecords')">新生儿家庭访视记录表</button>
@@ -335,13 +343,15 @@
         const LastData = [];
         let orther = '';
         for (let i = 0; i < dataList.length; i += 1) {
-          if (dataList[i].indexOf('^') !== -1) {
-            orther = dataList[i].split('^')[1];
-            LastData.push(dataList[i].split('^')[0]);
+          if (dataList[i].indexOf('_') !== -1) {
+            orther = dataList[i].split('_')[1];
+            console.log(orther);
+            LastData.push(dataList[i].split('_')[0]);
           } else {
             LastData.push(dataList[i]);
           }
         }
+        console.log(orther);
         return {
           data: LastData,
           ortherData: orther,

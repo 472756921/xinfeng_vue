@@ -324,6 +324,7 @@
       </tr>
       </tbody>
     </table>
+    <br/>
   </div>
 </template>
 

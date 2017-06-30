@@ -5,7 +5,7 @@
         <table class="table table-bordered">
           <caption class="">
             <h3 class="text-center">健康体检表</h3>
-            <span>姓名：</span>
+            <span>姓名：{{tableData.realName}}</span>
             <span class="pull-right">编号：{{tableData.code}}</span>
           </caption >
           <tbody>
@@ -81,14 +81,14 @@
             <th>老年人健认知功能*</th>
             <td colspan="4">
               1初筛阴性 2初筛阳性，简易智力状态检查，总分<span class="unline">{{getTheContent(tableData.cognitiveFunction).ortherData}}</span>
-              <span class="checkBox">{{tableData.cognitiveFunction.split('^')[0]}}</span>
+              <span class="checkBox">{{tableData.cognitiveFunction.split('_')[0]}}</span>
             </td>
           </tr>
           <tr>
             <th>老年人情感状态*</th>
             <td colspan="4">
               1初筛阴性 2初筛阳性，老年人抑郁评分检查，总分<span class="unline">{{getTheContent(tableData.emotionalState).ortherData}}</span>
-              <span class="checkBox">{{tableData.emotionalState.split('^')[0]}}</span>
+              <span class="checkBox">{{tableData.emotionalState.split('_')[0]}}</span>
             </td>
           </tr>
           <tr>
@@ -167,27 +167,27 @@
               从业时间<span class="unline" v-if="tableData.lifeStyle!=undefined">{{tableData.lifeStyle.employmentTime}}</span> 年）
               <span class="checkBox" v-if="tableData.lifeStyle!=undefined">{{tableData.lifeStyle.typeOfWork}}</span><br/>
               毒物种类  <br/>
-              粉尘<span class="unline" v-if="tableData.lifeStyle!=undefined">{{getTheContent(tableData.lifeStyle.dustProtection).ortherData}}</span>防护措施1无 2有
+              粉尘<span class="unline" v-if="tableData.lifeStyle!=undefined">{{tableData.lifeStyle.dust}}</span>防护措施1无 2有<span class="unline" v-if="tableData.lifeStyle!=undefined">{{getTheContent(tableData.lifeStyle.dustProtection).ortherData}}</span>
               <span v-for="(da, index) in getTheContent(tableData.lifeStyle.dustProtection).data">
                 <span class="pull-right" v-if="index !== 0">&nbsp;/&nbsp;</span>
                 <span class="checkBox">{{da}}</span>
               </span><br/>
-              放射物质<span class="unline" v-if="tableData.lifeStyle!=undefined">{{getTheContent(tableData.lifeStyle.radioactiveSubstanceProtection).ortherData}}</span>防护措施1无 2有
+              放射物质<span class="unline" v-if="tableData.lifeStyle!=undefined">{{tableData.lifeStyle.radioactiveSubstance}}</span>防护措施1无 2有<span class="unline" v-if="tableData.lifeStyle!=undefined">{{getTheContent(tableData.lifeStyle.radioactiveSubstanceProtection).ortherData}}</span>
               <span v-for="(da, index) in getTheContent(tableData.lifeStyle.radioactiveSubstanceProtection).data">
                 <span class="pull-right" v-if="index !== 0">&nbsp;/&nbsp;</span>
                 <span class="checkBox">{{da}}</span>
               </span><br/>
-              物理因素<span class="unline" v-if="tableData.lifeStyle!=undefined">{{getTheContent(tableData.lifeStyle.physicalFactorsProtection).ortherData}}</span>防护措施1无 2有
+              物理因素<span class="unline" v-if="tableData.lifeStyle!=undefined">{{tableData.lifeStyle.physicalFactors}}</span>防护措施1无 2有<span class="unline" v-if="tableData.lifeStyle!=undefined">{{getTheContent(tableData.lifeStyle.physicalFactorsProtection).ortherData}}</span>
               <span v-for="(da, index) in getTheContent(tableData.lifeStyle.physicalFactorsProtection).data">
                 <span class="pull-right" v-if="index !== 0">&nbsp;/&nbsp;</span>
                 <span class="checkBox">{{da}}</span>
               </span><br/>
-              化学物质<span class="unline" v-if="tableData.lifeStyle!=undefined">{{getTheContent(tableData.lifeStyle.chemicalSubstancesProtection).ortherData}}</span>防护措施1无 2有
+              化学物质<span class="unline" v-if="tableData.lifeStyle!=undefined">{{tableData.lifeStyle.chemicalSubstances}}</span>防护措施1无 2有<span class="unline" v-if="tableData.lifeStyle!=undefined">{{getTheContent(tableData.lifeStyle.chemicalSubstancesProtection).ortherData}}</span>
               <span v-for="(da, index) in getTheContent(tableData.lifeStyle.chemicalSubstancesProtection).data">
                 <span class="pull-right" v-if="index !== 0">&nbsp;/&nbsp;</span>
                 <span class="checkBox">{{da}}</span>
               </span><br/>
-              其他<span class="unline" v-if="tableData.lifeStyle!=undefined">{{getTheContent(tableData.lifeStyle.otherPoisonProtection).ortherData}}</span>防护措施1无 2有
+              其他<span class="unline" v-if="tableData.lifeStyle!=undefined">{{tableData.lifeStyle.otherPoison}}</span>防护措施1无 2有<span class="unline" v-if="tableData.lifeStyle!=undefined">{{getTheContent(tableData.lifeStyle.otherPoisonProtection).ortherData}}</span>
               <span v-for="(da, index) in getTheContent(tableData.lifeStyle.otherPoisonProtection).data">
                 <span class="pull-right" v-if="index !== 0">&nbsp;/&nbsp;</span>
                 <span class="checkBox">{{da}}</span>
@@ -730,9 +730,9 @@
         const LastData = [];
         let orther = '';
         for (let i = 0; i < dataList.length; i += 1) {
-          if (dataList[i].indexOf('^') !== -1) {
-            orther = dataList[i].split('^')[1];
-            LastData.push(dataList[i].split('^')[0]);
+          if (dataList[i].indexOf('_') !== -1) {
+            orther = dataList[i].split('_')[1];
+            LastData.push(dataList[i].split('_')[0]);
           } else {
             LastData.push(dataList[i]);
           }

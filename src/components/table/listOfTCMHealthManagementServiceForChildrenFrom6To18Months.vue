@@ -4,8 +4,8 @@
     <table class="table table-bordered">
       <caption>
         <h3 class="text-center">6～18 月龄儿童中医药健康管理服务记录表 </h3>
-        <span>姓名：</span>
-        <span class="pull-right">编号：</span>
+        <span>姓名：古力</span>
+        <span class="pull-right">编号：123-122332</span>
       </caption >
       <tbody>
       <tr>

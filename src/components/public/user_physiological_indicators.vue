@@ -41,7 +41,7 @@
     </div>
     <br/>
     <div>
-      <img src="http://iph.href.lu/700x400?text=生理指标图"/>
+      <img src="../../assets/public/dataIMG.png"/>
     </div>
     <br/>
     <table class="table table-bordered">

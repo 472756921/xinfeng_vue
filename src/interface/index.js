@@ -2,7 +2,7 @@
  * Created by Benson on 2017/6/13.
  */
 
-const Host = 'http://121.42.142.228:8090';
+const Host = 'http://192.168.0.201:8080/';
 
 // 登录接口
 export const userLogin = function () {
@@ -156,6 +156,19 @@ export const getHEList = function () {
 // 查询健康体检信息卡
 export const getUserHealthById = function () {
   const URL = '/app/api/customer/queryUserHealthById';
+  const API = Host + URL;
+  return API;
+};
+// 老年人生活自理能力评估表列表
+export const oldManS = function () {
+  const URL = '/app/api/self/query';
+  const API = Host + URL;
+  return API;
+};
+
+// 老年人生活自理能力评估表
+export const oldManSByID = function () {
+  const URL = '/app/api/self/find';
   const API = Host + URL;
   return API;
 };
